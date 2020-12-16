@@ -1,0 +1,48 @@
+W0      @SCRATCH
+W0 -W1  @READ_ROM_MEMORY.P1
+W0 -W1  @DIV3232B.P2
+W1      @SCRATCH
+W1      @READ_PACKED_MEMORY.P1
+W1      @WRITE_PACKED_MEMORY.P2
+W2      @WRITE_PACKED_MEMORY.P1
+W2 -W3  @DIV3232B.P2
+W2      @READ_PACKED_MEMORY.P3
+W2      @READ_ROM_MEMORY.P4
+W3      @READ_ROM_MEMORY.P1
+W3      @WRITE_PACKED_MEMORY.P2
+W3      @READ_PACKED_MEMORY.P3
+630.6   C1OUT
+630.7   C2OUT
+FFFF-3FFF _STACK_
+
+ROM Allocation:
+
+Project Directory:
+    C:\Users\rkgom\OneDrive\Master\2º\SDM\Trabajo-EEC\
+
+Project Files:
+    pruebaadc.c                                             [09-dic.-20 21:11  CRC=D872A938]
+    common.h                                                [09-dic.-20 21:11  CRC=D872A938]
+    33FJ128MC804.h                                          [09-dic.-20 20:21  CRC=CEBE05C3]
+    adc.h                                                   [09-dic.-20 21:02  CRC=D53C13C6]
+    lcd.h                                                   [09-dic.-20 21:11  CRC=B647019F]
+
+Source signature=C16D6F37
+Program memory checksum=0000
+Hex file CRC=0000
+
+Units:
+    C:\Users\rkgom\OneDrive\Master\2º\SDM\Trabajo-EEC\pruebaadc (main)
+
+Compiler Settings:
+    Processor:      DSPIC33FJ128MC804
+    Pointer Size:   16
+    ADC Range:      0-65535
+    Opt Level:      9
+    Short,Int,Long: SIGNED: 8,16,32
+    Float,Double:   32,64
+    Compile Mode:       CCS5
+
+Output Files:
+    Errors:      pruebaadc.err
+    Symbols:     pruebaadc.sym

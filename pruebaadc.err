@@ -1,0 +1,6 @@
+Compiling C:\Users\rkgom\OneDrive\Master\2º\SDM\Trabajo-EEC\pruebaadc on 09-dic.-20 at 21:11
+>>> Warning 203 "C:\Users\rkgom\OneDrive\Master\2º\SDM\Trabajo-EEC\pruebaadc.c" Line 15(1,1): Condition always TRUE
+>>> Warning 240 "C:\Users\rkgom\OneDrive\Master\2º\SDM\Trabajo-EEC\pruebaadc.c" Line 18(15,20): Pointer types do not match
+*** Error 112 "C:\Users\rkgom\OneDrive\Master\2º\SDM\Trabajo-EEC\pruebaadc.c" Line 8(1,1): Function used but not defined:  ... lcdi2cinit 943  SCR=1390
+      1 Errors,  2 Warnings.
+Build Failed.
