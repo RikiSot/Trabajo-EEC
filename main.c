@@ -13,10 +13,11 @@ void main(void)
 {
   //Declaración e inicialización de variables
 
-  unsigned int16 analogsignal;    // Señal analógica leída del ADC
-  unsigned int16 frecuencia;      // Frecuencia cardíaca
-  unsigned int16 Sector;          // Sector de la SD
-  unsigned int1 filedetected;
+  // unsigned int16 analogsignal;    // Señal analógica leída del ADC
+  // unsigned int16 frecuencia;      // Frecuencia cardíaca
+  // unsigned int16 Sector;          // Sector de la SD
+  // unsigned int1 filedetected;
+  int adcbuff;
 
   // -----------------------------------------
 
@@ -35,6 +36,7 @@ void main(void)
   //1.
   initBT();
   lcdi2cinit();
+  adcinit();
 
   sd_init();
   sd_estructura();
@@ -67,6 +69,7 @@ void main(void)
   while(input(BTOK))
   {
     //3.1
+    adcbuff=ADC1BUF0;
 
     //3.2
 
@@ -75,7 +78,7 @@ void main(void)
         //time[]
         //value[]
         //dt[]="dd/mm/aa hh:mm:ss  PPM"
-
-    escribe_datos_en_fichero(); // escribe lo que haya en el buffer
+    //3.4
+    // algoritmo()
   }
 }

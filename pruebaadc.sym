@@ -1,16 +1,28 @@
 W0      @SCRATCH
-W0 -W1  @READ_ROM_MEMORY.P1
-W0 -W1  @DIV3232B.P2
+W0      @PRINTFD16_865.P1
+W0      @delay_ms1.P2
+W0      @delay_us1.P3
+W0 -W1  @READ_ROM_MEMORY.P4
+W0L     @SPRINTF.P5
+W0 -W1  @DIV3232B.P6
 W1      @SCRATCH
-W1      @READ_PACKED_MEMORY.P1
-W1      @WRITE_PACKED_MEMORY.P2
-W2      @WRITE_PACKED_MEMORY.P1
-W2 -W3  @DIV3232B.P2
-W2      @READ_PACKED_MEMORY.P3
-W2      @READ_ROM_MEMORY.P4
-W3      @READ_ROM_MEMORY.P1
-W3      @WRITE_PACKED_MEMORY.P2
-W3      @READ_PACKED_MEMORY.P3
+W1      @WRITE_PACKED_MEMORY.P1
+W1      @READ_PACKED_MEMORY.P2
+W2      @READ_ROM_MEMORY.P1
+W2      @READ_PACKED_MEMORY.P2
+W2      @WRITE_PACKED_MEMORY.P3
+W2 -W3  @DIV3232B.P4
+W3      @WRITE_PACKED_MEMORY.P1
+W3      @READ_PACKED_MEMORY.P2
+W3      @READ_ROM_MEMORY.P3
+W4      @PRINTFD16_865.P1
+084     IFS0
+300     ADC1BUF0
+320     ADC1CON1
+322     ADC1CON2
+324     ADC1CON3
+328     AD1CHS0
+32C     AD1PCFGL
 630.6   C1OUT
 630.7   C2OUT
 FFFF-3FFF _STACK_
@@ -21,13 +33,14 @@ Project Directory:
     C:\Users\rkgom\OneDrive\Master\2º\SDM\Trabajo-EEC\
 
 Project Files:
-    pruebaadc.c                                             [09-dic.-20 21:11  CRC=D872A938]
-    common.h                                                [09-dic.-20 21:11  CRC=D872A938]
-    33FJ128MC804.h                                          [09-dic.-20 20:21  CRC=CEBE05C3]
-    adc.h                                                   [09-dic.-20 21:02  CRC=D53C13C6]
-    lcd.h                                                   [09-dic.-20 21:11  CRC=B647019F]
+    pruebaadc.c                                             [16-dic.-20 20:15  CRC=6126E447]
+    lcd.h                                                   [16-dic.-20 20:15  CRC=E0F3E187]
+    common.h                                                [16-dic.-20 20:34  CRC=D872A938]
+    33FJ128MC804.h                                          [16-dic.-20 20:15  CRC=848CFDA1]
+    adc.h                                                   [16-dic.-20 20:15  CRC=245A5AFA]
+    Header.h                                                [16-dic.-20 20:15  CRC=1BAB2466]
 
-Source signature=C16D6F37
+Source signature=FACB106D
 Program memory checksum=0000
 Hex file CRC=0000
 

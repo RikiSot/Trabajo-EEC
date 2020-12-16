@@ -1,0 +1,77 @@
+ÀÄadcprueba
+   ÃÄmain  0/188  Ram=12
+   ³  ÃÄ@cinit1  (Inline)  Ram=0
+   ³  ÃÄ@cinit2  (Inline)  Ram=0
+   ³  ÃÄlcdi2cinit  0/136  Ram=0
+   ³  ³  ÃÄ@delay_ms1  0/16  Ram=0
+   ³  ³  ÃÄLCD_command  0/52  Ram=1
+   ³  ³  ³  ÃÄ@I2C_WRITEU_129  0/24  Ram=1
+   ³  ³  ³  ÃÄ@I2C_WRITEU_129  0/24  Ram=1
+   ³  ³  ³  ÀÄ@I2C_WRITEU_129  0/24  Ram=1
+   ³  ³  ÃÄLCD_command  0/52  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLCD_command  0/52  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLCD_command  0/52  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLCD_command  0/52  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLCD_command  0/52  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLCD_command  0/52  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLCD_command  0/52  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLCD_command  0/52  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLCD_command  0/52  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLCD_command  0/52  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLCD_command  0/52  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLCD_command  0/52  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÀÄLCD_command  0/52  Ram=1
+   ³  ³     ÀÄ*
+   ³  ÃÄinitmenu  0/136  Ram=41
+   ³  ³  ÃÄLCD_cursor_at  0/32  Ram=3
+   ³  ³  ³  ÀÄLCD_command  0/52  Ram=1
+   ³  ³  ³     ÀÄ*
+   ³  ³  ÃÄLCD_write  0/92  Ram=4
+   ³  ³  ³  ÃÄ@I2C_WRITEU_129  0/24  Ram=1
+   ³  ³  ³  ÃÄ@I2C_WRITEU_129  0/24  Ram=1
+   ³  ³  ³  ÀÄ@I2C_WRITEU_129  0/24  Ram=1
+   ³  ³  ÃÄLCD_cursor_at  0/32  Ram=3
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLCD_write  0/92  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLCD_cursor_at  0/32  Ram=3
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÀÄLCD_write  0/92  Ram=4
+   ³  ³     ÀÄ*
+   ³  ÃÄ@delay_ms1  0/16  Ram=0
+   ³  ÃÄadcinit  0/32  Ram=0
+   ³  ÃÄLCD_command  0/52  Ram=1
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplay_valueADC_title  0/42  Ram=12
+   ³  ³  ÃÄLCD_cursor_at  0/32  Ram=3
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÀÄLCD_write  0/92  Ram=4
+   ³  ³     ÀÄ*
+   ³  ÃÄalgoritmo  0/184  Ram=28
+   ³  ÃÄ@PRINTFD16_866  0/304  Ram=0
+   ³  ³  ÃÄ@SPRINTF  0/14  Ram=0
+   ³  ³  ÃÄ@SPRINTF  0/14  Ram=0
+   ³  ³  ÃÄ@SPRINTF  0/14  Ram=0
+   ³  ³  ÃÄ@SPRINTF  0/14  Ram=0
+   ³  ³  ÃÄ@SPRINTF  0/14  Ram=0
+   ³  ³  ÀÄ@SPRINTF  0/14  Ram=0
+   ³  ÃÄ@SPRINTF  0/14  Ram=0
+   ³  ÃÄ@SPRINTF  0/14  Ram=0
+   ³  ÃÄ@SPRINTF  0/14  Ram=0
+   ³  ÃÄLCD_write  0/92  Ram=4
+   ³  ³  ÀÄ*
+   ³  ÀÄLCD_cursor_at  0/32  Ram=3
+   ³     ÀÄ*
+   ÀÄisr_adc  0/36  Ram=0

@@ -1,0 +1,2068 @@
+CCS PCD C Compiler, Version 5.091, 43599               16-dic.-20 21:01
+
+               Filename:   C:\Users\rkgom\OneDrive\Master\2º\SDM\Trabajo-EEC\adcprueba.lst
+
+               ROM used:   1800 bytes (2%)
+                           Largest free fragment is 63736
+               RAM used:   142 (1%) at main() level
+                           190 (1%) worst case
+               Stack used: 58 locations (20 in main + 38 for interrupts)
+               Stack size: 128
+
+00000:  GOTO    64C
+*
+0002E:  DATA    00,02,00
+.................... #import(file="pruebaadc.o")
+.................... #include "lcd.h"
+.................... #include "lcd.h"
+.................... /**
+....................  @file    lcd.h
+....................  @author  Ricardo Gï¿½mez
+....................  @brief   LCD management
+.................... */
+.................... // Do not write above this line (except comments)!
+.................... 
+.................... #ifndef __LCD_H
+.................... #define __LCD_H
+.................... 
+.................... #include "common.h"
+.................... #ifndef COMMON_h
+.................... #define COMMON_h
+.................... //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... 
+.................... #include "33FJ128MC804.h"
+.................... //////////// Standard Header file for the DSPIC33FJ128MC804 device ////////////////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996, 2014 Custom Computer Services          ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... #device DSPIC33FJ128MC804
+*
+0050E:  MOV     W1,[W15++]
+00510:  MOV     800,W1
+00512:  MOV.B   W0L,[W1++]
+00514:  CLR.B   [W1]
+00516:  MOV     [--W15],W1
+00518:  INC     0800
+0051A:  RETURN  
+0051C:  MOV     W5,[W15++]
+0051E:  MOV     #C,W5
+00520:  REPEAT  #3
+00522:  MOV     [W5++],[W15++]
+00524:  BTSS    W0.F
+00526:  BRA     546
+00528:  NEG     W0,W0
+0052A:  BSET    W4.8
+0052C:  BTSS    W4.F
+0052E:  BRA     546
+00530:  MOV     W0,[W15++]
+00532:  MOV     #2D,W0
+00534:  MOV     W4,[W15++]
+00536:  MOV     W0,[W15++]
+00538:  MOV     [--W15],W0
+0053A:  CALL    50E
+*
+0053E:  MOV     [--W15],W4
+00540:  MOV     [--W15],W0
+00542:  BCLR    W4.8
+00544:  DEC.B   0008
+00546:  CLR     W5
+00548:  MOV     W0,W7
+0054A:  MOV     W4,W9
+0054C:  BCLR    W4.F
+0054E:  CP0.B   W4L
+00550:  BRA     NZ,55E
+00552:  BTSC    W9.F
+00554:  BRA     55A
+00556:  MOV     #0,W5
+00558:  BRA     588
+0055A:  MOV     #0,W5
+0055C:  BRA     588
+0055E:  BTSS    W9.8
+00560:  SUB.B   W4L,#6,W5L
+00562:  BTSC    W9.8
+00564:  SUB.B   W4L,#7,W5L
+00566:  BRA     NC,586
+00568:  MOV     #30,W0
+0056A:  BTSS    W9.F
+0056C:  MOV     #20,W0
+0056E:  MOV     W0,[W15++]
+00570:  MOV     W4,[W15++]
+00572:  MOV     W0,[W15++]
+00574:  MOV     [--W15],W0
+00576:  CALL    50E
+*
+0057A:  MOV     [--W15],W4
+0057C:  MOV     [--W15],W0
+0057E:  DEC     W5,W5
+00580:  BRA     NN,56E
+00582:  MOV     #5,W5
+00584:  BRA     588
+00586:  MOV     W4,W5
+00588:  MOV     #6,W4
+0058A:  BTSC    W5.8
+0058C:  INC     W4,W4
+0058E:  BSET    W5.E
+00590:  BTSC    W9.F
+00592:  BSET    W5.F
+00594:  MOV     #2710,W8
+00596:  REPEAT  #11
+00598:  DIV.U   W7,W8
+0059A:  CALL    5EE
+*
+0059E:  MOV     W1,W7
+005A0:  MOV     #3E8,W8
+005A2:  REPEAT  #11
+005A4:  DIV.U   W7,W8
+005A6:  CALL    5EE
+*
+005AA:  MOV     W1,W7
+005AC:  MOV     #64,W8
+005AE:  REPEAT  #11
+005B0:  DIV.U   W7,W8
+005B2:  CALL    5EE
+*
+005B6:  MOV     W1,W7
+005B8:  MOV     #A,W8
+005BA:  REPEAT  #11
+005BC:  DIV.U   W7,W8
+005BE:  CALL    5EE
+*
+005C2:  BTSS    W9.8
+005C4:  BRA     5DA
+005C6:  MOV     #2D,W0
+005C8:  MOV     W1,[W15++]
+005CA:  MOV     W4,[W15++]
+005CC:  MOV     W0,[W15++]
+005CE:  MOV     [--W15],W0
+005D0:  CALL    50E
+*
+005D4:  MOV     [--W15],W4
+005D6:  MOV     [--W15],W1
+005D8:  BCLR    W9.8
+005DA:  MOV     #30,W0
+005DC:  ADD.B   W1L,W0L,W0L
+005DE:  MOV     W0,2A
+005E0:  MOV     W4,[W15++]
+005E2:  MOV     W0,[W15++]
+005E4:  MOV     [--W15],W0
+005E6:  CALL    50E
+*
+005EA:  MOV     [--W15],W4
+005EC:  BRA     642
+005EE:  MOV     #30,W6
+005F0:  CP0     W0
+005F2:  BRA     NZ,610
+005F4:  BTSS    W5.E
+005F6:  BRA     62E
+005F8:  DEC     W4,W4
+005FA:  CP.B    W4L,W5L
+005FC:  BRA     Z,602
+005FE:  BTSC.B  42.0
+00600:  RETURN  
+00602:  CP0     W0
+00604:  BRA     NZ,610
+00606:  BTSS    W5.E
+00608:  BRA     62E
+0060A:  BTSS    W5.F
+0060C:  MOV     #20,W6
+0060E:  BRA     62E
+00610:  BCLR    W5.E
+00612:  BTSS    W9.8
+00614:  BRA     62E
+00616:  MOV     W0,W10
+00618:  MOV     #2D,W0
+0061A:  MOV     W1,[W15++]
+0061C:  MOV     W4,[W15++]
+0061E:  MOV     W0,[W15++]
+00620:  MOV     [--W15],W0
+00622:  CALL    50E
+*
+00626:  MOV     [--W15],W4
+00628:  MOV     [--W15],W1
+0062A:  BCLR    W9.8
+0062C:  MOV     W10,W0
+0062E:  ADD.B   W6L,W0L,W0L
+00630:  MOV     W1,[W15++]
+00632:  MOV     W4,[W15++]
+00634:  MOV     W0,[W15++]
+00636:  MOV     [--W15],W0
+00638:  CALL    50E
+*
+0063C:  MOV     [--W15],W4
+0063E:  MOV     [--W15],W1
+00640:  RETURN  
+00642:  MOV     #12,W5
+00644:  REPEAT  #3
+00646:  MOV     [--W15],[W5--]
+00648:  MOV     [--W15],W5
+0064A:  RETURN  
+.................... 
+.................... #list
+.................... 
+.................... #include "adc.h"
+.................... /**
+....................  @file    adc.h
+....................  @author  Ricardo Gomez
+....................  @brief   adc init and ISR
+.................... */
+.................... // Do not write above this line (except comments)!
+.................... 
+.................... #ifndef __ADC_H
+.................... #define __ADC_H
+.................... 
+.................... #include "common.h"
+.................... #ifndef COMMON_h
+.................... #define COMMON_h
+.................... //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... 
+.................... #include "33FJ128MC804.h"
+.................... #include "adc.h"
+.................... #include "lcd.h"
+.................... #include "Header.h"
+.................... 
+.................... //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #endif
+.................... 
+.................... 
+.................... #WORD ADC1BUF0 = 0x0300;
+.................... #WORD ADC1CON1 = 0x0320;
+.................... #WORD ADC1CON2 = 0x0322;
+.................... #WORD ADC1CON3 = 0x0324;
+.................... #WORD AD1CHS0 = 0x0328;
+.................... #WORD AD1PCFGL = 0x032C;
+.................... #WORD IFS0 = 0x0084;
+.................... 
+.................... 
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... void adcinit(void);
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #endif // __ADC_H
+.................... 
+.................... #include "lcd.h"
+.................... /**
+....................  @file    lcd.h
+....................  @author  Ricardo Gï¿½mez
+....................  @brief   LCD management
+.................... */
+.................... // Do not write above this line (except comments)!
+.................... 
+.................... #ifndef __LCD_H
+.................... #define __LCD_H
+.................... 
+.................... #include "common.h"
+.................... 
+.................... /* SECTION 1: Included header files to compile this file           */
+.................... 
+.................... /* SECTION 2: Public macros                                        */
+.................... 
+.................... #define _CLEAR_DISPLAY 				0x01
+.................... #define _8BIT_4LINES_NORMAL_RE1_IS0		0x3A
+.................... #define _8BIT_4LINES_REVERSE_RE1_IS0		0x3B
+.................... #define _8BIT_4LINES_RE0_IS1			0x39
+.................... #define _8BIT_4LINES_RE0_IS0			0x38
+.................... 
+.................... #define _BS1_1					0x1E
+.................... #define _POWER_DOWN_DISABLE			0x02
+.................... #define _SEGMENT_NORMAL_WAY			0x05
+.................... #define _NW					0x09
+.................... 
+.................... #define _DISPLAY_ON_CURSOR_ON_BLINK_ON		0x0F
+.................... #define _DISPLAY_ON_CURSOR_ON_BLINK_OFF		0x0E
+.................... #define _DISPLAY_ON_CURSOR_OFF_BLINK_OFF	0x0C
+.................... #define _BS0_1					0x1C
+.................... #define _INTERNAL_DIVIDER			0x13
+.................... #define _CONTRAST				0x77
+.................... #define _POWER_ICON_CONTRAST			0x5C
+.................... #define _FOLLOWER_CONTROL			0x6E
+.................... 
+.................... #define ADDRESS_DDRAM				0x80
+.................... 
+.................... 
+.................... /* SECTION 3: Public types                                         */
+.................... 
+.................... 
+.................... /* SECTION 4: Public variables :: declarations, extern mandatory   */
+.................... 
+.................... 
+.................... /* SECTION 5: Public functions :: declarations, extern optional
+....................    Rule exception (callbacks)  :: declarations, extern recommended */
+.................... void display_valueADC_title(void);
+.................... void LCD_command(unsigned int8);
+.................... void lcdi2cinit(void);
+.................... void LCD_write(char*);
+.................... void initmenu(void);                                      //Inicializa el menu principal
+.................... void display_frecuencia(char*);       // Muestra frecuencia
+.................... void LCD_cursor_at(unsigned int8 line, unsigned int8 column);
+.................... 
+.................... 
+.................... #endif // __LCD_H
+.................... // Do not write below this line!
+.................... 
+.................... #include "Header.h"
+.................... 
+.................... 
+.................... #fuses NOJTAG      // JTAG port is disabled
+.................... #fuses NOPROTECT   // Code protection is disabled
+.................... #fuses NOWRT       // Writes to program memory are allowed
+.................... #fuses ICSP1       // Emulator functions are shared with PGEC1/PGED1
+.................... #fuses NOWDT       // WDT is disabled; SWDTEN bit is disabled
+.................... #fuses WPOSTS16    // Watchdog Timer Postscaler Select bits-> 1:32,768 (NOT USED)
+.................... #fuses NOIESO      // Internal External Switchover bit: IESO mode (Two-Speed Start-up) is disabled
+.................... #fuses FRC_PS      // Initial Oscillator Select bits: Fast RC Oscillator with Postscaler (FRCDIV)
+.................... #fuses CKSNOFSM    // Clock switching is enabled, Fail-Safe Clock Monitor is disabled
+.................... #fuses OSCIO       // OSCO Pin Configuration bit: OSCO/CLKO/RC15 functions as port I/O (RC15)
+.................... #fuses NOPR        // Primary Oscillator Configuration bits: Primary Oscillator mode is disabled
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+.................... #use delay(clock=7370000)
+*
+00224:  CP0     W0
+00226:  BTSC.B  42.1
+00228:  BRA     232
+0022A:  REPEAT  #E60
+0022C:  NOP     
+0022E:  DEC     W0,W0
+00230:  BRA     NZ,22A
+00232:  RETURN  
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+.................... #define ON( pin)   output_high(pin)
+.................... #define OFF(pin)   output_low( pin)
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... //#define SDA1         PIN_B9  //                    ( 1)
+.................... #define BUZZER         PIN_C6  //                    ( 2)
+.................... #define LED1           PIN_C7  //                    ( 3)
+.................... #define LED2           PIN_C8  //                    ( 4)
+.................... #define LED3           PIN_C9  //                    ( 5)
+.................... //                     VSS     //                    ( 6)
+.................... //                     VCAP    //                    ( 7)
+.................... #define H3             PIN_B10 //                    ( 8)
+.................... #define L3             PIN_B11 //                    ( 9)
+.................... #define H2             PIN_B12 //                    (10)
+.................... #define L2             PIN_B13 //                    (11)
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #define _I             PIN_A10 //                    (12)
+.................... #define BTOK           PIN_A7  //                    (13)
+.................... #define H1             PIN_B14 //                    (14)
+.................... #define L1             PIN_B15 //                    (15)
+.................... //                     AVSS    //                    (16)
+.................... //                     AVDD    //                    (17)
+.................... //                     ~MCLR   //                    (18)
+.................... #define BTIN           PIN_A0  //                    (19)
+.................... #define POT  		   PIN_A1  //                    (20)
+.................... //                     PIN_B0  //                    (21)
+.................... //                     PIN_B1  //                    (22)
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #define ANL4           PIN_B2  //                    (23)
+.................... #define ANL3           PIN_B3  //                    (24)
+.................... #define ANL2           PIN_C0  //                    (25)
+.................... #define SD             PIN_C1  //                    (26)
+.................... #define ANL1           PIN_C2  //                    (27)
+.................... //                     VDD     //                    (28)
+.................... //                     VSS     //                    (29)
+.................... //                     PIN_A2  //                    (30)
+.................... //                     PIN_A3  //                    (31)
+.................... #define BTCM           PIN_A8  //                    (32)
+.................... //                     PIN_B4  //                    (33)
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... //                     PIN_A4  //                    (34)
+.................... #define COMM           PIN_A9  //                    (35) 
+.................... #pin_select U1TX =     PIN_C3  //                    (36)
+.................... #pin_select U1RX =     PIN_C4  //                    (37)
+.................... #define SS             PIN_C5  //                    (38)
+.................... //                     VSS     //                    (39)
+.................... //                     VDD     //                    (40)
+.................... #pin_select SDI1 =     PIN_B5  //                    (41)
+.................... #pin_select SCK1OUT=   PIN_B6  //                    (42)
+.................... #pin_select SDO1 =     PIN_B7  //                    (43)
+.................... //#define SCL1         PIN_B8  //                    (44)
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... 
+.................... 
+.................... //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #endif
+.................... 
+.................... 
+.................... /* SECTION 1: Included header files to compile this file           */
+.................... 
+.................... /* SECTION 2: Public macros                                        */
+.................... 
+.................... #define _CLEAR_DISPLAY 				0x01
+.................... #define _8BIT_4LINES_NORMAL_RE1_IS0		0x3A
+.................... #define _8BIT_4LINES_REVERSE_RE1_IS0		0x3B
+.................... #define _8BIT_4LINES_RE0_IS1			0x39
+.................... #define _8BIT_4LINES_RE0_IS0			0x38
+.................... 
+.................... #define _BS1_1					0x1E
+.................... #define _POWER_DOWN_DISABLE			0x02
+.................... #define _SEGMENT_NORMAL_WAY			0x05
+.................... #define _NW					0x09
+.................... 
+.................... #define _DISPLAY_ON_CURSOR_ON_BLINK_ON		0x0F
+.................... #define _DISPLAY_ON_CURSOR_ON_BLINK_OFF		0x0E
+.................... #define _DISPLAY_ON_CURSOR_OFF_BLINK_OFF	0x0C
+.................... #define _BS0_1					0x1C
+.................... #define _INTERNAL_DIVIDER			0x13
+.................... #define _CONTRAST				0x77
+.................... #define _POWER_ICON_CONTRAST			0x5C
+.................... #define _FOLLOWER_CONTROL			0x6E
+.................... 
+.................... #define ADDRESS_DDRAM				0x80
+.................... 
+.................... 
+.................... /* SECTION 3: Public types                                         */
+.................... 
+.................... 
+.................... /* SECTION 4: Public variables :: declarations, extern mandatory   */
+.................... 
+.................... 
+.................... /* SECTION 5: Public functions :: declarations, extern optional
+....................    Rule exception (callbacks)  :: declarations, extern recommended */
+.................... void display_valueADC_title(void);
+.................... void LCD_command(unsigned int8);
+.................... void lcdi2cinit(void);
+.................... void LCD_write(char*);
+.................... void initmenu(void);                                      //Inicializa el menu principal
+.................... void display_frecuencia(char*);       // Muestra frecuencia
+.................... void LCD_cursor_at(unsigned int8 line, unsigned int8 column);
+.................... 
+.................... 
+.................... #endif // __LCD_H
+.................... // Do not write below this line!
+.................... 
+.................... #include "adc.h"
+.................... /**
+....................  @file    adc.h
+....................  @author  Ricardo Gomez
+....................  @brief   adc init and ISR
+.................... */
+.................... // Do not write above this line (except comments)!
+.................... 
+.................... #ifndef __ADC_H
+.................... #define __ADC_H
+.................... 
+.................... #include "common.h"
+.................... 
+.................... #WORD ADC1BUF0 = 0x0300;
+.................... #WORD ADC1CON1 = 0x0320;
+.................... #WORD ADC1CON2 = 0x0322;
+.................... #WORD ADC1CON3 = 0x0324;
+.................... #WORD AD1CHS0 = 0x0328;
+.................... #WORD AD1PCFGL = 0x032C;
+.................... #WORD IFS0 = 0x0084;
+.................... 
+.................... 
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... void adcinit(void);
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #endif // __ADC_H
+.................... 
+.................... #include "algoritmo.h"
+.................... /**
+....................  @file    BEEP.h
+....................  @author  Julio Gomis-Tena
+....................  @brief   Generate n "beeps" of variable frequency
+.................... */
+.................... // Do not write above this line (except comments)!
+.................... 
+.................... #ifndef __ALGORITMO_H
+.................... #define __ALGORITMO_H
+.................... 
+.................... #include "common.h"
+.................... #ifndef COMMON_h
+.................... #define COMMON_h
+.................... //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... 
+.................... #include "33FJ128MC804.h"
+.................... #include "adc.h"
+.................... #include "lcd.h"
+.................... #include "Header.h"
+.................... 
+.................... //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #endif
+.................... 
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #include "adc.h"
+.................... /**
+....................  @file    adc.h
+....................  @author  Ricardo Gomez
+....................  @brief   adc init and ISR
+.................... */
+.................... // Do not write above this line (except comments)!
+.................... 
+.................... #ifndef __ADC_H
+.................... #define __ADC_H
+.................... 
+.................... #include "common.h"
+.................... 
+.................... #WORD ADC1BUF0 = 0x0300;
+.................... #WORD ADC1CON1 = 0x0320;
+.................... #WORD ADC1CON2 = 0x0322;
+.................... #WORD ADC1CON3 = 0x0324;
+.................... #WORD AD1CHS0 = 0x0328;
+.................... #WORD AD1PCFGL = 0x032C;
+.................... #WORD IFS0 = 0x0084;
+.................... 
+.................... 
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... void adcinit(void);
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #endif // __ADC_H
+.................... 
+.................... 
+.................... int algoritmo();
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #endif // __ALGORITMO_H
+.................... 
+.................... #include "common.h"
+.................... #ifndef COMMON_h
+.................... #define COMMON_h
+.................... //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... 
+.................... #include "33FJ128MC804.h"
+.................... #include "adc.h"
+.................... #include "lcd.h"
+.................... #include "Header.h"
+.................... 
+.................... //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #endif
+.................... 
+.................... 
+.................... void main()
+*
+0064C:  MOV     #3F80,W15
+0064E:  MOV     #3FFF,W0
+00650:  MOV     W0,20
+00652:  NOP     
+00654:  BSET.B  81.7
+00656:  DISI    #6
+00658:  MOV     #742,W1
+0065A:  MOV     #46,W2
+0065C:  MOV     #57,W3
+0065E:  MOV.B   W2L,[W1]
+00660:  MOV.B   W3L,[W1]
+00662:  BCLR.B  742.6
+00664:  MOV     #3F14,W0
+00666:  MOV     W0,6A4
+00668:  MOV     #3F05,W0
+0066A:  MOV     W0,6A8
+0066C:  MOV     #708,W0
+0066E:  MOV     W0,6C6
+00670:  MOV     #300,W0
+00672:  MOV     W0,6D2
+00674:  DISI    #6
+00676:  MOV     #742,W1
+00678:  MOV     #46,W2
+0067A:  MOV     #57,W3
+0067C:  MOV.B   W2L,[W1]
+0067E:  MOV.B   W3L,[W1]
+00680:  BSET.B  742.6
+00682:  CLR     800
+00684:  BCLR.B  2CD.1
+00686:  BSET.B  207.7
+00688:  BSET.B  207.5
+0068A:  BSET.B  206.6
+0068C:  BCLR.B  207.3
+0068E:  BCLR.B  206.7
+00690:  BCLR.B  207.0
+00692:  BCLR.B  207.1
+00694:  BCLR.B  207.2
+00696:  CLR     20A
+00698:  MOV     #2,W4
+0069A:  MOV     W4,204
+0069C:  SETM    32C
+.................... {
+....................   char adcvalor[9];
+....................   int adcbuff;
+....................   output_high(PIN_A8); // necesario para el potenciometro
+0069E:  BCLR.B  2C1.0
+006A0:  BSET.B  2C5.0
+....................   lcdi2cinit();
+006A2:  CALL    280
+....................   initmenu();
+*
+006A6:  CALL    384
+....................   while(input(PIN_A7))
+*
+006AA:  BSET.B  2C0.7
+006AC:  NOP     
+006AE:  BTSS.B  2C2.7
+006B0:  BRA     6BC
+....................   {
+....................     delay_ms(100);
+006B2:  MOV     #64,W0
+006B4:  CALL    224
+*
+006B8:  GOTO    6AA
+....................   }
+....................   adcinit();
+*
+006BC:  CALL    40C
+....................   LCD_command(_CLEAR_DISPLAY);
+*
+006C0:  MOV.B   #1,W0L
+006C2:  MOV.B   W0L,83C
+006C4:  CALL    24C
+....................   display_valueADC_title();
+*
+006C8:  CALL    42C
+....................   while(1)
+....................   {
+....................       adcbuff=algoritmo();
+*
+006CC:  CALL    456
+*
+006D0:  MOV     W0,80C
+....................       sprintf(adcvalor,"%d   ",adcbuff);
+006D2:  MOV     #802,W4
+006D4:  MOV     W4,800
+006D6:  MOV     80C,W0
+006D8:  MOV     #0,W4
+006DA:  CALL    51C
+*
+006DE:  MOV.B   #20,W0L
+006E0:  CALL    50E
+*
+006E4:  MOV.B   #20,W0L
+006E6:  CALL    50E
+*
+006EA:  MOV.B   #20,W0L
+006EC:  CALL    50E
+....................       LCD_write(adcvalor);
+*
+006F0:  MOV     #802,W4
+006F2:  MOV     W4,838
+006F4:  CALL    328
+....................       LCD_cursor_at(0,11);
+*
+006F8:  CLR.B   838
+006FA:  MOV.B   #B,W0L
+006FC:  MOV.B   W0L,839
+006FE:  CALL    308
+*
+00702:  GOTO    6CC
+....................   }
+.................... }
+.................... 
+*
+00706:  PWRSAV  #0
+.................... /**
+.................... /**
+....................  @file    adc.c
+....................  @author  Ricardo Gomez
+.................... 
+....................  @brief   adc functions
+.................... */
+.................... // Do not write above this line (except comments)!
+.................... 
+.................... #include "adc.h"
+.................... /**
+....................  @file    adc.h
+....................  @author  Ricardo Gomez
+....................  @brief   adc init and ISR
+.................... */
+.................... // Do not write above this line (except comments)!
+.................... 
+.................... #ifndef __ADC_H
+.................... #define __ADC_H
+.................... 
+.................... #include "common.h"
+.................... #ifndef COMMON_h
+.................... #define COMMON_h
+.................... //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... 
+.................... #include "33FJ128MC804.h"
+.................... //////////// Standard Header file for the DSPIC33FJ128MC804 device ////////////////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996, 2014 Custom Computer Services          ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... #device DSPIC33FJ128MC804
+.................... 
+.................... #list
+.................... 
+.................... #include "adc.h"
+.................... /**
+....................  @file    adc.h
+....................  @author  Ricardo Gomez
+....................  @brief   adc init and ISR
+.................... */
+.................... // Do not write above this line (except comments)!
+.................... 
+.................... #ifndef __ADC_H
+.................... #define __ADC_H
+.................... 
+.................... #include "common.h"
+.................... 
+.................... #WORD ADC1BUF0 = 0x0300;
+.................... #WORD ADC1CON1 = 0x0320;
+.................... #WORD ADC1CON2 = 0x0322;
+.................... #WORD ADC1CON3 = 0x0324;
+.................... #WORD AD1CHS0 = 0x0328;
+.................... #WORD AD1PCFGL = 0x032C;
+.................... #WORD IFS0 = 0x0084;
+.................... 
+.................... 
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... void adcinit(void);
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #endif // __ADC_H
+.................... 
+.................... #include "lcd.h"
+.................... /**
+....................  @file    lcd.h
+....................  @author  Ricardo Gï¿½mez
+....................  @brief   LCD management
+.................... */
+.................... // Do not write above this line (except comments)!
+.................... 
+.................... #ifndef __LCD_H
+.................... #define __LCD_H
+.................... 
+.................... #include "common.h"
+.................... #ifndef COMMON_h
+.................... #define COMMON_h
+.................... //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... 
+.................... #include "33FJ128MC804.h"
+.................... #include "adc.h"
+.................... #include "lcd.h"
+.................... #include "Header.h"
+.................... 
+.................... //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #endif
+.................... 
+.................... 
+.................... /* SECTION 1: Included header files to compile this file           */
+.................... 
+.................... /* SECTION 2: Public macros                                        */
+.................... 
+.................... #define _CLEAR_DISPLAY 				0x01
+.................... #define _8BIT_4LINES_NORMAL_RE1_IS0		0x3A
+.................... #define _8BIT_4LINES_REVERSE_RE1_IS0		0x3B
+.................... #define _8BIT_4LINES_RE0_IS1			0x39
+.................... #define _8BIT_4LINES_RE0_IS0			0x38
+.................... 
+.................... #define _BS1_1					0x1E
+.................... #define _POWER_DOWN_DISABLE			0x02
+.................... #define _SEGMENT_NORMAL_WAY			0x05
+.................... #define _NW					0x09
+.................... 
+.................... #define _DISPLAY_ON_CURSOR_ON_BLINK_ON		0x0F
+.................... #define _DISPLAY_ON_CURSOR_ON_BLINK_OFF		0x0E
+.................... #define _DISPLAY_ON_CURSOR_OFF_BLINK_OFF	0x0C
+.................... #define _BS0_1					0x1C
+.................... #define _INTERNAL_DIVIDER			0x13
+.................... #define _CONTRAST				0x77
+.................... #define _POWER_ICON_CONTRAST			0x5C
+.................... #define _FOLLOWER_CONTROL			0x6E
+.................... 
+.................... #define ADDRESS_DDRAM				0x80
+.................... 
+.................... 
+.................... /* SECTION 3: Public types                                         */
+.................... 
+.................... 
+.................... /* SECTION 4: Public variables :: declarations, extern mandatory   */
+.................... 
+.................... 
+.................... /* SECTION 5: Public functions :: declarations, extern optional
+....................    Rule exception (callbacks)  :: declarations, extern recommended */
+.................... void display_valueADC_title(void);
+.................... void LCD_command(unsigned int8);
+.................... void lcdi2cinit(void);
+.................... void LCD_write(char*);
+.................... void initmenu(void);                                      //Inicializa el menu principal
+.................... void display_frecuencia(char*);       // Muestra frecuencia
+.................... void LCD_cursor_at(unsigned int8 line, unsigned int8 column);
+.................... 
+.................... 
+.................... #endif // __LCD_H
+.................... // Do not write below this line!
+.................... 
+.................... #include "Header.h"
+.................... 
+.................... 
+.................... #fuses NOJTAG      // JTAG port is disabled
+.................... #fuses NOPROTECT   // Code protection is disabled
+.................... #fuses NOWRT       // Writes to program memory are allowed
+.................... #fuses ICSP1       // Emulator functions are shared with PGEC1/PGED1
+.................... #fuses NOWDT       // WDT is disabled; SWDTEN bit is disabled
+.................... #fuses WPOSTS16    // Watchdog Timer Postscaler Select bits-> 1:32,768 (NOT USED)
+.................... #fuses NOIESO      // Internal External Switchover bit: IESO mode (Two-Speed Start-up) is disabled
+.................... #fuses FRC_PS      // Initial Oscillator Select bits: Fast RC Oscillator with Postscaler (FRCDIV)
+.................... #fuses CKSNOFSM    // Clock switching is enabled, Fail-Safe Clock Monitor is disabled
+.................... #fuses OSCIO       // OSCO Pin Configuration bit: OSCO/CLKO/RC15 functions as port I/O (RC15)
+.................... #fuses NOPR        // Primary Oscillator Configuration bits: Primary Oscillator mode is disabled
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+.................... #use delay(clock=7370000)
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+.................... #define ON( pin)   output_high(pin)
+.................... #define OFF(pin)   output_low( pin)
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... //#define SDA1         PIN_B9  //                    ( 1)
+.................... #define BUZZER         PIN_C6  //                    ( 2)
+.................... #define LED1           PIN_C7  //                    ( 3)
+.................... #define LED2           PIN_C8  //                    ( 4)
+.................... #define LED3           PIN_C9  //                    ( 5)
+.................... //                     VSS     //                    ( 6)
+.................... //                     VCAP    //                    ( 7)
+.................... #define H3             PIN_B10 //                    ( 8)
+.................... #define L3             PIN_B11 //                    ( 9)
+.................... #define H2             PIN_B12 //                    (10)
+.................... #define L2             PIN_B13 //                    (11)
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #define _I             PIN_A10 //                    (12)
+.................... #define BTOK           PIN_A7  //                    (13)
+.................... #define H1             PIN_B14 //                    (14)
+.................... #define L1             PIN_B15 //                    (15)
+.................... //                     AVSS    //                    (16)
+.................... //                     AVDD    //                    (17)
+.................... //                     ~MCLR   //                    (18)
+.................... #define BTIN           PIN_A0  //                    (19)
+.................... #define POT  		   PIN_A1  //                    (20)
+.................... //                     PIN_B0  //                    (21)
+.................... //                     PIN_B1  //                    (22)
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #define ANL4           PIN_B2  //                    (23)
+.................... #define ANL3           PIN_B3  //                    (24)
+.................... #define ANL2           PIN_C0  //                    (25)
+.................... #define SD             PIN_C1  //                    (26)
+.................... #define ANL1           PIN_C2  //                    (27)
+.................... //                     VDD     //                    (28)
+.................... //                     VSS     //                    (29)
+.................... //                     PIN_A2  //                    (30)
+.................... //                     PIN_A3  //                    (31)
+.................... #define BTCM           PIN_A8  //                    (32)
+.................... //                     PIN_B4  //                    (33)
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... //                     PIN_A4  //                    (34)
+.................... #define COMM           PIN_A9  //                    (35) 
+.................... #pin_select U1TX =     PIN_C3  //                    (36)
+.................... #pin_select U1RX =     PIN_C4  //                    (37)
+.................... #define SS             PIN_C5  //                    (38)
+.................... //                     VSS     //                    (39)
+.................... //                     VDD     //                    (40)
+.................... #pin_select SDI1 =     PIN_B5  //                    (41)
+.................... #pin_select SCK1OUT=   PIN_B6  //                    (42)
+.................... #pin_select SDO1 =     PIN_B7  //                    (43)
+.................... //#define SCL1         PIN_B8  //                    (44)
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... 
+.................... 
+.................... //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #endif
+.................... 
+.................... 
+.................... #WORD ADC1BUF0 = 0x0300;
+.................... #WORD ADC1CON1 = 0x0320;
+.................... #WORD ADC1CON2 = 0x0322;
+.................... #WORD ADC1CON3 = 0x0324;
+.................... #WORD AD1CHS0 = 0x0328;
+.................... #WORD AD1PCFGL = 0x032C;
+.................... #WORD IFS0 = 0x0084;
+.................... 
+.................... 
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... void adcinit(void);
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #endif // __ADC_H
+.................... 
+.................... #include "common.h"
+.................... #ifndef COMMON_h
+.................... #define COMMON_h
+.................... //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... 
+.................... #include "33FJ128MC804.h"
+.................... #include "adc.h"
+.................... #include "lcd.h"
+.................... #include "Header.h"
+.................... 
+.................... //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #endif
+.................... 
+.................... 
+.................... #INT_ADC1
+.................... 
+.................... 
+.................... void isr_adc(void) // pasa el valor del BUF a una variable global
+*
+00200:  PUSH    42
+00202:  PUSH    36
+00204:  PUSH    32
+00206:  MOV     W0,[W15++]
+00208:  MOV     #2,W0
+0020A:  REPEAT  #C
+0020C:  MOV     [W0++],[W15++]
+.................... {
+....................   //adcflag=1; no funciona la flag???
+....................   output_toggle(PIN_B12); // lectura actualizada
+0020E:  BCLR.B  2C9.4
+00210:  BTG.B   2CD.4
+00212:  BCLR.B  85.5
+00214:  MOV     #1A,W0
+00216:  REPEAT  #C
+00218:  MOV     [--W15],[W0--]
+0021A:  MOV     [--W15],W0
+0021C:  POP     32
+0021E:  POP     36
+00220:  POP     42
+00222:  RETFIE  
+.................... }
+.................... 
+.................... 
+.................... 
+.................... void adcinit(void) //por comprobar en la placa
+.................... {
+.................... 
+....................   setup_timer3(TMR_INTERNAL, 2303); //  TCLK = (1/7.37) x 2 x 2303 = 625 us (=1/1600Hz) ojo porque en el adc Tosc entra x2  //tsmp=samc<4:0>*tad
+*
+0040C:  CLR     112
+0040E:  MOV     #8FF,W4
+00410:  MOV     W4,10E
+00412:  MOV     #8000,W4
+00414:  MOV     W4,112
+.................... 
+....................   ADC1CON2 = 0b0000000000000000; // voltage reference en ADC1CON2
+00416:  CLR     322
+....................   ADC1CON3 = 0b1000000000000000; // select the analog conversion clock <7:0> y <15> para enable Tad
+00418:  MOV     #8000,W4
+0041A:  MOV     W4,324
+.................... //  AD1PCFGL = 0b1111111111101111; // AN4 entrada analogica - RB1 - PGC en placa
+.................... //  AD1CHS0  = 0b0000010000000100; // AN4 entrada seleccionada para el CH0
+....................   AD1PCFGL = 0b0000000011111101; // AN1 entrada analogica - RB1 - PGC en placa
+0041C:  MOV     #FD,W4
+0041E:  MOV     W4,32C
+....................   AD1CHS0  = 0b0000000100000001; // AN1 entrada seleccionada para el CH0
+00420:  MOV     #101,W4
+00422:  MOV     W4,328
+.................... 
+....................   ADC1CON1 = 0b1011010101000110; // 12 bits - Signed Integer - <7:5> 010 Timer3 for ADC1 - <15> Sampling inmediatly after EOC <9:0> unsigned int
+00424:  MOV     #B546,W4
+00426:  MOV     W4,320
+.................... 
+....................   enable_interrupts(INT_ADC1);
+00428:  BSET.B  95.5
+0042A:  RETURN  
+.................... 
+.................... }
+.................... 
+.................... /**
+.................... /**
+....................  @file    led.c
+....................  @author  Ricardo Gomez
+.................... 
+....................  @brief   LCD functions
+.................... */
+.................... // Do not write above this line (except comments)!
+.................... /* SECTION 1: Included header files to compile this file           */
+.................... 
+.................... #include "lcd.h"
+.................... /**
+....................  @file    lcd.h
+....................  @author  Ricardo Gï¿½mez
+....................  @brief   LCD management
+.................... */
+.................... // Do not write above this line (except comments)!
+.................... 
+.................... #ifndef __LCD_H
+.................... #define __LCD_H
+.................... 
+.................... #include "common.h"
+.................... #ifndef COMMON_h
+.................... #define COMMON_h
+.................... //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... 
+.................... #include "33FJ128MC804.h"
+.................... //////////// Standard Header file for the DSPIC33FJ128MC804 device ////////////////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996, 2014 Custom Computer Services          ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... #device DSPIC33FJ128MC804
+.................... 
+.................... #list
+.................... 
+.................... #include "adc.h"
+.................... /**
+....................  @file    adc.h
+....................  @author  Ricardo Gomez
+....................  @brief   adc init and ISR
+.................... */
+.................... // Do not write above this line (except comments)!
+.................... 
+.................... #ifndef __ADC_H
+.................... #define __ADC_H
+.................... 
+.................... #include "common.h"
+.................... #ifndef COMMON_h
+.................... #define COMMON_h
+.................... //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... 
+.................... #include "33FJ128MC804.h"
+.................... #include "adc.h"
+.................... #include "lcd.h"
+.................... #include "Header.h"
+.................... 
+.................... //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #endif
+.................... 
+.................... 
+.................... #WORD ADC1BUF0 = 0x0300;
+.................... #WORD ADC1CON1 = 0x0320;
+.................... #WORD ADC1CON2 = 0x0322;
+.................... #WORD ADC1CON3 = 0x0324;
+.................... #WORD AD1CHS0 = 0x0328;
+.................... #WORD AD1PCFGL = 0x032C;
+.................... #WORD IFS0 = 0x0084;
+.................... 
+.................... 
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... void adcinit(void);
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #endif // __ADC_H
+.................... 
+.................... #include "lcd.h"
+.................... /**
+....................  @file    lcd.h
+....................  @author  Ricardo Gï¿½mez
+....................  @brief   LCD management
+.................... */
+.................... // Do not write above this line (except comments)!
+.................... 
+.................... #ifndef __LCD_H
+.................... #define __LCD_H
+.................... 
+.................... #include "common.h"
+.................... 
+.................... /* SECTION 1: Included header files to compile this file           */
+.................... 
+.................... /* SECTION 2: Public macros                                        */
+.................... 
+.................... #define _CLEAR_DISPLAY 				0x01
+.................... #define _8BIT_4LINES_NORMAL_RE1_IS0		0x3A
+.................... #define _8BIT_4LINES_REVERSE_RE1_IS0		0x3B
+.................... #define _8BIT_4LINES_RE0_IS1			0x39
+.................... #define _8BIT_4LINES_RE0_IS0			0x38
+.................... 
+.................... #define _BS1_1					0x1E
+.................... #define _POWER_DOWN_DISABLE			0x02
+.................... #define _SEGMENT_NORMAL_WAY			0x05
+.................... #define _NW					0x09
+.................... 
+.................... #define _DISPLAY_ON_CURSOR_ON_BLINK_ON		0x0F
+.................... #define _DISPLAY_ON_CURSOR_ON_BLINK_OFF		0x0E
+.................... #define _DISPLAY_ON_CURSOR_OFF_BLINK_OFF	0x0C
+.................... #define _BS0_1					0x1C
+.................... #define _INTERNAL_DIVIDER			0x13
+.................... #define _CONTRAST				0x77
+.................... #define _POWER_ICON_CONTRAST			0x5C
+.................... #define _FOLLOWER_CONTROL			0x6E
+.................... 
+.................... #define ADDRESS_DDRAM				0x80
+.................... 
+.................... 
+.................... /* SECTION 3: Public types                                         */
+.................... 
+.................... 
+.................... /* SECTION 4: Public variables :: declarations, extern mandatory   */
+.................... 
+.................... 
+.................... /* SECTION 5: Public functions :: declarations, extern optional
+....................    Rule exception (callbacks)  :: declarations, extern recommended */
+.................... void display_valueADC_title(void);
+.................... void LCD_command(unsigned int8);
+.................... void lcdi2cinit(void);
+.................... void LCD_write(char*);
+.................... void initmenu(void);                                      //Inicializa el menu principal
+.................... void display_frecuencia(char*);       // Muestra frecuencia
+.................... void LCD_cursor_at(unsigned int8 line, unsigned int8 column);
+.................... 
+.................... 
+.................... #endif // __LCD_H
+.................... // Do not write below this line!
+.................... 
+.................... #include "Header.h"
+.................... 
+.................... 
+.................... #fuses NOJTAG      // JTAG port is disabled
+.................... #fuses NOPROTECT   // Code protection is disabled
+.................... #fuses NOWRT       // Writes to program memory are allowed
+.................... #fuses ICSP1       // Emulator functions are shared with PGEC1/PGED1
+.................... #fuses NOWDT       // WDT is disabled; SWDTEN bit is disabled
+.................... #fuses WPOSTS16    // Watchdog Timer Postscaler Select bits-> 1:32,768 (NOT USED)
+.................... #fuses NOIESO      // Internal External Switchover bit: IESO mode (Two-Speed Start-up) is disabled
+.................... #fuses FRC_PS      // Initial Oscillator Select bits: Fast RC Oscillator with Postscaler (FRCDIV)
+.................... #fuses CKSNOFSM    // Clock switching is enabled, Fail-Safe Clock Monitor is disabled
+.................... #fuses OSCIO       // OSCO Pin Configuration bit: OSCO/CLKO/RC15 functions as port I/O (RC15)
+.................... #fuses NOPR        // Primary Oscillator Configuration bits: Primary Oscillator mode is disabled
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+.................... #use delay(clock=7370000)
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+.................... #define ON( pin)   output_high(pin)
+.................... #define OFF(pin)   output_low( pin)
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... //#define SDA1         PIN_B9  //                    ( 1)
+.................... #define BUZZER         PIN_C6  //                    ( 2)
+.................... #define LED1           PIN_C7  //                    ( 3)
+.................... #define LED2           PIN_C8  //                    ( 4)
+.................... #define LED3           PIN_C9  //                    ( 5)
+.................... //                     VSS     //                    ( 6)
+.................... //                     VCAP    //                    ( 7)
+.................... #define H3             PIN_B10 //                    ( 8)
+.................... #define L3             PIN_B11 //                    ( 9)
+.................... #define H2             PIN_B12 //                    (10)
+.................... #define L2             PIN_B13 //                    (11)
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #define _I             PIN_A10 //                    (12)
+.................... #define BTOK           PIN_A7  //                    (13)
+.................... #define H1             PIN_B14 //                    (14)
+.................... #define L1             PIN_B15 //                    (15)
+.................... //                     AVSS    //                    (16)
+.................... //                     AVDD    //                    (17)
+.................... //                     ~MCLR   //                    (18)
+.................... #define BTIN           PIN_A0  //                    (19)
+.................... #define POT  		   PIN_A1  //                    (20)
+.................... //                     PIN_B0  //                    (21)
+.................... //                     PIN_B1  //                    (22)
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #define ANL4           PIN_B2  //                    (23)
+.................... #define ANL3           PIN_B3  //                    (24)
+.................... #define ANL2           PIN_C0  //                    (25)
+.................... #define SD             PIN_C1  //                    (26)
+.................... #define ANL1           PIN_C2  //                    (27)
+.................... //                     VDD     //                    (28)
+.................... //                     VSS     //                    (29)
+.................... //                     PIN_A2  //                    (30)
+.................... //                     PIN_A3  //                    (31)
+.................... #define BTCM           PIN_A8  //                    (32)
+.................... //                     PIN_B4  //                    (33)
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... //                     PIN_A4  //                    (34)
+.................... #define COMM           PIN_A9  //                    (35) 
+.................... #pin_select U1TX =     PIN_C3  //                    (36)
+.................... #pin_select U1RX =     PIN_C4  //                    (37)
+.................... #define SS             PIN_C5  //                    (38)
+.................... //                     VSS     //                    (39)
+.................... //                     VDD     //                    (40)
+.................... #pin_select SDI1 =     PIN_B5  //                    (41)
+.................... #pin_select SCK1OUT=   PIN_B6  //                    (42)
+.................... #pin_select SDO1 =     PIN_B7  //                    (43)
+.................... //#define SCL1         PIN_B8  //                    (44)
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... 
+.................... 
+.................... //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #endif
+.................... 
+.................... 
+.................... /* SECTION 1: Included header files to compile this file           */
+.................... 
+.................... /* SECTION 2: Public macros                                        */
+.................... 
+.................... #define _CLEAR_DISPLAY 				0x01
+.................... #define _8BIT_4LINES_NORMAL_RE1_IS0		0x3A
+.................... #define _8BIT_4LINES_REVERSE_RE1_IS0		0x3B
+.................... #define _8BIT_4LINES_RE0_IS1			0x39
+.................... #define _8BIT_4LINES_RE0_IS0			0x38
+.................... 
+.................... #define _BS1_1					0x1E
+.................... #define _POWER_DOWN_DISABLE			0x02
+.................... #define _SEGMENT_NORMAL_WAY			0x05
+.................... #define _NW					0x09
+.................... 
+.................... #define _DISPLAY_ON_CURSOR_ON_BLINK_ON		0x0F
+.................... #define _DISPLAY_ON_CURSOR_ON_BLINK_OFF		0x0E
+.................... #define _DISPLAY_ON_CURSOR_OFF_BLINK_OFF	0x0C
+.................... #define _BS0_1					0x1C
+.................... #define _INTERNAL_DIVIDER			0x13
+.................... #define _CONTRAST				0x77
+.................... #define _POWER_ICON_CONTRAST			0x5C
+.................... #define _FOLLOWER_CONTROL			0x6E
+.................... 
+.................... #define ADDRESS_DDRAM				0x80
+.................... 
+.................... 
+.................... /* SECTION 3: Public types                                         */
+.................... 
+.................... 
+.................... /* SECTION 4: Public variables :: declarations, extern mandatory   */
+.................... 
+.................... 
+.................... /* SECTION 5: Public functions :: declarations, extern optional
+....................    Rule exception (callbacks)  :: declarations, extern recommended */
+.................... void display_valueADC_title(void);
+.................... void LCD_command(unsigned int8);
+.................... void lcdi2cinit(void);
+.................... void LCD_write(char*);
+.................... void initmenu(void);                                      //Inicializa el menu principal
+.................... void display_frecuencia(char*);       // Muestra frecuencia
+.................... void LCD_cursor_at(unsigned int8 line, unsigned int8 column);
+.................... 
+.................... 
+.................... #endif // __LCD_H
+.................... // Do not write below this line!
+.................... 
+.................... #include "common.h"
+.................... #ifndef COMMON_h
+.................... #define COMMON_h
+.................... //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... 
+.................... #include "33FJ128MC804.h"
+.................... #include "adc.h"
+.................... #include "lcd.h"
+.................... #include "Header.h"
+.................... 
+.................... //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #endif
+.................... 
+.................... 
+.................... void LCD_command(unsigned int8);
+.................... void LCD_write(char*);
+.................... void LCD_cursor_at(unsigned int8, unsigned int8);
+.................... 
+.................... void lcdi2cinit(void)
+.................... {
+.................... 
+....................   OFF(SD);
+*
+00280:  BCLR.B  2D0.1
+00282:  BCLR.B  2D4.1
+....................   delay_ms(200);
+00284:  MOV     #C8,W0
+00286:  CALL    224
+....................   ON(PIN_C1);
+*
+0028A:  BCLR.B  2D0.1
+0028C:  BSET.B  2D4.1
+.................... 
+....................   //leds output en open drain
+....................   output_float(PIN_B8);
+0028E:  BSET.B  2C9.0
+....................   output_float(PIN_B9);
+00290:  BSET.B  2C9.1
+.................... 
+....................   //pullups
+....................   set_pullup(TRUE, PIN_B8);
+00292:  BSET.B  6A.6
+....................   set_pullup(TRUE, PIN_B9);
+00294:  BSET.B  6A.5
+.................... 
+.................... 
+....................   //dspic as master, velocidad, nombre de la conexion
+....................   #use i2c(Master, Fast=1000000, i2c1)
+*
+00234:  MOV     #FFFF,W0
+00236:  BTSS.B  208.3
+00238:  BRA     244
+0023A:  BTSC.B  209.6
+0023C:  BRA     23A
+0023E:  MOV     W1,202
+00240:  BTSC.B  209.6
+00242:  BRA     240
+00244:  MOV     #0,W0
+00246:  BTSC.B  209.7
+00248:  INC     W0,W0
+0024A:  RETURN  
+.................... 
+....................   LCD_command(_CLEAR_DISPLAY);
+*
+00296:  MOV.B   #1,W0L
+00298:  MOV.B   W0L,83C
+0029A:  CALL    24C
+....................   LCD_command(_8BIT_4LINES_NORMAL_RE1_IS0);
+*
+0029E:  MOV.B   #3A,W0L
+002A0:  MOV.B   W0L,83C
+002A2:  CALL    24C
+....................   LCD_command(_BS1_1);
+*
+002A6:  MOV.B   #1E,W0L
+002A8:  MOV.B   W0L,83C
+002AA:  CALL    24C
+....................   LCD_command(_POWER_DOWN_DISABLE);
+*
+002AE:  MOV.B   #2,W0L
+002B0:  MOV.B   W0L,83C
+002B2:  CALL    24C
+....................   LCD_command(_SEGMENT_NORMAL_WAY);
+*
+002B6:  MOV.B   #5,W0L
+002B8:  MOV.B   W0L,83C
+002BA:  CALL    24C
+....................   LCD_command(_NW);
+*
+002BE:  MOV.B   #9,W0L
+002C0:  MOV.B   W0L,83C
+002C2:  CALL    24C
+....................   LCD_command(_8BIT_4LINES_RE0_IS1);
+*
+002C6:  MOV.B   #39,W0L
+002C8:  MOV.B   W0L,83C
+002CA:  CALL    24C
+....................   LCD_command(_DISPLAY_ON_CURSOR_ON_BLINK_OFF);
+*
+002CE:  MOV.B   #E,W0L
+002D0:  MOV.B   W0L,83C
+002D2:  CALL    24C
+....................   LCD_command(_BS0_1);
+*
+002D6:  MOV.B   #1C,W0L
+002D8:  MOV.B   W0L,83C
+002DA:  CALL    24C
+....................   LCD_command(_INTERNAL_DIVIDER);
+*
+002DE:  MOV.B   #13,W0L
+002E0:  MOV.B   W0L,83C
+002E2:  CALL    24C
+....................   LCD_command(_CONTRAST);
+*
+002E6:  MOV.B   #77,W0L
+002E8:  MOV.B   W0L,83C
+002EA:  CALL    24C
+....................   LCD_command(_POWER_ICON_CONTRAST);
+*
+002EE:  MOV.B   #5C,W0L
+002F0:  MOV.B   W0L,83C
+002F2:  CALL    24C
+....................   LCD_command(_FOLLOWER_CONTROL);
+*
+002F6:  MOV.B   #6E,W0L
+002F8:  MOV.B   W0L,83C
+002FA:  CALL    24C
+....................   LCD_command(_8BIT_4LINES_RE0_IS0);
+*
+002FE:  MOV.B   #38,W0L
+00300:  MOV.B   W0L,83C
+00302:  CALL    24C
+*
+00306:  RETURN  
+.................... 
+.................... }
+.................... 
+.................... void LCD_command(unsigned int8 cmd)
+.................... {
+....................   i2c_start();
+*
+0024C:  BTSS.B  208.3
+0024E:  BRA     258
+00250:  BSET.B  206.1
+00252:  BTSC.B  206.1
+00254:  BRA     252
+00256:  BRA     25E
+00258:  BSET.B  206.0
+0025A:  BTSC.B  206.0
+0025C:  BRA     25A
+....................   i2c_write(0x78);
+0025E:  MOV.B   #78,W1L
+00260:  CALL    234
+....................   i2c_write(0x00);
+*
+00264:  CLR.B   W1
+00266:  CALL    234
+....................   i2c_write(cmd);
+*
+0026A:  MOV.B   83C,W0L
+0026C:  MOV.B   W0L,2
+0026E:  CALL    234
+....................   i2c_stop();
+*
+00272:  MOV     #1F,W0
+00274:  AND     206,W0
+00276:  BRA     NZ,272
+00278:  BSET.B  206.2
+0027A:  BTSC.B  206.2
+0027C:  BRA     27A
+0027E:  RETURN  
+.................... }
+.................... 
+.................... void LCD_write(char* cd)
+*
+00328:  MOV     W5,[W15++]
+0032A:  MOV     W6,[W15++]
+0032C:  CLR.B   83A
+.................... {
+....................   unsigned int8 c=0;
+....................   i2c_start();
+0032E:  BTSS.B  208.3
+00330:  BRA     33A
+00332:  BSET.B  206.1
+00334:  BTSC.B  206.1
+00336:  BRA     334
+00338:  BRA     340
+0033A:  BSET.B  206.0
+0033C:  BTSC.B  206.0
+0033E:  BRA     33C
+....................   i2c_write(0x78);
+00340:  MOV.B   #78,W1L
+00342:  CALL    234
+....................   i2c_write(0x40);
+*
+00346:  MOV.B   #40,W1L
+00348:  CALL    234
+....................   while(cd[c]!=0)
+*
+0034C:  MOV     83A,W4
+0034E:  CLR.B   9
+00350:  MOV     W4,W0
+00352:  ADD     838,W0
+00354:  MOV.B   [W0],W5L
+00356:  SE      W5,W5
+00358:  CP0     W5
+0035A:  BRA     Z,372
+....................   {
+....................     i2c_write(cd[c]);
+0035C:  MOV     83A,W4
+0035E:  CLR.B   9
+00360:  MOV     W4,W0
+00362:  ADD     838,W0
+00364:  MOV.B   [W0],W5L
+00366:  MOV.B   W5L,W1L
+00368:  CALL    234
+....................     c++;
+*
+0036C:  INC.B   083A
+0036E:  GOTO    34C
+....................   }
+....................   i2c_stop();
+*
+00372:  MOV     #1F,W0
+00374:  AND     206,W0
+00376:  BRA     NZ,372
+00378:  BSET.B  206.2
+0037A:  BTSC.B  206.2
+0037C:  BRA     37A
+0037E:  MOV     [--W15],W6
+00380:  MOV     [--W15],W5
+00382:  RETURN  
+.................... }
+.................... 
+.................... void LCD_cursor_at(unsigned int8 line, unsigned int8 column)
+*
+00308:  MOV     W5,[W15++]
+.................... {
+....................   LCD_command(0x80 | (line*0x20+column));
+0030A:  MOV.B   838,W0L
+0030C:  CLR.B   1
+0030E:  SL      W0,#5,W5
+00310:  MOV     838,W4
+00312:  LSR     W4,#8,W4
+00314:  ADD     W5,W4,W0
+00316:  MOV     W0,W5
+00318:  IOR     #80,W5
+0031A:  PUSH    83C
+0031C:  MOV.B   W5L,[W15-#2]
+0031E:  POP     83C
+00320:  CALL    24C
+*
+00324:  MOV     [--W15],W5
+00326:  RETURN  
+.................... }
+.................... 
+.................... void initmenu(void)
+.................... {
+.................... 	char cabecera[]="----WELCOME-----";
+*
+00384:  MOV     #2D2D,W4
+00386:  MOV     W4,80E
+00388:  MOV     #2D2D,W4
+0038A:  MOV     W4,810
+0038C:  MOV     #4557,W4
+0038E:  MOV     W4,812
+00390:  MOV     #434C,W4
+00392:  MOV     W4,814
+00394:  MOV     #4D4F,W4
+00396:  MOV     W4,816
+00398:  MOV     #2D45,W4
+0039A:  MOV     W4,818
+0039C:  MOV     #2D2D,W4
+0039E:  MOV     W4,81A
+003A0:  MOV     #2D2D,W4
+003A2:  MOV     W4,81C
+003A4:  CLR.B   81E
+.................... 	char boton[]="-------------";
+003A6:  MOV     #2D2D,W4
+003A8:  MOV     W4,820
+003AA:  MOV     #2D2D,W4
+003AC:  MOV     W4,822
+003AE:  MOV     #2D2D,W4
+003B0:  MOV     W4,824
+003B2:  MOV     #2D2D,W4
+003B4:  MOV     W4,826
+003B6:  MOV     #2D2D,W4
+003B8:  MOV     W4,828
+003BA:  MOV     #2D2D,W4
+003BC:  MOV     W4,82A
+003BE:  MOV     #2D,W4
+003C0:  MOV     W4,82C
+.................... 	char palabra1[]="PRESS OK";
+003C2:  MOV     #5250,W4
+003C4:  MOV     W4,82E
+003C6:  MOV     #5345,W4
+003C8:  MOV     W4,830
+003CA:  MOV     #2053,W4
+003CC:  MOV     W4,832
+003CE:  MOV     #4B4F,W4
+003D0:  MOV     W4,834
+003D2:  CLR.B   836
+.................... 	//char palabra2[]="OPCION 2";
+.................... 	//char palabra3[]="OPCION 3";
+.................... 	//char palabra4[]="OPCION 4";
+.................... 
+.................... 	LCD_cursor_at(0,0);
+003D4:  CLR.B   838
+003D6:  CLR.B   839
+003D8:  CALL    308
+.................... 	LCD_write(cabecera);
+*
+003DC:  MOV     #80E,W4
+003DE:  MOV     W4,838
+003E0:  CALL    328
+.................... 	LCD_cursor_at(1,0);
+*
+003E4:  MOV.B   #1,W0L
+003E6:  MOV.B   W0L,838
+003E8:  CLR.B   839
+003EA:  CALL    308
+.................... 	LCD_write(boton);
+*
+003EE:  MOV     #820,W4
+003F0:  MOV     W4,838
+003F2:  CALL    328
+.................... 	LCD_cursor_at(2,1);
+*
+003F6:  MOV.B   #2,W0L
+003F8:  MOV.B   W0L,838
+003FA:  MOV.B   #1,W0L
+003FC:  MOV.B   W0L,839
+003FE:  CALL    308
+.................... 	LCD_write(palabra1);
+*
+00402:  MOV     #82E,W4
+00404:  MOV     W4,838
+00406:  CALL    328
+*
+0040A:  RETURN  
+.................... }
+.................... 
+.................... void errorfichero(void)
+.................... {
+.................... 	char cabecera[]="------ERROR------";
+.................... 	char boton[]="NO CONFIG.TXT DETE";
+.................... 	char palabra1[]="PRESS RESET";
+.................... 	//char palabra2[]="OPCION 2";
+.................... 	//char palabra3[]="OPCION 3";
+.................... 	//char palabra4[]="OPCION 4";
+.................... 
+.................... 	LCD_cursor_at(0,0);
+.................... 	LCD_write(cabecera);
+.................... 	LCD_cursor_at(1,0);
+.................... 	LCD_write(boton);
+.................... 	LCD_cursor_at(2,1);
+.................... 	LCD_write(palabra1);
+.................... }
+.................... 
+.................... void display_frecuencia(char* frecuencia)
+.................... {
+....................   LCD_command(_DISPLAY_ON_CURSOR_ON_BLINK_OFF);
+.................... 	char cabecera[]="FRECUENCIA: ";
+.................... 	char boton[]="-------------------";
+.................... 	char palabra1[]="PRESS OK BUTTON";
+....................   char ppm[]="PPM";
+.................... 	//char palabra2[]="OPCION 2";
+.................... 	//char palabra3[]="OPCION 3";
+.................... 	//char palabra4[]="OPCION 4";
+.................... 
+.................... 	LCD_cursor_at(0,0);
+.................... 	LCD_write(cabecera);
+....................   LCD_write(frecuencia);
+....................   LCD_write(ppm);
+.................... 	LCD_cursor_at(1,0);
+.................... 	LCD_write(boton);
+.................... 	LCD_cursor_at(2,1);
+.................... 	LCD_write(palabra1);
+.................... }
+.................... 
+.................... void display_valueADC_title(void)
+.................... {
+....................   char cabecera[]="VALOR ADC: ";
+*
+0042C:  MOV     #4156,W4
+0042E:  MOV     W4,80E
+00430:  MOV     #4F4C,W4
+00432:  MOV     W4,810
+00434:  MOV     #2052,W4
+00436:  MOV     W4,812
+00438:  MOV     #4441,W4
+0043A:  MOV     W4,814
+0043C:  MOV     #3A43,W4
+0043E:  MOV     W4,816
+00440:  MOV     #20,W4
+00442:  MOV     W4,818
+....................   //char palabra2[]="OPCION 2";
+....................   //char palabra3[]="OPCION 3";
+....................   //char palabra4[]="OPCION 4";
+.................... 
+....................   LCD_cursor_at(0,0);
+00444:  CLR.B   838
+00446:  CLR.B   839
+00448:  CALL    308
+....................   LCD_write(cabecera);
+*
+0044C:  MOV     #80E,W4
+0044E:  MOV     W4,838
+00450:  CALL    328
+*
+00454:  RETURN  
+.................... }
+.................... 
+.................... 
+.................... 
+.................... #include "algoritmo.h"
+.................... /**
+....................  @file    BEEP.h
+....................  @author  Julio Gomis-Tena
+....................  @brief   Generate n "beeps" of variable frequency
+.................... */
+.................... // Do not write above this line (except comments)!
+.................... 
+.................... #ifndef __ALGORITMO_H
+.................... #define __ALGORITMO_H
+.................... 
+.................... #include "common.h"
+.................... #ifndef COMMON_h
+.................... #define COMMON_h
+.................... //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... 
+.................... #include "33FJ128MC804.h"
+.................... //////////// Standard Header file for the DSPIC33FJ128MC804 device ////////////////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996, 2014 Custom Computer Services          ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... #device DSPIC33FJ128MC804
+.................... 
+.................... #list
+.................... 
+.................... #include "adc.h"
+.................... /**
+....................  @file    adc.h
+....................  @author  Ricardo Gomez
+....................  @brief   adc init and ISR
+.................... */
+.................... // Do not write above this line (except comments)!
+.................... 
+.................... #ifndef __ADC_H
+.................... #define __ADC_H
+.................... 
+.................... #include "common.h"
+.................... #ifndef COMMON_h
+.................... #define COMMON_h
+.................... //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... 
+.................... #include "33FJ128MC804.h"
+.................... #include "adc.h"
+.................... #include "lcd.h"
+.................... #include "Header.h"
+.................... 
+.................... //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #endif
+.................... 
+.................... 
+.................... #WORD ADC1BUF0 = 0x0300;
+.................... #WORD ADC1CON1 = 0x0320;
+.................... #WORD ADC1CON2 = 0x0322;
+.................... #WORD ADC1CON3 = 0x0324;
+.................... #WORD AD1CHS0 = 0x0328;
+.................... #WORD AD1PCFGL = 0x032C;
+.................... #WORD IFS0 = 0x0084;
+.................... 
+.................... 
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... void adcinit(void);
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #endif // __ADC_H
+.................... 
+.................... #include "lcd.h"
+.................... /**
+....................  @file    lcd.h
+....................  @author  Ricardo Gï¿½mez
+....................  @brief   LCD management
+.................... */
+.................... // Do not write above this line (except comments)!
+.................... 
+.................... #ifndef __LCD_H
+.................... #define __LCD_H
+.................... 
+.................... #include "common.h"
+.................... #ifndef COMMON_h
+.................... #define COMMON_h
+.................... //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... 
+.................... #include "33FJ128MC804.h"
+.................... #include "adc.h"
+.................... #include "lcd.h"
+.................... #include "Header.h"
+.................... 
+.................... //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #endif
+.................... 
+.................... 
+.................... /* SECTION 1: Included header files to compile this file           */
+.................... 
+.................... /* SECTION 2: Public macros                                        */
+.................... 
+.................... #define _CLEAR_DISPLAY 				0x01
+.................... #define _8BIT_4LINES_NORMAL_RE1_IS0		0x3A
+.................... #define _8BIT_4LINES_REVERSE_RE1_IS0		0x3B
+.................... #define _8BIT_4LINES_RE0_IS1			0x39
+.................... #define _8BIT_4LINES_RE0_IS0			0x38
+.................... 
+.................... #define _BS1_1					0x1E
+.................... #define _POWER_DOWN_DISABLE			0x02
+.................... #define _SEGMENT_NORMAL_WAY			0x05
+.................... #define _NW					0x09
+.................... 
+.................... #define _DISPLAY_ON_CURSOR_ON_BLINK_ON		0x0F
+.................... #define _DISPLAY_ON_CURSOR_ON_BLINK_OFF		0x0E
+.................... #define _DISPLAY_ON_CURSOR_OFF_BLINK_OFF	0x0C
+.................... #define _BS0_1					0x1C
+.................... #define _INTERNAL_DIVIDER			0x13
+.................... #define _CONTRAST				0x77
+.................... #define _POWER_ICON_CONTRAST			0x5C
+.................... #define _FOLLOWER_CONTROL			0x6E
+.................... 
+.................... #define ADDRESS_DDRAM				0x80
+.................... 
+.................... 
+.................... /* SECTION 3: Public types                                         */
+.................... 
+.................... 
+.................... /* SECTION 4: Public variables :: declarations, extern mandatory   */
+.................... 
+.................... 
+.................... /* SECTION 5: Public functions :: declarations, extern optional
+....................    Rule exception (callbacks)  :: declarations, extern recommended */
+.................... void display_valueADC_title(void);
+.................... void LCD_command(unsigned int8);
+.................... void lcdi2cinit(void);
+.................... void LCD_write(char*);
+.................... void initmenu(void);                                      //Inicializa el menu principal
+.................... void display_frecuencia(char*);       // Muestra frecuencia
+.................... void LCD_cursor_at(unsigned int8 line, unsigned int8 column);
+.................... 
+.................... 
+.................... #endif // __LCD_H
+.................... // Do not write below this line!
+.................... 
+.................... #include "Header.h"
+.................... 
+.................... 
+.................... #fuses NOJTAG      // JTAG port is disabled
+.................... #fuses NOPROTECT   // Code protection is disabled
+.................... #fuses NOWRT       // Writes to program memory are allowed
+.................... #fuses ICSP1       // Emulator functions are shared with PGEC1/PGED1
+.................... #fuses NOWDT       // WDT is disabled; SWDTEN bit is disabled
+.................... #fuses WPOSTS16    // Watchdog Timer Postscaler Select bits-> 1:32,768 (NOT USED)
+.................... #fuses NOIESO      // Internal External Switchover bit: IESO mode (Two-Speed Start-up) is disabled
+.................... #fuses FRC_PS      // Initial Oscillator Select bits: Fast RC Oscillator with Postscaler (FRCDIV)
+.................... #fuses CKSNOFSM    // Clock switching is enabled, Fail-Safe Clock Monitor is disabled
+.................... #fuses OSCIO       // OSCO Pin Configuration bit: OSCO/CLKO/RC15 functions as port I/O (RC15)
+.................... #fuses NOPR        // Primary Oscillator Configuration bits: Primary Oscillator mode is disabled
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+.................... #use delay(clock=7370000)
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+.................... #define ON( pin)   output_high(pin)
+.................... #define OFF(pin)   output_low( pin)
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... //#define SDA1         PIN_B9  //                    ( 1)
+.................... #define BUZZER         PIN_C6  //                    ( 2)
+.................... #define LED1           PIN_C7  //                    ( 3)
+.................... #define LED2           PIN_C8  //                    ( 4)
+.................... #define LED3           PIN_C9  //                    ( 5)
+.................... //                     VSS     //                    ( 6)
+.................... //                     VCAP    //                    ( 7)
+.................... #define H3             PIN_B10 //                    ( 8)
+.................... #define L3             PIN_B11 //                    ( 9)
+.................... #define H2             PIN_B12 //                    (10)
+.................... #define L2             PIN_B13 //                    (11)
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #define _I             PIN_A10 //                    (12)
+.................... #define BTOK           PIN_A7  //                    (13)
+.................... #define H1             PIN_B14 //                    (14)
+.................... #define L1             PIN_B15 //                    (15)
+.................... //                     AVSS    //                    (16)
+.................... //                     AVDD    //                    (17)
+.................... //                     ~MCLR   //                    (18)
+.................... #define BTIN           PIN_A0  //                    (19)
+.................... #define POT  		   PIN_A1  //                    (20)
+.................... //                     PIN_B0  //                    (21)
+.................... //                     PIN_B1  //                    (22)
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #define ANL4           PIN_B2  //                    (23)
+.................... #define ANL3           PIN_B3  //                    (24)
+.................... #define ANL2           PIN_C0  //                    (25)
+.................... #define SD             PIN_C1  //                    (26)
+.................... #define ANL1           PIN_C2  //                    (27)
+.................... //                     VDD     //                    (28)
+.................... //                     VSS     //                    (29)
+.................... //                     PIN_A2  //                    (30)
+.................... //                     PIN_A3  //                    (31)
+.................... #define BTCM           PIN_A8  //                    (32)
+.................... //                     PIN_B4  //                    (33)
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... //                     PIN_A4  //                    (34)
+.................... #define COMM           PIN_A9  //                    (35) 
+.................... #pin_select U1TX =     PIN_C3  //                    (36)
+.................... #pin_select U1RX =     PIN_C4  //                    (37)
+.................... #define SS             PIN_C5  //                    (38)
+.................... //                     VSS     //                    (39)
+.................... //                     VDD     //                    (40)
+.................... #pin_select SDI1 =     PIN_B5  //                    (41)
+.................... #pin_select SCK1OUT=   PIN_B6  //                    (42)
+.................... #pin_select SDO1 =     PIN_B7  //                    (43)
+.................... //#define SCL1         PIN_B8  //                    (44)
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... 
+.................... 
+.................... //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #endif
+.................... 
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #include "adc.h"
+.................... /**
+....................  @file    adc.h
+....................  @author  Ricardo Gomez
+....................  @brief   adc init and ISR
+.................... */
+.................... // Do not write above this line (except comments)!
+.................... 
+.................... #ifndef __ADC_H
+.................... #define __ADC_H
+.................... 
+.................... #include "common.h"
+.................... 
+.................... #WORD ADC1BUF0 = 0x0300;
+.................... #WORD ADC1CON1 = 0x0320;
+.................... #WORD ADC1CON2 = 0x0322;
+.................... #WORD ADC1CON3 = 0x0324;
+.................... #WORD AD1CHS0 = 0x0328;
+.................... #WORD AD1PCFGL = 0x032C;
+.................... #WORD IFS0 = 0x0084;
+.................... 
+.................... 
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... void adcinit(void);
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #endif // __ADC_H
+.................... 
+.................... 
+.................... int algoritmo();
+.................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+.................... #endif // __ALGORITMO_H
+.................... 
+.................... 
+.................... int algoritmo()
+00456:  MOV     W5,[W15++]
+.................... {
+.................... 	signed int yECG[5];
+.................... 	unsigned int der, maximo, maximo_ant, BCL, BCL2, PPM;
+.................... 	unsigned int flag, k, umbral;
+.................... 
+.................... 	yECG[4] = yECG[3];
+00458:  PUSH    814
+0045A:  POP     816
+.................... 	yECG[3] = yECG[2];
+0045C:  PUSH    812
+0045E:  POP     814
+.................... 	yECG[2] = yECG[1];
+00460:  PUSH    810
+00462:  POP     812
+.................... 	yECG[1] = yECG[0];
+00464:  PUSH    80E
+00466:  POP     810
+.................... 	yECG[0] = ADC1BUF0;
+00468:  PUSH    300
+0046A:  POP     80E
+.................... 
+.................... 	//Valor absoluto de la derivada
+.................... 	der = (yECG[4] > yECG[0]) ? (yECG[4] - yECG[0]) : (yECG[0] - yECG[4]);
+0046C:  MOV     80E,W0
+0046E:  MOV     816,W4
+00470:  CP      W4,W0
+00472:  BRA     LE,47E
+00474:  MOV     816,W4
+00476:  MOV     80E,W3
+00478:  SUB     W4,W3,W0
+0047A:  GOTO    484
+*
+0047E:  MOV     80E,W4
+00480:  MOV     816,W3
+00482:  SUB     W4,W3,W0
+00484:  MOV     W0,818
+.................... 
+.................... 	if(der > maximo) maximo = der;
+00486:  MOV     81A,W0
+00488:  MOV     818,W4
+0048A:  CP      W4,W0
+0048C:  BRA     LEU,492
+0048E:  PUSH    818
+00490:  POP     81A
+.................... 
+.................... 	if(flag == 0)
+00492:  CP0     824
+00494:  BRA     NZ,4A8
+.................... 	{
+.................... 		if(der > umbral)
+00496:  MOV     828,W0
+00498:  MOV     818,W4
+0049A:  CP      W4,W0
+0049C:  BRA     LEU,4A8
+.................... 		{
+.................... 			flag = 1;
+0049E:  MOV     #1,W4
+004A0:  MOV     W4,824
+.................... 			BCL2 = BCL;
+004A2:  PUSH    81E
+004A4:  POP     820
+.................... 			BCL = 0;
+004A6:  CLR     81E
+.................... 		}
+.................... 	}
+.................... 
+.................... 	if (flag == 1)
+004A8:  MOV     824,W4
+004AA:  CP      W4,#1
+004AC:  BRA     NZ,4B0
+.................... 	{
+.................... 		k++;
+004AE:  INC     0826
+.................... 	}
+.................... 
+.................... 	//Durante 60 puntos = RR min = 0.24seg = 250 bpm
+.................... 	//no se puede detectar otro punto RR
+.................... 	//solo pasado ese tiempo se hace el calculo
+.................... 
+.................... 	if(k >60)
+004B0:  MOV     826,W4
+004B2:  MOV     #3C,W3
+004B4:  CP      W3,W4
+004B6:  BRA     C,4DA
+.................... 	{
+.................... 		k = 0;
+004B8:  CLR     826
+.................... 		flag = 0;
+004BA:  CLR     824
+.................... 
+.................... 	//Me quedo con la Media del incremento MAX
+.................... 	//De estos 200 puntos y del incremento de los anteriores
+.................... 
+.................... 	umbral = (maximo + maximo_ant)/2;
+004BC:  MOV     81A,W0
+004BE:  ADD     81C,W0
+004C0:  MOV     W0,W5
+004C2:  MOV     W5,828
+004C4:  LSR     828
+.................... 	maximo_ant = maximo;
+004C6:  PUSH    81A
+004C8:  POP     81C
+.................... 	maximo = 0;
+004CA:  CLR     81A
+.................... 
+.................... 	//Reduzco el umbral al 66%
+.................... 
+.................... 	umbral = umbral -(umbral/3);
+004CC:  MOV     828,W4
+004CE:  MOV     #3,W3
+004D0:  REPEAT  #11
+004D2:  DIV.U   W4,W3
+004D4:  MOV     828,W4
+004D6:  SUB     W4,W0,W0
+004D8:  MOV     W0,828
+.................... 	}
+.................... 
+.................... 	//Si pasa un rato
+.................... 	//equivaldria a un pulso de 15bpm si se detectara punto R
+.................... 	//y no se ha superado el umbral se reinicia
+.................... 
+.................... 	if(BCL > 1000)
+004DA:  MOV     81E,W4
+004DC:  MOV     #3E8,W3
+004DE:  CP      W3,W4
+004E0:  BRA     C,4EC
+.................... 	{
+.................... 		maximo = 0;
+004E2:  CLR     81A
+.................... 		umbral = 0;
+004E4:  CLR     828
+.................... 		flag = 1;
+004E6:  MOV     #1,W4
+004E8:  MOV     W4,824
+.................... 		BCL = 0;
+004EA:  CLR     81E
+.................... 	}
+.................... 	//Calculo el ritmo cardiaco (si esta en rango fisiologico)
+.................... 	//y si no permanece el valor anteriore
+.................... 	//15000 son las muestras de 1 minuto (60000[ms]/4[ms/muestra])
+.................... 
+.................... 	if((BCL2 > 65) && (BCL2 < 500))
+004EC:  MOV     820,W4
+004EE:  MOV     #41,W3
+004F0:  CP      W3,W4
+004F2:  BRA     C,506
+004F4:  MOV     820,W4
+004F6:  MOV     #1F4,W3
+004F8:  CP      W3,W4
+004FA:  BRA     LEU,506
+.................... 	{
+.................... 		PPM = (int)(15000/BCL2);
+004FC:  MOV     #3A98,W4
+004FE:  MOV     820,W3
+00500:  REPEAT  #11
+00502:  DIV.U   W4,W3
+00504:  MOV     W0,822
+.................... 	}
+.................... return PPM;
+00506:  PUSH    822
+00508:  POP     0
+0050A:  MOV     [--W15],W5
+0050C:  RETURN  
+.................... }
+.................... 
+
+Configuration Fuses:
+   Word  1L: 00CF   NOWRTB NOBSS NORBS
+          H: 0000  
+   Word  2L: 00CF   NOWRTSS NOSSS NORSS
+          H: 0000  
+   Word  3L: 0007   NOWRT NOPROTECT
+          H: 0000  
+   Word  4L: 0007   FRC_PS NOIESO
+          H: 0000  
+   Word  5L: 0063   NOPR OSCIO IOL1WAY CKSNOFSM
+          H: 0000  
+   Word  6L: 005F   WPOSTS16 WPRES128 WINDIS NOWDT
+          H: 0000  
+   Word  7L: 00F7   PUT128 NOALTI2C1 LPOL_HIGH HPOL_HIGH NOPWMPIN
+          H: 0000  
+   Word  8L: 00C3   ICSP1 NOJTAG NODEBUG
+          H: 0000  

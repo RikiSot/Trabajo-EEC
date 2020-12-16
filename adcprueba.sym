@@ -1,0 +1,118 @@
+W0      @SCRATCH
+W0      @delay_us1.P1
+W0      @PRINTFD16_866.P2
+W0 -W1  @DIV3232B.P3
+W0L     _RETURN_
+W0      @delay_ms1.P1
+W0 -W1  @READ_ROM_MEMORY.P2
+W0L     @SPRINTF.P3
+W1      @SCRATCH
+W1      @READ_PACKED_MEMORY.P1
+W1      @WRITE_PACKED_MEMORY.P2
+W1L     @I2C_WRITEU_129.P3
+W1L     @I2C_READU_129.P4
+W2      @READ_ROM_MEMORY.P1
+W2      @READ_PACKED_MEMORY.P2
+W2      @WRITE_PACKED_MEMORY.P3
+W2 -W3  @DIV3232B.P4
+W3      @WRITE_PACKED_MEMORY.P1
+W3      @READ_PACKED_MEMORY.P2
+W3      @READ_ROM_MEMORY.P3
+W4      @PRINTFD16_866.P1
+084     IFS0
+300     ADC1BUF0
+320     ADC1CON1
+322     ADC1CON2
+324     ADC1CON3
+328     AD1CHS0
+32C     AD1PCFGL
+630.6   C1OUT
+630.7   C2OUT
+800-801 @sprintf_string
+802-80A main.adcvalor
+80C-80D main.adcbuff
+80E-819 display_valueADC_title.cabecera
+80E-817 algoritmo.yECG
+80E-81E initmenu.cabecera
+818-819 algoritmo.der
+81A-81B algoritmo.maximo
+81C-81D algoritmo.maximo_ant
+81E-81F algoritmo.BCL
+820-821 algoritmo.BCL2
+820-82D initmenu.boton
+822-823 algoritmo.ppm
+824-825 algoritmo.flag
+826-827 algoritmo.k
+828-829 algoritmo.umbral
+82E-836 initmenu.palabra1
+838     LCD_cursor_at.line
+838-839 LCD_write.cd
+839     LCD_cursor_at.column
+83A     LCD_write.c
+83C     LCD_command.cmd
+3F80-3FFF _STACK_
+
+ROM Allocation:
+000200  isr_adc
+000224  @delay_ms1
+000224  @delay_ms1
+000224  @delay_ms1
+000224  @delay_ms1
+000234  @I2C_WRITEU_129
+00024C  LCD_command
+000280  lcdi2cinit
+000308  LCD_cursor_at
+000328  LCD_write
+000384  initmenu
+00040C  adcinit
+00042C  display_valueADC_title
+000456  algoritmo
+00050E  @SPRINTF
+00051C  @PRINTFD16_866
+00064C  @cinit1
+00064C  main
+00069E  @cinit2
+
+Project Directory:
+    C:\Users\rkgom\OneDrive\Master\2º\SDM\Trabajo-EEC\
+
+Project Files:
+    pruebaadc.c (link)                                      [16-dic.-20 20:57  CRC=7BC5D843]
+    lcd.h                                                   [16-dic.-20 20:15  CRC=E0F3E187]
+    common.h                                                [16-dic.-20 20:34  CRC=D872A938]
+    33FJ128MC804.h                                          [16-dic.-20 20:15  CRC=848CFDA1]
+    adc.h                                                   [16-dic.-20 20:15  CRC=245A5AFA]
+    Header.h                                                [16-dic.-20 20:15  CRC=1BAB2466]
+    algoritmo.h                                             [16-dic.-20 20:55  CRC=7392337C]
+    adc.c (link)                                            [16-dic.-20 20:15  CRC=7CF77F8C]
+    lcd.c (link)                                            [16-dic.-20 20:15  CRC=04F20255]
+    algoritmo.c (link)                                      [16-dic.-20 21:01  CRC=38EAEBA9]
+
+Source signature=61106CB2
+Program memory checksum=0000
+Hex file CRC=31E9
+
+Units:
+    C:\Users\rkgom\OneDrive\Master\2º\SDM\Trabajo-EEC\pruebaadc
+    C:\Users\rkgom\OneDrive\Master\2º\SDM\Trabajo-EEC\adc
+    C:\Users\rkgom\OneDrive\Master\2º\SDM\Trabajo-EEC\lcd
+    C:\Users\rkgom\OneDrive\Master\2º\SDM\Trabajo-EEC\algoritmo
+
+Compiler Settings:
+    Processor:      DSPIC33FJ128MC804
+    Pointer Size:   16
+    ADC Range:      0-65535
+    Opt Level:      9
+    Short,Int,Long: SIGNED: 8,16,32
+    Float,Double:   32,64
+    Compile Mode:       CCS5
+
+Output Files:
+    Errors:      adcprueba.err
+    INHX8:       adcprueba.hex
+    Symbols:     adcprueba.sym
+    List:        adcprueba.lst
+    Debug/COFF:  adcprueba.cof
+    Project:     adcprueba.ccspjt
+    Call Tree:   adcprueba.tre
+    Statistics:  adcprueba.STA

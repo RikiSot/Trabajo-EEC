@@ -1,5 +1,6 @@
 #include "lcd.h"
 #include "adc.h"
+#include "algoritmo.h"
 #include "common.h"
 
 void main()
@@ -18,7 +19,7 @@ void main()
   display_valueADC_title();
   while(1)
   {
-      adcbuff=ADC1BUF0;
+      adcbuff=algoritmo();
       sprintf(adcvalor,"%d   ",adcbuff);
       LCD_write(adcvalor);
       LCD_cursor_at(0,11);
