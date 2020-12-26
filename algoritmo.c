@@ -1,11 +1,26 @@
 
 #include "algoritmo.h"
 
+
+signed int yECG[5];
+unsigned int der, maximo, maximo_ant, PPM;
+unsigned int flag, k, umbral;
+float BCL, BCL2;
+
+
+void init_algoritmo(void)
+{
+
+	for(int i=0; i<5; i++)	yECG[i] = ADC1BUF0;
+	flag=0;
+	maximo = 0;
+	umbral = 0;
+	BCL = 0;
+
+}
+
 int algoritmo()
 {
-	signed int yECG[5];
-	unsigned int der, maximo, maximo_ant, BCL, BCL2, PPM;
-	unsigned int flag, k, umbral;
 
 	yECG[4] = yECG[3];
 	yECG[3] = yECG[2];
@@ -23,8 +38,10 @@ int algoritmo()
 		if(der > umbral)
 		{
 			flag = 1;
+			// basal cycle length
 			BCL2 = BCL;
 			BCL = 0;
+			BEEP(1);
 		}
 	}
 

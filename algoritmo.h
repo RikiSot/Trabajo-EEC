@@ -11,7 +11,9 @@
 #include "common.h"
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #include "adc.h"
+#include "BEEP.h"
 
 int algoritmo();
+void init_algoritmo(void);
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #endif // __ALGORITMO_H

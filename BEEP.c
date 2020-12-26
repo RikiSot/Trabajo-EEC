@@ -1,11 +1,8 @@
 #include "BEEP.h"
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-void BEEP_Init(unsigned int16 freq)		//4kHz -> T/2= 125us
+void BEEP_Init(void)		//4kHz -> T/2= 125us
 {
-	unsigned int16 fbeeps, presettimer;
-	fbeeps=70*freq-2620;
-	presettimer=5529600/fbeeps;
-	setup_timer3(TMR_INTERNAL|TMR_DIV_BY_1, presettimer); // Frecuencia de los beeps variable con frecuencia
+	setup_timer5(TMR_INTERNAL|TMR_DIV_BY_1, 1035); // 3kHz. Frecuencia de los beeps
 	set_compare_time(2, 0);
 	setup_compare(2, COMPARE_OFF);
 
@@ -30,7 +27,7 @@ void isr_TIMER4()			// Cada 100 ms. Espaciado entre beeps. Habra que asociarlo a
 {
 		if((N_beep%2)==1)
 		{
-			setup_compare(2, COMPARE_TOGGLE | COMPARE_TIMER3);
+			setup_compare(2, COMPARE_TOGGLE | COMPARE_TIMER5);
 		}
 		else
 		{
