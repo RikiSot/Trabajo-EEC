@@ -50,7 +50,7 @@ void LCD_command(unsigned int8);
 void lcdi2cinit(void);
 void LCD_write(char*);
 void initmenu(void);                                      //Inicializa el menu principal
-void display_frecuencia(char*);       // Muestra frecuencia
+void display_frecuencia(void);       // Muestra frecuencia
 void LCD_cursor_at(unsigned int8 line, unsigned int8 column);
 
 

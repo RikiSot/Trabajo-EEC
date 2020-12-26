@@ -11,9 +11,8 @@ void init_BT(void)
   	fprintf(BT,"R,1\r");       delay_ms(500); // Run device
 }
 
-void main()
+void enviar_datos()
 {
-	init_BT();
 	COM:
 	while(!input(COMM));
 		fprintf(BT,"$Representacion grafica,Funcion,datos 1\n");

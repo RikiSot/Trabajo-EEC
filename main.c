@@ -17,7 +17,8 @@ void main(void)
   // unsigned int16 frecuencia;      // Frecuencia cardíaca
   // unsigned int16 Sector;          // Sector de la SD
   // unsigned int1 filedetected;
-  int adcbuff;
+  int ppm;
+  char ppm_string[9];
 
   // -----------------------------------------
 
@@ -36,7 +37,6 @@ void main(void)
   //1.
   init_BT();
   lcdi2cinit();
-  adcinit();
 
   sd_init();
   sd_estructura();
@@ -56,8 +56,6 @@ void main(void)
     }
   }
 
-  //adcinit
-
   //2.
   initmenu();
   while(input(BTOK))
@@ -65,20 +63,41 @@ void main(void)
     delay_ms(100);
   }
 
-  //3.
+  //Inicializar algoritmo y adc
+  adcinit();
+  init_algoritmo();
+
+  //Mostrar pantalla de frecuencia
+  LCD_command(_CLEAR_DISPLAY);
+  display_frecuencia();
+
+  //3. Bucle del programa
   while(input(BTOK))
   {
-    //3.1
-    adcbuff=ADC1BUF0;
+    //3.1 Ejecutar algoritmo
+    ppm=algoritmo();
 
-    //3.2
+    //3.2 Enviar datos
+    enviar_datos();
+    //3.3 escribir en sd
 
-    //3.3
-    //dt=datos a escribir (fecha, valor); solo valor???
-        //time[]
-        //value[]
-        //dt[]="dd/mm/aa hh:mm:ss  PPM"
-    //3.4
-    // algoritmo()
+    //3.3 mostrar por pantalla
+    if(ppm=!ppm_anterior)
+    {
+      sprintf(ppm_string,"%d  ",ppm);
+      LCD_write(ppm_string);
+      LCD_cursor_at(0,16);
+      ppm_anterior=ppm;
+    }
+
+    //3.4 Generar alarmas si es necesario
+    if(ppm>=250 || ppm<=35)
+    {
+      LCD_command(_CLEAR_DISPLAY);
+      // mensaje error y alarma
+    }
+
+    //fin del bucle
   }
+  //fin de programa
 }

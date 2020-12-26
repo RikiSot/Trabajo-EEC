@@ -112,25 +112,18 @@ void errorfichero(void)
 	LCD_write(palabra1);
 }
 
-void display_frecuencia(char* frecuencia)
+void display_frecuencia(void)
 {
   LCD_command(_DISPLAY_ON_CURSOR_ON_BLINK_OFF);
-	char cabecera[]="FRECUENCIA: ";
-	char boton[]="-------------------";
-	char palabra1[]="PRESS OK BUTTON";
-  char ppm[]="PPM";
-	//char palabra2[]="OPCION 2";
-	//char palabra3[]="OPCION 3";
-	//char palabra4[]="OPCION 4";
-
+	char cabecera[]="FRECUENCIA PPM: ";
+  char palabra1[]="-------------";
+  char palabra2[]="PULSE OK PARA FINALIZAR";
 	LCD_cursor_at(0,0);
-	LCD_write(cabecera);
   LCD_write(frecuencia);
-  LCD_write(ppm);
-	LCD_cursor_at(1,0);
-	LCD_write(boton);
-	LCD_cursor_at(2,1);
-	LCD_write(palabra1);
+  LCD_cursor_at(1,0);
+  LCD_write(palabra1);
+  LCD_cursor_at(2,0);
+  LCD_write(palabra2);
 }
 
 void display_valueADC_title(void)
