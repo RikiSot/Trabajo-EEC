@@ -34,7 +34,7 @@ void main(void)
   //      3.7 Generar una flag si la frecuencia es X para activar interrupciones
 
   //1.
-  initBT();
+  init_BT();
   lcdi2cinit();
   adcinit();
 
