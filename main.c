@@ -101,3 +101,16 @@ void main(void)
   }
   //fin de programa
 }
+
+
+// correo para Julio
+
+/*
+preguntar si el algoritmo necesita un buffer o puede trabajar a tiempo real.
+no nos muestra las pulsaciones y no lo entendemos bien
+el resto esta solucionado mas o menos
+
+amplificador del eec. saca unsigned desde 0 o simplemente el valor de mv
+
+canal 4???
+*/

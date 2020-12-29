@@ -1,23 +1,17 @@
 
 #include "algoritmo.h"
 
+#define WINDOWSIZE 30   // Integrator window size, in samples. The article recommends 150ms. So, FS*0.15.												// However, you should check empirically if the waveform looks ok.
+#define NOSAMPLE -32000 // An indicator that there are no more samples to read. Use an impossible value for a sample.
+#define FS 200          // Sampling frequency.
+#define BUFFSIZE 600    // The size of the buffers (in samples). Must fit more than 1.66 times an RR interval, which
+                        // typically could be around 1 second.
 
 signed int yECG[5];
 unsigned int der, maximo, maximo_ant, PPM;
 unsigned int flag, k, umbral;
 float BCL, BCL2;
 
-
-void init_algoritmo(void)
-{
-
-	for(int i=0; i<5; i++)	yECG[i] = ADC1BUF0;
-	flag=0;
-	maximo = 0;
-	umbral = 0;
-	BCL = 0;
-
-}
 
 int algoritmo()
 {
@@ -54,7 +48,7 @@ int algoritmo()
 	//no se puede detectar otro punto RR
 	//solo pasado ese tiempo se hace el calculo
 
-	if(k >60)
+	if(k >60) // hay que calcular el tiempo que son 0.24s para nuestra freq (60 no)
 	{
 		k = 0;
 		flag = 0;

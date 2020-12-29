@@ -18,6 +18,8 @@
 #WORD AD1PCFGL = 0x032C;
 #WORD IFS0 = 0x0084;
 
+int adcbuffer[30]; // para cumplir con los 150 ms del articulo
+int adcbuffer2[30];
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 void adcinit(void);
