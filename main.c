@@ -49,56 +49,79 @@ void main(void)
   // Comprobar si existe el fichero y dar error si no existe
   if(!filedetected)
   {
-    errorfichero();
+
+    LCD_command(_CLEAR_DISPLAY);
+    LCD_cursor_at(0,0);
+    char errorfichero[]="File not found";
+    LCD_write(errorfichero);
+
     while(1)
     {
       //softbrick
     }
   }
 
-  //2.
+  //2. Menu bienvenida
   initmenu();
   while(input(BTOK))
   {
     delay_ms(100);
   }
 
-  //Inicializar algoritmo y adc
+  //Inicializar algoritmo, adc y timer2 a 250 Hz
   adcinit();
   init_algoritmo();
+  setup_timer2(TMR_INTERNAL, xx); // configurar según DELAY
 
   //Mostrar pantalla de frecuencia
   LCD_command(_CLEAR_DISPLAY);
   display_frecuencia();
 
+  delay_ms(4); // que al menos se ejecute el algoritmo una vez para no tener valores raros
+
   //3. Bucle del programa
   while(input(BTOK))
   {
-    //3.1 Ejecutar algoritmo
-    ppm=algoritmo();
+    //3.1 Ejecutar algoritmo cuando se active la flag (ISR)
 
-    //3.2 Enviar datos
-    enviar_datos();
-    //3.3 escribir en sd
 
-    //3.3 mostrar por pantalla
-    if(ppm=!ppm_anterior)
-    {
-      sprintf(ppm_string,"%d  ",ppm);
-      LCD_write(ppm_string);
-      LCD_cursor_at(0,16);
-      ppm_anterior=ppm;
-    }
-
-    //3.4 Generar alarmas si es necesario
-    if(ppm>=250 || ppm<=35)
+    //3.2 Generar alarmas si es necesario
+    if(PPM>=250 || PPM<=35)
     {
       LCD_command(_CLEAR_DISPLAY);
-      // mensaje error y alarma
+      LCD_cursor_at(0,0);
+      char peligro[]="PULSACIONES ANÓMALAS";
+      LCD_write(peligro)
+      while(PPM>=250 || PPM<=35)
+      {
+        BEEP(5);
+      }
+      LCD_command(_CLEAR_DISPLAY);
+      display_frecuencia();
     }
 
+    //3.3 Enviar datos y escribir cada x segundos
+    if(datos_flag)
+    {
+      enviar_datos();
+      escribir_sd();
+
+      //mostrar por pantalla
+      if(PPM=!ppm_anterior)
+      {
+        sprintf(ppm_string,"%d  ",PPM);
+        LCD_write(ppm_string);
+        LCD_cursor_at(0,16);
+        ppm_anterior=PPM;
+      }
+    }
     //fin del bucle
   }
+
+  LCD_command(_CLEAR_DISPLAY);
+  LCD_cursor_at(0,0);
+  char fin[]="Fin del programa";
+  LCD_write(fin);
   //fin de programa
 }
 

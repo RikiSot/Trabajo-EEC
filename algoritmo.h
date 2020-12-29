@@ -13,7 +13,9 @@
 #include "adc.h"
 #include "BEEP.h"
 
-int algoritmo();
+int PPM; // variable global
+
+void algoritmo();
 void init_algoritmo(void);
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #endif // __ALGORITMO_H

@@ -1,26 +1,43 @@
 
 #include "algoritmo.h"
+#include "common.h"
 
-#define WINDOWSIZE 30   // Integrator window size, in samples. The article recommends 150ms. So, FS*0.15.												// However, you should check empirically if the waveform looks ok.
-#define NOSAMPLE -32000 // An indicator that there are no more samples to read. Use an impossible value for a sample.
-#define FS 200          // Sampling frequency.
-#define BUFFSIZE 600    // The size of the buffers (in samples). Must fit more than 1.66 times an RR interval, which
-                        // typically could be around 1 second.
-
-signed int yECG[5];
-unsigned int der, maximo, maximo_ant, PPM;
+signed int yECG[5]; // 5 últimos valores
+unsigned int der, maximo, maximo_ant;
 unsigned int flag, k, umbral;
-float BCL, BCL2;
+float BCL, BCL2; // contador interno (1 BCL=4ms)
 
+#INT_TIMER2
 
-int algoritmo()
+void timer2_isr()
+{
+	algoritmo();
+}
+
+int init_algoritmo()
+{
+	BCL=0;
+	k=0;
+	umbral=0;
+	flag=0;
+	maximo=0;
+	maximo_ant=0;
+	for(int e=0; e<5; e++)
+	{
+		yECG[e]=read_adc();
+		delay_ms(4);
+	}
+}
+
+// Bucle principal del programa. Debe ejecutarse cada 4ms (250Hz).
+void algoritmo()
 {
 
 	yECG[4] = yECG[3];
 	yECG[3] = yECG[2];
 	yECG[2] = yECG[1];
 	yECG[1] = yECG[0];
-	yECG[0] = ADC1BUF0;
+	yECG[0] = read_adc();
 
 	//Valor absoluto de la derivada
 	der = (yECG[4] > yECG[0]) ? (yECG[4] - yECG[0]) : (yECG[0] - yECG[4]);
@@ -53,16 +70,16 @@ int algoritmo()
 		k = 0;
 		flag = 0;
 
-	//Me quedo con la Media del incremento MAX
-	//De estos 200 puntos y del incremento de los anteriores
+		//Me quedo con la Media del incremento MAX
+		//De estos 200 puntos y del incremento de los anteriores
 
-	umbral = (maximo + maximo_ant)/2;
-	maximo_ant = maximo;
-	maximo = 0;
+		umbral = (maximo + maximo_ant)/2;
+		maximo_ant = maximo;
+		maximo = 0;
 
-	//Reduzco el umbral al 66%
+		//Reduzco el umbral al 66%
 
-	umbral = umbral -(umbral/3);
+		umbral = umbral -(umbral/3);
 	}
 
 	//Si pasa un rato
@@ -84,5 +101,6 @@ int algoritmo()
 	{
 		PPM = (int)(15000/BCL2);
 	}
-return PPM;
+
+BCL=BCL+4;
 }
