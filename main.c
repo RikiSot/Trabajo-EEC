@@ -17,8 +17,15 @@ void main(void)
   // unsigned int16 frecuencia;      // Frecuencia cardíaca
   // unsigned int16 Sector;          // Sector de la SD
   // unsigned int1 filedetected;
-  int ppm;
   char ppm_string[9];
+  int datos_flag;
+  int ppm_anterior=0;
+  int peligro_flag, peligro_flag_ant;
+
+  //para debugging. Eliminar al final
+  datos_flag=1;
+  peligro_flag_ant=0;
+  PPM=70;
 
   // -----------------------------------------
 
@@ -35,43 +42,47 @@ void main(void)
   //      3.7 Generar una flag si la frecuencia es X para activar interrupciones
 
   //1.
-  init_BT();
+  //init_BT();
   lcdi2cinit();
+  BEEP_Init();
 
-  sd_init();
-  sd_estructura();
-  initFAT();
+  //sd_init();
+  //sd_estructura();
+  //initFAT();
 
 
   //carga config para leer el primer sector del fichero
-  filedetected=encontrar_fichero();
+  //filedetected=encontrar_fichero();
 
   // Comprobar si existe el fichero y dar error si no existe
-  if(!filedetected)
-  {
-
-    LCD_command(_CLEAR_DISPLAY);
-    LCD_cursor_at(0,0);
-    char errorfichero[]="File not found";
-    LCD_write(errorfichero);
-
-    while(1)
-    {
-      //softbrick
-    }
-  }
+  // if(!filedetected)
+  // {
+  //
+  //   LCD_command(_CLEAR_DISPLAY);
+  //   LCD_cursor_at(0,0);
+  //   char errorfichero[]="File not found";
+  //   LCD_write(errorfichero);
+  //
+  //   while(1)
+  //   {
+  //     //softbrick
+  //   }
+  // }
 
   //2. Menu bienvenida
   initmenu();
   while(input(BTOK))
   {
-    delay_ms(100);
+    delay_ms(50);
   }
-
+  while(!input(BTOK)) // para evitar rebotes y finalizar el programa
+  {
+    delay_ms(50);
+  }
   //Inicializar algoritmo, adc y timer2 a 250 Hz
   adcinit();
+  setup_timer2(TMR_INTERNAL | TMR_DIV_BY_64, 6000); // configurar según DELAY (10 Hz para debug)
   init_algoritmo();
-  setup_timer2(TMR_INTERNAL, xx); // configurar según DELAY
 
   //Mostrar pantalla de frecuencia
   LCD_command(_CLEAR_DISPLAY);
@@ -88,34 +99,45 @@ void main(void)
     //3.2 Generar alarmas si es necesario
     if(PPM>=250 || PPM<=35)
     {
-      LCD_command(_CLEAR_DISPLAY);
-      LCD_cursor_at(0,0);
-      char peligro[]="PULSACIONES ANÓMALAS";
-      LCD_write(peligro)
-      while(PPM>=250 || PPM<=35)
+      if(peligro_flag_ant==0)
       {
-        BEEP(5);
+        LCD_command(_CLEAR_DISPLAY);
+        LCD_cursor_at(0,0);
+        char peligro[]="PULSACIONES ANOMALAS";
+        LCD_write(peligro);
       }
-      LCD_command(_CLEAR_DISPLAY);
-      display_frecuencia();
+      peligro_flag=1;
+    }
+    else
+    {
+      if(peligro_flag_ant)
+      {
+        LCD_command(_CLEAR_DISPLAY);
+        display_frecuencia();
+      }
+      peligro_flag=0;
     }
 
     //3.3 Enviar datos y escribir cada x segundos
     if(datos_flag)
     {
-      enviar_datos();
-      escribir_sd();
+      //enviar_datos();
+      //escribir_sd();
 
       //mostrar por pantalla
-      if(PPM=!ppm_anterior)
+      if(peligro_flag==0)
       {
-        sprintf(ppm_string,"%d  ",PPM);
-        LCD_write(ppm_string);
-        LCD_cursor_at(0,16);
-        ppm_anterior=PPM;
+        if(PPM!=ppm_anterior)
+        {
+          sprintf(ppm_string,"%d  ",PPM);
+          LCD_cursor_at(0,16);
+          LCD_write(ppm_string);
+        }
       }
     }
     //fin del bucle
+    peligro_flag_ant=peligro_flag;
+    ppm_anterior=PPM;
   }
 
   LCD_command(_CLEAR_DISPLAY);

@@ -6,6 +6,7 @@
 #include "adc.h"
 #include "lcd.h"
 #include "Header.h"
+#include "algoritmo.h"
 
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #endif

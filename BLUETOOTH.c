@@ -19,14 +19,14 @@ void enviar_datos()
  		fprintf(BT,"&0,1000,0,1,0\n");
  		fprintf(BT,"#0,200,0,1,0\n");
 
-	while(1)
-	{
- 		phase= (phase < 2*3.1416) ? (phase + 0.01) : 0;
- 		snd = (unsigned int8)(100+50*sin(phase)+30*sin(2*phase+0.5)-20*sin(7*phase+1));
- 		fprintf(BT, "%3u\n", snd);
-		delay_ms(10);
-		if(!input(COMM))
-		goto COM;
-	}
+	// while(1)
+	// {
+ 	// 	phase= (phase < 2*3.1416) ? (phase + 0.01) : 0;
+ 	// 	snd = (unsigned int8)(100+50*sin(phase)+30*sin(2*phase+0.5)-20*sin(7*phase+1));
+ 	// 	fprintf(BT, "%3u\n", snd);
+	// 	delay_ms(10);
+	// 	if(!input(COMM))
+	// 	goto COM;
+	// }
 }
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

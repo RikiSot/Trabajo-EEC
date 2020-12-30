@@ -9,22 +9,25 @@ ADC1CON3
 AD1CHS0
 AD1PCFGL
 IFS0
+PPM
 
 Project Directory:
-    C:\Users\rkgom\OneDrive\Master\2º\SDM\Trabajo-EEC\
+    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\
 
 Project Files:
-    lcd.c                                                   [16-dic.-20 20:15  CRC=04F20255]
-    lcd.h                                                   [16-dic.-20 20:15  CRC=E0F3E187]
-    common.h                                                [16-dic.-20 20:34  CRC=D872A938]
-    33FJ128MC804.h                                          [16-dic.-20 20:15  CRC=848CFDA1]
-    adc.h                                                   [16-dic.-20 20:15  CRC=245A5AFA]
-    Header.h                                                [16-dic.-20 20:15  CRC=1BAB2466]
+    lcd.c                                                   [30-dic.-20 17:59  CRC=4029C979]
+    lcd.h                                                   [26-dic.-20 19:11  CRC=4E2786D7]
+    common.h                                                [30-dic.-20 17:16  CRC=34F1C27D]
+    33FJ128MC804.h                                          [30-dic.-20 17:13  CRC=C2AA7534]
+    adc.h                                                   [29-dic.-20 19:04  CRC=0C4AB9F2]
+    Header.h                                                [30-dic.-20 17:11  CRC=5139A6EC]
+    algoritmo.h                                             [30-dic.-20 17:42  CRC=936E1E75]
+    BEEP.h                                                  [16-dic.-20 20:15  CRC=C1809EBC]
 
-Source signature=9E962E7B
+Source signature=F9E144CC
 
 Units:
-    C:\Users\rkgom\OneDrive\Master\2º\SDM\Trabajo-EEC\lcd
+    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\lcd
 
 Compiler Settings:
     Processor:      DSPIC33FJ128MC804
@@ -33,8 +36,12 @@ Compiler Settings:
     Opt Level:      9
     Short,Int,Long: SIGNED: 8,16,32
     Float,Double:   32,64
+    ICD Provisions: Yes
     Output file:    Relocatable
     Compile Mode:       CCS5
+    Predefined symbols:
+       #define __DEBUG 1
+       #define __dsPIC33FJ128MC804__ TRUE
 
 Output Files:
     Errors:      lcd.err

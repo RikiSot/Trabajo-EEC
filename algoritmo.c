@@ -11,10 +11,11 @@ float BCL, BCL2; // contador interno (1 BCL=4ms)
 
 void timer2_isr()
 {
-	algoritmo();
+	//algoritmo();
+	output_toggle(PIN_B10);
 }
 
-int init_algoritmo()
+void init_algoritmo()
 {
 	BCL=0;
 	k=0;
@@ -27,6 +28,7 @@ int init_algoritmo()
 		yECG[e]=read_adc();
 		delay_ms(4);
 	}
+	enable_interrupts(INT_TIMER2);
 }
 
 // Bucle principal del programa. Debe ejecutarse cada 4ms (250Hz).

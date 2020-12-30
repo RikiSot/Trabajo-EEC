@@ -1,0 +1,39 @@
+_RETURN_
+_STACK_
+C1OUT
+C2OUT
+phase
+snd
+
+Project Directory:
+    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\
+
+Project Files:
+    BLUETOOTH.c                                             [30-dic.-20 17:15  CRC=AF45A419]
+    BLUETOOTH.h                                             [26-dic.-20 19:04  CRC=861F8EE4]
+    Header.h                                                [30-dic.-20 17:11  CRC=5139A6EC]
+    33FJ128MC804.h                                          [30-dic.-20 17:13  CRC=C2AA7534]
+
+Source signature=0BF3C451
+
+Units:
+    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\BLUETOOTH
+
+Compiler Settings:
+    Processor:      DSPIC33FJ128MC804
+    Pointer Size:   16
+    ADC Range:      0-65535
+    Opt Level:      9
+    Short,Int,Long: SIGNED: 8,16,32
+    Float,Double:   32,64
+    ICD Provisions: Yes
+    Output file:    Relocatable
+    Compile Mode:       CCS5
+    Predefined symbols:
+       #define __DEBUG 1
+       #define __dsPIC33FJ128MC804__ TRUE
+
+Output Files:
+    Errors:      BLUETOOTH.err
+    Object:      BLUETOOTH.o
+    Symbols:     BLUETOOTH.osym

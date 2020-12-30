@@ -1,0 +1,154 @@
+W0      @SCRATCH
+W0      @PRINTFD16_874.P1
+W0      @delay_us1.P2
+W0      @delay_ms1.P3
+W0 -W1  @DIVFF.P4
+W0 -W1  @READ_ROM_MEMORY.P5
+W0 -W1  @DIV3232B.P6
+W0 -W1  @SFTOI.P7
+W0 -W1  @FLT.P8
+W0L     @SPRINTF.P9
+W0L     _RETURN_
+W0 -W1  @ADDFF.P1
+W1      @SCRATCH
+W1L     @I2C_WRITEU_129.P1
+W1      @READ_PACKED_MEMORY.P2
+W1      @WRITE_PACKED_MEMORY.P3
+W1L     @I2C_READU_129.P4
+W2 -W3  @ADDFF.P1
+W2      @READ_PACKED_MEMORY.P2
+W2 -W3  @DIVFF.P3
+W2 -W3  @DIV3232B.P4
+W2      @READ_ROM_MEMORY.P5
+W2 -W3  @FLT.P6
+W2      @WRITE_PACKED_MEMORY.P7
+W3      @WRITE_PACKED_MEMORY.P1
+W3      @READ_ROM_MEMORY.P2
+W3      @READ_PACKED_MEMORY.P3
+W4      @PRINTFD16_874.P1
+084     IFS0
+300     ADC1BUF0
+320     ADC1CON1
+322     ADC1CON2
+324     ADC1CON3
+328     AD1CHS0
+32C     AD1PCFGL
+630.6   C1OUT
+630.7   C2OUT
+85A-85B PPM
+85C-85D PPM
+85E-867 yECG
+868-869 der
+86A-86B maximo
+86C-86D maximo_ant
+86E-86F flag
+870-871 k
+872-873 umbral
+874-877 BCL
+878-87B BCL2
+87C-87D PPM
+87E     N_beep
+87F     snd
+880-883 phase
+884-885 PPM
+886-887 PPM
+888-889 @sprintf_string
+88A-892 MAIN.ppm_string
+894-895 MAIN.datos_flag
+896-897 MAIN.ppm_anterior
+898-899 MAIN.peligro_flag
+89A-89B MAIN.peligro_flag_ant
+89C-8B0 MAIN.peligro
+8B2-8C2 MAIN.fin
+8C4-8D4 initmenu.cabecera
+8C4-8D4 display_frecuencia.cabecera
+8C4-8C5 init_algoritmo.e
+8D6-8E3 initmenu.boton
+8D6-8E9 display_frecuencia.palabra1
+8E4-8EC initmenu.palabra1
+8EA-8FD display_frecuencia.palabra2
+8FE     LCD_cursor_at.line
+8FE-8FF LCD_write.cd
+8FF     LCD_cursor_at.column
+900     LCD_write.c
+904     LCD_command.cmd
+3F70-3FFF _STACK_
+
+ROM Allocation:
+000200  timer2_isr
+000224  isr_TIMER4
+00026E  @delay_ms1
+00026E  @delay_ms1
+00026E  @delay_ms1
+00026E  @delay_ms1
+00026E  @delay_ms1
+00026E  @delay_ms1
+00027E  @I2C_WRITEU_129
+000296  LCD_command
+0002CA  lcdi2cinit
+000352  BEEP_Init
+00036C  LCD_cursor_at
+00038C  LCD_write
+0003E8  initmenu
+000470  adcinit
+000482  init_algoritmo
+0004BE  display_frecuencia
+00056E  @SPRINTF
+00057C  @PRINTFD16_874
+0006AC  MAIN
+0006AC  @cinit1
+00071C  @cinit2
+0136  COM
+
+Project Directory:
+    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\
+
+Project Files:
+    adc.c (link)                                            [29-dic.-20 19:04  CRC=454C2831]
+    adc.h                                                   [29-dic.-20 19:04  CRC=0C4AB9F2]
+    common.h                                                [30-dic.-20 17:16  CRC=34F1C27D]
+    33FJ128MC804.h                                          [30-dic.-20 17:13  CRC=C2AA7534]
+    lcd.h                                                   [26-dic.-20 19:11  CRC=4E2786D7]
+    Header.h                                                [30-dic.-20 17:11  CRC=5139A6EC]
+    algoritmo.h                                             [30-dic.-20 17:42  CRC=936E1E75]
+    BEEP.h                                                  [16-dic.-20 20:15  CRC=C1809EBC]
+    algoritmo.c (link)                                      [30-dic.-20 17:42  CRC=7FE34F72]
+    BEEP.c (link)                                           [30-dic.-20 17:22  CRC=DD012E79]
+    BLUETOOTH.c (link)                                      [30-dic.-20 17:15  CRC=AF45A419]
+    BLUETOOTH.h                                             [26-dic.-20 19:04  CRC=861F8EE4]
+    lcd.c (link)                                            [30-dic.-20 17:59  CRC=4029C979]
+    main.c (link)                                           [30-dic.-20 17:56  CRC=BC8AD93A]
+
+Source signature=890C319D
+Program memory checksum=0000
+Hex file CRC=C895
+
+Units:
+    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\adc
+    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\algoritmo
+    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\BEEP
+    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\BLUETOOTH
+    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\lcd
+    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\main
+
+Compiler Settings:
+    Processor:      DSPIC33FJ128MC804
+    Pointer Size:   16
+    ADC Range:      0-65535
+    Opt Level:      9
+    Short,Int,Long: SIGNED: 8,16,32
+    Float,Double:   32,64
+    ICD Provisions: Yes
+    Compile Mode:       CCS5
+    Predefined symbols:
+       #define __dsPIC33FJ128MC804__ TRUE
+
+Output Files:
+    Errors:      eec.err
+    INHX8:       eec.hex
+    Symbols:     eec.sym
+    List:        eec.lst
+    Debug/COFF:  eec.cof
+    Project:     eec.ccspjt
+    Call Tree:   eec.tre
+    Statistics:  eec.STA

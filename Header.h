@@ -1,4 +1,8 @@
+#ifndef HEADER_h
+#define HEADER_h
+//-------------------------------------------------------------------
 
+#include "33FJ128MC804.h"
 
 #fuses NOJTAG      // JTAG port is disabled
 #fuses NOPROTECT   // Code protection is disabled
@@ -11,10 +15,10 @@
 #fuses CKSNOFSM    // Clock switching is enabled, Fail-Safe Clock Monitor is disabled
 #fuses OSCIO       // OSCO Pin Configuration bit: OSCO/CLKO/RC15 functions as port I/O (RC15)
 #fuses NOPR        // Primary Oscillator Configuration bits: Primary Oscillator mode is disabled
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #use delay(clock=7370000)
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-#define ON( pin)   output_high(pin)
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#define ON(pin)   output_high(pin)
 #define OFF(pin)   output_low( pin)
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 //#define SDA1         PIN_B9  //                    ( 1)
@@ -37,7 +41,7 @@
 //                     AVDD    //                    (17)
 //                     ~MCLR   //                    (18)
 #define BTIN           PIN_A0  //                    (19)
-#define POT  		   PIN_A1  //                    (20)
+#define POT  		       PIN_A1  //                    (20)
 //                     PIN_B0  //                    (21)
 //                     PIN_B1  //                    (22)
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -54,7 +58,7 @@
 //                     PIN_B4  //                    (33)
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 //                     PIN_A4  //                    (34)
-#define COMM           PIN_A9  //                    (35) 
+#define COMM           PIN_A9  //                    (35)
 #pin_select U1TX =     PIN_C3  //                    (36)
 #pin_select U1RX =     PIN_C4  //                    (37)
 #define SS             PIN_C5  //                    (38)
@@ -65,3 +69,5 @@
 #pin_select SDO1 =     PIN_B7  //                    (43)
 //#define SCL1         PIN_B8  //                    (44)
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#endif

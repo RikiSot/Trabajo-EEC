@@ -114,12 +114,12 @@ void errorfichero(void)
 
 void display_frecuencia(void)
 {
-  LCD_command(_DISPLAY_ON_CURSOR_ON_BLINK_OFF);
+  LCD_command(_DISPLAY_ON_CURSOR_OFF_BLINK_OFF);
 	char cabecera[]="FRECUENCIA PPM: ";
-  char palabra1[]="-------------";
-  char palabra2[]="PULSE OK PARA FINALIZAR";
+  char palabra1[]="-------------------";
+  char palabra2[]="BTOK PARA FINALIZAR";
 	LCD_cursor_at(0,0);
-  LCD_write(frecuencia);
+  LCD_write(cabecera);
   LCD_cursor_at(1,0);
   LCD_write(palabra1);
   LCD_cursor_at(2,0);

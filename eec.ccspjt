@@ -1,0 +1,20 @@
+[PROJECT]
+Target=eec.hex
+Processor_Text=DSPIC33FJ128MC804
+CCSVersion=5.091
+Compiler=PCD
+[Target Data]
+FileList=$linker.c
+[eec.c]
+Type=4
+[mru-list]
+1=eec.c
+[Units]
+Count=6
+1=adc
+2=algoritmo
+3=BEEP
+4=BLUETOOTH
+5=lcd
+6=main
+Link=1

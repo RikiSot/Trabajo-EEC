@@ -1,3 +1,7 @@
+
+#ifndef LIB_h
+#define LIB_h
+
 //////////// Standard Header file for the DSPIC33FJ128MC804 device ////////////////
 ///////////////////////////////////////////////////////////////////////////
 ////        (C) Copyright 1996, 2014 Custom Computer Services          ////
@@ -307,7 +311,7 @@ _bif void set_compare_time(unsigned int8 module, unsigned int16 ocr, unsigned in
 #define COMPARE_OFF               0x0000  // Compare OFF
 #define COMPARE_SET_ON_MATCH      0x0001  // Pin from low to high on match
 #define COMPARE_CLR_ON_MATCH      0x0002  // Pin from high to low on match
-#define COMPARE_TOGGEL            0x0003  // Pin will toggle on every match occurrence
+#define COMPARE_TOGGLE            0x0003  // Pin will toggle on every match occurrence
 #define COMPARE_SINGLE_PULSE      0x0004  // Pin will generate single pulse on first match
 #define COMPARE_CONT_PULSE        0x0005  // Pin will pulse for every match
 #define COMPARE_PWM               0x0006  // Compare operates as PWM with fault pin disabled
@@ -1121,7 +1125,7 @@ _bif int1 get_capture_event(unsigned int8 stream);
 
 // Address Prototypes:
 #ifndef __ADDRESS__
- #define __ADDRESS__ unsigned int32
+#define __ADDRESS__ unsigned int32
 #endif
 _bif void goto_address(__ADDRESS__ address);
 _bif __ADDRESS__ label_address(__ADDRESS__ label);
@@ -1225,3 +1229,5 @@ _bif void jump_to_isr(unsigned int16 address);
 #define INT_DAC1L                 178
 
 #list
+
+#endif

@@ -10,33 +10,25 @@ AD1CHS0
 AD1PCFGL
 IFS0
 PPM
-yECG
-der
-maximo
-maximo_ant
-flag
-k
-umbral
-BCL
-BCL2
+N_beep
 
 Project Directory:
     C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\
 
 Project Files:
-    algoritmo.c                                             [30-dic.-20 17:42  CRC=7FE34F72]
-    algoritmo.h                                             [30-dic.-20 17:42  CRC=936E1E75]
-    common.h                                                [30-dic.-20 17:16  CRC=34F1C27D]
+    BEEP.c                                                  [30-dic.-20 17:22  CRC=DD012E79]
+    BEEP.h                                                  [16-dic.-20 20:15  CRC=C1809EBC]
+    Header.h                                                [30-dic.-20 17:11  CRC=5139A6EC]
     33FJ128MC804.h                                          [30-dic.-20 17:13  CRC=C2AA7534]
+    common.h                                                [30-dic.-20 17:16  CRC=34F1C27D]
     adc.h                                                   [29-dic.-20 19:04  CRC=0C4AB9F2]
     lcd.h                                                   [26-dic.-20 19:11  CRC=4E2786D7]
-    Header.h                                                [30-dic.-20 17:11  CRC=5139A6EC]
-    BEEP.h                                                  [16-dic.-20 20:15  CRC=C1809EBC]
+    algoritmo.h                                             [30-dic.-20 17:42  CRC=936E1E75]
 
-Source signature=399ACAC5
+Source signature=68A62985
 
 Units:
-    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\algoritmo
+    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\BEEP
 
 Compiler Settings:
     Processor:      DSPIC33FJ128MC804
@@ -53,6 +45,6 @@ Compiler Settings:
        #define __dsPIC33FJ128MC804__ TRUE
 
 Output Files:
-    Errors:      algoritmo.err
-    Object:      algoritmo.o
-    Symbols:     algoritmo.osym
+    Errors:      BEEP.err
+    Object:      BEEP.o
+    Symbols:     BEEP.osym

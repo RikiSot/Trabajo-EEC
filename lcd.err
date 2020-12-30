@@ -1,3 +1,4 @@
-Compiling C:\Users\rkgom\OneDrive\Master\2º\SDM\Trabajo-EEC\lcd on 16-dic.-20 at 21:01
-C:\Users\rkgom\OneDrive\Master\2º\SDM\Trabajo-EEC\lcd.o ===>  0 Errors,  0 Warnings.
+Compiling C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\lcd on 30-dic.-20 at 17:59
+>>> Warning 202 "C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\algoritmo.h" Line 16(5,8): Variable never used:   PPM
+C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\lcd.o ===>  0 Errors,  1 Warnings.
 Build Successful.
