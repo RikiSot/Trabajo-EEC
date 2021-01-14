@@ -9,6 +9,17 @@
 
 #include <common.h>
 
+int ppm;
+
+#INT_TIMER2
+
+void timer2_isr()
+{
+	ppm=algoritmo();
+	output_toggle(PIN_B10);
+}
+
+
 void main(void)
 {
   //Declaración e inicialización de variables
@@ -25,7 +36,6 @@ void main(void)
   //para debugging. Eliminar al final
   datos_flag=1;
   peligro_flag_ant=0;
-  PPM=70;
 
   // -----------------------------------------
 
@@ -97,7 +107,7 @@ void main(void)
 
 
     //3.2 Generar alarmas si es necesario
-    if(PPM>=250 || PPM<=35)
+    if(ppm>=250 || ppm<=35)
     {
       if(peligro_flag_ant==0)
       {
@@ -127,17 +137,17 @@ void main(void)
       //mostrar por pantalla
       if(peligro_flag==0)
       {
-        if(PPM!=ppm_anterior)
+        if(ppm!=ppm_anterior)
         {
-          sprintf(ppm_string,"%d  ",PPM);
+          sprintf(ppm_string,"%d  ",ppm);
           LCD_cursor_at(0,16);
           LCD_write(ppm_string);
+          ppm_anterior=ppm;
         }
       }
     }
     //fin del bucle
     peligro_flag_ant=peligro_flag;
-    ppm_anterior=PPM;
   }
 
   LCD_command(_CLEAR_DISPLAY);
