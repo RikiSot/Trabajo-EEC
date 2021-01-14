@@ -7,13 +7,6 @@ unsigned int der, maximo, maximo_ant;
 unsigned int flag, k, umbral;
 float BCL, BCL2; // contador interno (1 BCL=4ms)
 
-#INT_TIMER2
-
-void timer2_isr()
-{
-	//algoritmo();
-	output_toggle(PIN_B10);
-}
 
 void init_algoritmo()
 {
@@ -32,9 +25,9 @@ void init_algoritmo()
 }
 
 // Bucle principal del programa. Debe ejecutarse cada 4ms (250Hz).
-void algoritmo()
+int algoritmo(void)
 {
-
+	int pulsaciones;
 	yECG[4] = yECG[3];
 	yECG[3] = yECG[2];
 	yECG[2] = yECG[1];
@@ -101,8 +94,8 @@ void algoritmo()
 
 	if((BCL2 > 65) && (BCL2 < 500))
 	{
-		PPM = (int)(15000/BCL2);
+		pulsaciones = (int)(15000/BCL2);
 	}
-
 BCL=BCL+4;
+return pulsaciones;
 }
