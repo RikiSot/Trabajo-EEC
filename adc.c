@@ -11,9 +11,10 @@
 
 void adcinit(void) //por comprobar en la placa
 {
+    output_high(BTCM);
     setup_adc(ADC_CLOCK_INTERNAL);
-    setup_adc_ports(sAN4);
-    set_adc_channel(0);
+    setup_adc_ports(sAN4, VSS_VDD);
+    set_adc_channel(4);
 //   setup_timer3(TMR_INTERNAL, 18425); //  200 Hz. Ty/2/18425
 //   ADC1CON2 = 0b0000000000000000; // voltage reference en ADC1CON2
 //   ADC1CON3 = 0b1000000000000000; // select the analog conversion clock <7:0> y <15> para enable Tad

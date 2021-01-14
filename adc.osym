@@ -12,22 +12,22 @@ AD1PCFGL
 IFS0
 
 Project Directory:
-    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\
+    F:\Industriales\Especialidad\SDM\Trabajo-EEC\
 
 Project Files:
-    adc.c                                                   [29-dic.-20 19:04  CRC=454C2831]
+    adc.c                                                   [14-ene.-21 18:32  CRC=D1F8E8DC]
     adc.h                                                   [29-dic.-20 19:04  CRC=0C4AB9F2]
     common.h                                                [30-dic.-20 17:16  CRC=34F1C27D]
     33FJ128MC804.h                                          [30-dic.-20 17:13  CRC=C2AA7534]
     lcd.h                                                   [26-dic.-20 19:11  CRC=4E2786D7]
     Header.h                                                [30-dic.-20 17:11  CRC=5139A6EC]
-    algoritmo.h                                             [30-dic.-20 17:42  CRC=936E1E75]
+    algoritmo.h                                             [14-ene.-21 18:36  CRC=936E1E75]
     BEEP.h                                                  [16-dic.-20 20:15  CRC=C1809EBC]
 
-Source signature=FF03A384
+Source signature=8BB0642F
 
 Units:
-    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\adc
+    F:\Industriales\Especialidad\SDM\Trabajo-EEC\adc
 
 Compiler Settings:
     Processor:      DSPIC33FJ128MC804

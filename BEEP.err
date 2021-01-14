@@ -1,4 +1,4 @@
-Compiling C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\BEEP on 30-dic.-20 at 17:59
->>> Warning 202 "C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\algoritmo.h" Line 16(5,8): Variable never used:   PPM
-C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\BEEP.o ===>  0 Errors,  1 Warnings.
+Compiling F:\Industriales\Especialidad\SDM\Trabajo-EEC\BEEP on 14-ene.-21 at 18:36
+>>> Warning 202 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\algoritmo.h" Line 16(5,8): Variable never used:   PPM
+F:\Industriales\Especialidad\SDM\Trabajo-EEC\BEEP.o ===>  0 Errors,  1 Warnings.
 Build Successful.
