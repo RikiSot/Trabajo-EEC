@@ -11,7 +11,7 @@ void init_BT(void)
   	fprintf(BT,"R,1\r");       delay_ms(500); // Run device
 }
 
-void enviar_datos()
+void enviar_datos(unsigned int16 ppm)
 {
 	COM:
 	while(!input(COMM));
@@ -21,7 +21,7 @@ void enviar_datos()
 
 	while(1)
 	{
- 		fprintf(BT, "%3d\n", PPM);
+ 		fprintf(BT, "%3d\n", ppm);
 		delay_ms(10);
 		if(!input(COMM))
 		goto COM;

@@ -9,75 +9,59 @@
 
 #include <common.h>
 
-int ppm;
+unsigned int16 ppm;
+int1 datos_flag;
 
 #INT_TIMER2
 
 void timer2_isr()
 {
 	ppm=algoritmo();
-	output_toggle(PIN_B10);
 }
 
+#INT_TIMER5
+void timer5_isr()
+{
+	datos_flag=1;
+}
 
 void main(void)
 {
   //Declaración e inicialización de variables
 
-  // unsigned int16 analogsignal;    // Señal analógica leída del ADC
-  // unsigned int16 frecuencia;      // Frecuencia cardíaca
-  // unsigned int16 Sector;          // Sector de la SD
-  // unsigned int1 filedetected;
   char ppm_string[9];
-  int datos_flag;
-  int ppm_anterior=0;
-  int peligro_flag, peligro_flag_ant;
+
+	// Flags del programa
+  int1 peligro_flag, peligro_flag_ant, altas, bajas;
+
+  unsigned int16 ppm_anterior=0;
+
+
+	peligro_flag_ant=0;
+	altas=0;
+	bajas=0;
 
   //para debugging. Eliminar al final
   datos_flag=1;
-  peligro_flag_ant=0;
+
 
   // -----------------------------------------
 
-  // 1. Inicialización de módulos (BT, LCD, ADC)
-  //      encontrar fichero de datos anterior o crear uno nuevo
+  // 1. Inicialización de módulos (BT, LCD)
   // 2. Menu de bienvenida y espera a BTOK
-  // 3. Bucle de programa. Finalizar al pulsar BTOK
-  //      3.1 Muestreo de señal (ADC)
-  //      3.2 Envío de los datos por bluetooth
-  //      3.3 Guardar datos en SD (formato??)
-  //      3.4 Cálculo de la frecuencia
-  //      3.5 Display frecuencia en LCD
-  //      3.6 Generar beep de acuerdo a la frecuencia (no n beeps, beep con corazón). Interrupcion cuando se encuentra pico
-  //      3.7 Generar una flag si la frecuencia es X para activar interrupciones
+	// 3. Inicializar ADC y rutina del algoritmo
+  // 4. Bucle de programa. Finalizar al pulsar BTOK
+	//			4.1 Un ISR temporizado calcula las ppm
+  //      4.2 Generar alarmas si es necesario
+  //      4.3 Mostrar por pantalla
+  //      4.4 Envío de datos
+
 
   //1.
   //init_BT();
   lcdi2cinit();
   BEEP_Init();
-
   //sd_init();
-  //sd_estructura();
-  //initFAT();
-
-
-  //carga config para leer el primer sector del fichero
-  //filedetected=encontrar_fichero();
-
-  // Comprobar si existe el fichero y dar error si no existe
-  // if(!filedetected)
-  // {
-  //
-  //   LCD_command(_CLEAR_DISPLAY);
-  //   LCD_cursor_at(0,0);
-  //   char errorfichero[]="File not found";
-  //   LCD_write(errorfichero);
-  //
-  //   while(1)
-  //   {
-  //     //softbrick
-  //   }
-  // }
 
   //2. Menu bienvenida
   initmenu();
@@ -89,83 +73,86 @@ void main(void)
   {
     delay_ms(50);
   }
-  //Inicializar algoritmo, adc y timer2 a 250 Hz
+
+
+  //3. Inicializar algoritmo, adc y timer2 a 250 Hz
   adcinit();
-  setup_timer2(TMR_INTERNAL | TMR_DIV_BY_64, 6000); // configurar según DELAY (10 Hz para debug)
+  setup_timer2(TMR_INTERNAL | TMR_DIV_BY_8, 1843); // 7370000/2/8/1843 = 4 ms
+	setup_timer5(TMR_INTERNAL | TMR_DIV_BY_8, 1843); // 7370000/2/8/1843 = 4 ms
   init_algoritmo();
 
   //Mostrar pantalla de frecuencia
-  LCD_command(_CLEAR_DISPLAY);
   display_frecuencia();
-
   delay_ms(4); // que al menos se ejecute el algoritmo una vez para no tener valores raros
 
-  //3. Bucle del programa
+  //4. Bucle del programa
   while(input(BTOK))
   {
-    //3.1 Ejecutar algoritmo cuando se active la flag (ISR)
 
-
-    //3.2 Generar alarmas si es necesario
+    //4.1 Generar alarmas si es necesario
     if(ppm>=250 || ppm<=35)
     {
-      if(peligro_flag_ant==0)
+      if(peligro_flag_ant==0) // si no ha habido peligro antes hay que actualizar la pantalla y el buzzer
       {
-        LCD_command(_CLEAR_DISPLAY);
-        LCD_cursor_at(0,0);
-        char peligro[]="PULSACIONES ANOMALAS";
-        LCD_write(peligro);
+				if(ppm>=250) // caso alto
+				{
+					if(!altas) // Solo actualizar pantalla si corresponde
+					{
+						display_alarma_alto();
+						altas=1;
+						bajas=0;
+						ON(BUZZER);
+					}
+				}
+				if(ppm<=35) // caso bajo
+				{
+					if(!bajas)
+					{
+						display_alarma_bajo();
+						bajas=1;
+						altas=0;
+						ON(BUZZER);
+					}
+				}
       }
       peligro_flag=1;
-    }
+
+    }//fin bloque de alarmas
+
+
+		//4.2 Mostrar por pantalla en funcionamiento normal
     else
     {
-      if(peligro_flag_ant)
+      if(peligro_flag_ant) // si antes ha habido peligro pero ahora no. hay que actualizar pantalla y apagar el buzzer
       {
-        LCD_command(_CLEAR_DISPLAY);
         display_frecuencia();
+				OFF(BUZZER);
       }
-      peligro_flag=0;
+      peligro_flag=0; // actualizar flag
+			bajas=0;
+			altas=0;
+
+			if(ppm!=ppm_anterior) // mostrar por pantalla si ha cambiado el valor
+			{
+				sprintf(ppm_string,"%d  ",ppm); // crear cadena con espacios para borrar el valor anterior
+				LCD_cursor_at(0,16);
+				LCD_write(ppm_string);
+				ppm_anterior=ppm; 							// actualizar pulsaciones anteriores
+			}
     }
 
-    //3.3 Enviar datos y escribir cada x segundos
+    //4.3 Enviar datos y escribir cada x segundos
     if(datos_flag)
     {
       //enviar_datos();
       //escribir_sd();
+			datos_flag=0;
+		}
 
-      //mostrar por pantalla
-      if(peligro_flag==0)
-      {
-        if(ppm!=ppm_anterior)
-        {
-          sprintf(ppm_string,"%d  ",ppm);
-          LCD_cursor_at(0,16);
-          LCD_write(ppm_string);
-          ppm_anterior=ppm;
-        }
-      }
-    }
     //fin del bucle
     peligro_flag_ant=peligro_flag;
   }
 
-  LCD_command(_CLEAR_DISPLAY);
-  LCD_cursor_at(0,0);
-  char fin[]="Fin del programa";
-  LCD_write(fin);
-  //fin de programa
+	//fin de programa
+	display_final();
 }
-
-
-// correo para Julio
-
-/*
-preguntar si el algoritmo necesita un buffer o puede trabajar a tiempo real.
-no nos muestra las pulsaciones y no lo entendemos bien
-el resto esta solucionado mas o menos
-
-amplificador del eec. saca unsigned desde 0 o simplemente el valor de mv
-
-canal 4???
-*/

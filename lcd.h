@@ -52,6 +52,9 @@ void LCD_write(char*);
 void initmenu(void);                                      //Inicializa el menu principal
 void display_frecuencia(void);       // Muestra frecuencia
 void LCD_cursor_at(unsigned int8 line, unsigned int8 column);
+void display_alarma_alto(void); // Limpia pantalla y escribe mensaje de alarma
+void display_alarma_bajo(void);
+void display_final(void);
 
 
 #endif // __LCD_H

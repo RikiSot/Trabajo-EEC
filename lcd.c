@@ -115,6 +115,7 @@ void errorfichero(void)
 void display_frecuencia(void)
 {
   LCD_command(_DISPLAY_ON_CURSOR_OFF_BLINK_OFF);
+  LCD_command(_CLEAR_DISPLAY);
 	char cabecera[]="FRECUENCIA PPM: ";
   char palabra1[]="-------------------";
   char palabra2[]="BTOK PARA FINALIZAR";
@@ -135,4 +136,28 @@ void display_valueADC_title(void)
 
   LCD_cursor_at(0,0);
   LCD_write(cabecera);
+}
+
+void display_alarma_bajo(void)
+{
+  LCD_command(_CLEAR_DISPLAY);
+  LCD_cursor_at(0,0);
+  char peligro[]="PULSACIONES BAJAS";
+  LCD_write(peligro);
+}
+
+void display_alarma_alto(void)
+{
+  LCD_command(_CLEAR_DISPLAY);
+  LCD_cursor_at(0,0);
+  char peligro[]="PULSACIONES ELEVADAS";
+  LCD_write(peligro);
+}
+
+void display_final(void)
+{
+  LCD_command(_CLEAR_DISPLAY);
+  LCD_cursor_at(0,0);
+  char fin[]="Fin del programa";
+  LCD_write(fin);
 }

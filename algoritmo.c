@@ -3,10 +3,12 @@
 #include "common.h"
 
 //signed int yECG[6]; // 5 últimos valores
-float yECG[6];
-float der, maximo, maximo_ant, umbral;
-unsigned int flag, k;
-float BCL, BCL2; // contador interno (1 BCL=4ms)
+unsigned int16 yECG[6];
+unsigned int16 der, maximo, maximo_ant;
+float umbral;
+unsigned int16 k;
+int1 flag;
+unsigned int16 BCL, BCL2; // contador interno (1 BCL=4ms)
 
 
 void init_algoritmo()
@@ -17,7 +19,7 @@ void init_algoritmo()
 	flag=0;
 	maximo=0;
 	maximo_ant=0;
-	for(int e=1; e<6; e++)
+	for(int e=0; e<6; e++)
 	{
 		yECG[e]=read_adc();
 		delay_ms(4);
@@ -29,14 +31,15 @@ void init_algoritmo()
 int algoritmo(void)
 {
 	int pulsaciones;
-	yECG[5] = yECG[4];
-	yECG[4] = yECG[3];
-	yECG[3] = yECG[2];
-	yECG[2] = yECG[1];
-	yECG[1] = read_adc();
+	yECG[5] = yECG[4];		// Hace 20 ms
+	yECG[4] = yECG[3];		// Hace 16 ms
+	yECG[3] = yECG[2]; 		// Hace 12 ms
+	yECG[2] = yECG[1]; 		// Hace 8 ms
+	yECG[1] = yECG[0]; 		// Hace 4 ms
+	yECG[0] = read_adc(); // Ahora
 
 	//Valor absoluto de la derivada
-	der = (yECG[5] > yECG[1]) ? (yECG[5] - yECG[1]) : (yECG[1] - yECG[5]);
+	der = (yECG[5] > yECG[0]) ? (yECG[5] - yECG[0]) : (yECG[0] - yECG[5]);
 
 	if(der > maximo) maximo = der;
 
@@ -93,10 +96,10 @@ int algoritmo(void)
 	//y si no permanece el valor anteriore
 	//15000 son las muestras de 1 minuto (60000[ms]/4[ms/muestra])
 
-	//if((BCL2 > 65) && (BCL2 < 500))
-//	{
+	if((BCL2 > 65) && (BCL2 < 500))
+	{
 		pulsaciones = (int)(15000/BCL2);
-//	}
-BCL=BCL+1;
+	}
+BCL=BCL+1;  // Actualiza la cuenta ente ciclos
 return pulsaciones;
 }
