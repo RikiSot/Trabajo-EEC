@@ -2,9 +2,10 @@
 #include "algoritmo.h"
 #include "common.h"
 
-signed int yECG[5]; // 5 últimos valores
-unsigned int der, maximo, maximo_ant;
-unsigned int flag, k, umbral;
+//signed int yECG[6]; // 5 últimos valores
+float yECG[6];
+float der, maximo, maximo_ant, umbral;
+unsigned int flag, k;
 float BCL, BCL2; // contador interno (1 BCL=4ms)
 
 
@@ -16,7 +17,7 @@ void init_algoritmo()
 	flag=0;
 	maximo=0;
 	maximo_ant=0;
-	for(int e=0; e<5; e++)
+	for(int e=1; e<6; e++)
 	{
 		yECG[e]=read_adc();
 		delay_ms(4);
@@ -28,14 +29,14 @@ void init_algoritmo()
 int algoritmo(void)
 {
 	int pulsaciones;
+	yECG[5] = yECG[4];
 	yECG[4] = yECG[3];
 	yECG[3] = yECG[2];
 	yECG[2] = yECG[1];
-	yECG[1] = yECG[0];
-	yECG[0] = read_adc();
+	yECG[1] = read_adc();
 
 	//Valor absoluto de la derivada
-	der = (yECG[4] > yECG[0]) ? (yECG[4] - yECG[0]) : (yECG[0] - yECG[4]);
+	der = (yECG[5] > yECG[1]) ? (yECG[5] - yECG[1]) : (yECG[1] - yECG[5]);
 
 	if(der > maximo) maximo = der;
 
@@ -92,10 +93,10 @@ int algoritmo(void)
 	//y si no permanece el valor anteriore
 	//15000 son las muestras de 1 minuto (60000[ms]/4[ms/muestra])
 
-	if((BCL2 > 65) && (BCL2 < 500))
-	{
+	//if((BCL2 > 65) && (BCL2 < 500))
+//	{
 		pulsaciones = (int)(15000/BCL2);
-	}
-BCL=BCL+4;
+//	}
+BCL=BCL+1;
 return pulsaciones;
 }

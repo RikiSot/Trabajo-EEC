@@ -3,12 +3,12 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 void BEEP_Init(void)		//4kHz -> T/2= 125us
 {
-	setup_timer3(TMR_INTERNAL|TMR_DIV_BY_1, 1035); // 3kHz. Frecuencia de los beeps
+	setup_timer3(TMR_INTERNAL|TMR_DIV_BY_1, 737); // 5kHz. Frecuencia de los beeps
 	set_compare_time(2, 0);
 	setup_compare(2, COMPARE_OFF);
 
 		// (11059200/2)/256/432 = 50 Hz  <-> 100ms
-	setup_timer4(TMR_INTERNAL|TMR_DIV_BY_256, 2160);
+	setup_timer4(TMR_INTERNAL|TMR_DIV_BY_8, 1843);
 }
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 unsigned int8 N_beep;
