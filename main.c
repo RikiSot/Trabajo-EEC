@@ -6,17 +6,28 @@
 */
 
 /* SECTION 1: Included header files to compile this file           */
+#include "33FJ128MC804.h"
 
 #include <common.h>
 
 unsigned int16 ppm;
 int1 datos_flag;
+char cadena[32];
+int jj;
 
 #INT_TIMER2
 
 void timer2_isr()
 {
 	ppm=algoritmo();
+	//sprintf(cadena,"%04d\n",ppm); //Escribe ppm en el archivo LATIDOS
+	// output_toggle(H1);
+	//
+	// for(jj=0;jj<5;jj++)
+	// {
+	// 	dt[jj+(k*5)] = cadena[jj];
+	// }
+	// k++;
 }
 
 #INT_TIMER5
@@ -144,8 +155,10 @@ void main(void)
     //4.3 Enviar datos y escribir cada x segundos
     if(datos_flag)
     {
-      //enviar_datos();
-      //escribir_sd();
+      enviar_datos(ppm);
+			
+			//sd_init_global();
+			//escritura_sd();
 			datos_flag=0;
 		}
 

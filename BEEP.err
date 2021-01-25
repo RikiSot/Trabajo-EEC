@@ -1,4 +1,17 @@
-Compiling F:\Industriales\Especialidad\SDM\Trabajo-EEC\BEEP on 14-ene.-21 at 18:36
->>> Warning 202 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\algoritmo.h" Line 16(5,8): Variable never used:   PPM
-F:\Industriales\Especialidad\SDM\Trabajo-EEC\BEEP.o ===>  0 Errors,  1 Warnings.
+Compiling F:\Industriales\Especialidad\SDM\Trabajo-EEC\BEEP on 17-ene.-21 at 13:59
+>>> Warning 240 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 343(155,167): Pointer types do not match
+>>> Warning 240 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 345(49,61): Pointer types do not match
+>>> Warning 240 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 346(108,120): Pointer types do not match
+>>> Warning 240 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 350(25,37): Pointer types do not match
+>>> Warning 240 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 352(175,187): Pointer types do not match
+>>> Warning 240 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 353(234,246): Pointer types do not match
+>>> Warning 240 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 377(155,167): Pointer types do not match
+>>> Warning 240 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 390(30,42): Pointer types do not match
+>>> Warning 202 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 117(65,71): Variable never used:   yearLo
+>>> Warning 202 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 279(9,16): Variable never used:   ClstIni
+>>> Warning 202 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 281(58,65): Variable never used:   ClstNxt
+>>> Warning 202 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 282(84,93): Variable never used:   sctrClstr
+>>> Warning 202 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 283(112,119): Variable never used:   posSctr
+>>> Warning 202 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 284(138,146): Variable never used:   clstrSig
+F:\Industriales\Especialidad\SDM\Trabajo-EEC\BEEP.o ===>  0 Errors,  14 Warnings.
 Build Successful.

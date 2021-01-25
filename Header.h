@@ -61,7 +61,7 @@
 #define COMM           PIN_A9  //                    (35)
 #pin_select U1TX =     PIN_C3  //                    (36)
 #pin_select U1RX =     PIN_C4  //                    (37)
-#define SS             PIN_C5  //                    (38)
+#define CS             PIN_C5  //                    (38)
 //                     VSS     //                    (39)
 //                     VDD     //                    (40)
 #pin_select SDI1 =     PIN_B5  //                    (41)

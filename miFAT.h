@@ -1,3 +1,6 @@
+
+#ifndef __MIFAT_H
+#define __MIFAT_H
 // Definidos en sdcard.h - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 extern unsigned int8 dt[512];
 extern unsigned int32 LBA0;
@@ -205,42 +208,42 @@ void initFAT(){
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 void cargaConfig(unsigned int32 j);
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-unsigned int8 encontrar_fichero(){
-   unsigned int8 FicheroEncontrado = 0;
-   unsigned int32 i;
-   unsigned int16 j;
-   unsigned int32 SctStart = sect_entry;			//inicio Root
-   unsigned int32 SctEnd   = sect_ini_datos;		//fin    Root
-   unsigned int32 ClstIni  = ((FATType==16)?1:2);
-
-   unsigned int32 ClstNxt;
-   unsigned int32 sctrClstr;
-   unsigned int32 posSctr;
-   unsigned int32 clstrSig;
-
-   for(i = SctStart; i < SctEnd; i++){
-	      sd_read_block(i, dt);
-		 for(j = 0; j < 512; j += 32){
-										if(	(dt[j + 0] == 'C')&&
-											(dt[j + 1] == 'O')&&
-											(dt[j + 2] == 'N')&&
-											(dt[j + 3] == 'F')&&
-											(dt[j + 4] == 'I')&&
-											(dt[j + 5] == 'G')&&
-											(dt[j + 6] == ' ')&&
-											(dt[j + 7] == ' ')&&
-											(dt[j + 8] == 'T')&&
-											(dt[j + 9] == 'X')&&
-											(dt[j + 10]== 'T')){
-																 cargaConfig(j);
-																 FicheroEncontrado = 1;
-																 return FicheroEncontrado;
-																}//fin if(CNF)
-
-		}//j
-   }//i
-   return FicheroEncontrado;
-} // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// unsigned int8 encontrar_fichero(){
+//    unsigned int8 FicheroEncontrado = 0;
+//    unsigned int32 i;
+//    unsigned int16 j;
+//    unsigned int32 SctStart = sect_entry;			//inicio Root
+//    unsigned int32 SctEnd   = sect_ini_datos;		//fin    Root
+//    unsigned int32 ClstIni  = ((FATType==16)?1:2);
+//
+//    unsigned int32 ClstNxt;
+//    unsigned int32 sctrClstr;
+//    unsigned int32 posSctr;
+//    unsigned int32 clstrSig;
+//
+//    for(i = SctStart; i < SctEnd; i++){
+// 	      sd_read_block(i, dt);
+// 		 for(j = 0; j < 512; j += 32){
+// 										if(	(dt[j + 0] == 'C')&&
+// 											(dt[j + 1] == 'O')&&
+// 											(dt[j + 2] == 'N')&&
+// 											(dt[j + 3] == 'F')&&
+// 											(dt[j + 4] == 'I')&&
+// 											(dt[j + 5] == 'G')&&
+// 											(dt[j + 6] == ' ')&&
+// 											(dt[j + 7] == ' ')&&
+// 											(dt[j + 8] == 'T')&&
+// 											(dt[j + 9] == 'X')&&
+// 											(dt[j + 10]== 'T')){
+// 																 cargaConfig(j);
+// 																 FicheroEncontrado = 1;
+// 																 return FicheroEncontrado;
+// 																}//fin if(CNF)
+//
+// 		}//j
+//    }//i
+//    return FicheroEncontrado;
+// } // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 void cargaConfig(unsigned int32 j){
    unsigned int32 direccion;
    unsigned int32 _sector;
@@ -448,3 +451,4 @@ void escribe_datos_en_fichero(){
 
 }
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#endif // __MIFAT_H

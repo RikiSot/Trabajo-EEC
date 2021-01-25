@@ -1,5 +1,6 @@
-Compiling C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\BLUETOOTH on 30-dic.-20 at 17:59
->>> Warning 202 "C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\BLUETOOTH.c" Line 3(7,12): Variable never used:   phase
->>> Warning 202 "C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\BLUETOOTH.c" Line 4(15,18): Variable never used:   snd
-C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\BLUETOOTH.o ===>  0 Errors,  2 Warnings.
+Compiling F:\Industriales\Especialidad\SDM\Trabajo-EEC\BLUETOOTH on 17-ene.-21 at 13:59
+>>> Warning 203 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\BLUETOOTH.c" Line 22(1,1): Condition always TRUE
+>>> Warning 202 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\BLUETOOTH.c" Line 3(7,12): Variable never used:   phase
+>>> Warning 202 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\BLUETOOTH.c" Line 4(15,18): Variable never used:   snd
+F:\Industriales\Especialidad\SDM\Trabajo-EEC\BLUETOOTH.o ===>  0 Errors,  3 Warnings.
 Build Successful.

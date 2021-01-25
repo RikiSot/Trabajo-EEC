@@ -1,3 +1,7 @@
+
+#ifndef __SDCARD_H
+#define __SDCARD_H
+
 #bit  SPIRBF    = getenv("SFR:SPI1STAT").0
 #bit  SPITBF    = getenv("SFR:SPI1STAT").1
 #bit  SPIROV    = getenv("SFR:SPI1STAT").6
@@ -29,14 +33,14 @@ inline unsigned int8 xfer_spi(char envio){
    SPIROV = 0;
    SPI1BUF= envio;
    while( SPITBF);
-   while(!SPIRBF);   
+   while(!SPIRBF);
    return SPI1BUF;
 }//fin xfer_spi
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 unsigned int8 Commnd(char befF, int32 SD_Adress, char befH){
    unsigned int8 iC1;
    xfer_spi(0xFF);
-   xfer_spi(befF);   
+   xfer_spi(befF);
    xfer_spi(make8(SD_Adress, 3));
    xfer_spi(make8(SD_Adress, 2));
    xfer_spi(make8(SD_Adress, 1));
@@ -53,17 +57,17 @@ unsigned int8 sd_init(){
  unsigned  int8 R[17]={0}, versionSD= 1, crc;
  unsigned int16 iI;
  unsigned int32 arg=0;
- 
+
  setup_spi(SPI_MASTER|SPI_SS_DISABLED|SPI_L_TO_H|SPI_XMIT_L_TO_H|SPI_CLK_DIV_16);
 
  memset(dt,0,512);
- // CMD0 - GO_IDLE_STATE  (R1)• • Card Reset  • • • • • • • • • • • • • • • • • • • • • • • 
-	do{	output_high(CS);   	// tarjeta deshabilitada  
+ // CMD0 - GO_IDLE_STATE  (R1)ï¿½ ï¿½ Card Reset  ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½
+	do{	output_high(CS);   	// tarjeta deshabilitada
 		for (iI = 0; iI < 10; iI++)  	xfer_spi(0xFF);
 		output_low(CS); 	// tarjeta habilitada
 		R[0] = Commnd( CMD0 , 0x00000000 , 0x95); //go to idle
 	}while( R[0] != R1_IDLE_STATE);
-  // CMD8 - SEND_IF_COND (R7)  • Send Interface Condition Command• • • • • • • • • • • • • • 
+  // CMD8 - SEND_IF_COND (R7)  ï¿½ Send Interface Condition Commandï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½
   // Argument 00 - 00 - 01 (Voltage supplied = 2.7-3.6V) - AA (Check pattern)
   // Response: illegal command -> Version 1
   // Response: echo-back 	   -> Version 2
@@ -73,74 +77,74 @@ unsigned int8 sd_init(){
 					R[2] = xfer_spi(0xFF);
 					R[3] = xfer_spi(0xFF);
 					R[4] = xfer_spi(0xFF);
-				    if(R[4]!=0xAA){	output_high(CS); return 1; }		//error   		     				  
+				    if(R[4]!=0xAA){	output_high(CS); return 1; }		//error
       											versionSD = 2;
    			}
 
-  // ACMD41 - SD_SEND_OP_ COND (R1) • • Initialization Command   • • • • • • • • • • • • • • 
+  // ACMD41 - SD_SEND_OP_ COND (R1) ï¿½ ï¿½ Initialization Command   ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½
   // If host supports SDHC or SDXC: HCS (Host Capacity Support) is set to 1 (arg= 0x40000000)
   // If host only support SDSC:     HCS (Host Capacity Support) is set to 0 (arg= 0)
    arg = (versionSD == 2) ? 0x40000000 : 0;
    crc = (versionSD == 2) ? 0x77 : 0xFF;
 
-   
+
    do{            Commnd(CMD55,    0, 0x65);	// El proceso puede llegar a durar hasta 1 segundo
-           R[0] = Commnd(ACMD41, arg, crc);		// Application-Specific Command – APP_CMD (CMD55)
+           R[0] = Commnd(ACMD41, arg, crc);		// Application-Specific Command ï¿½ APP_CMD (CMD55)
 		   delay_ms(4);
    }while(R[0] != R1_READY_STATE);
 
   if(versionSD == 2){
 
-  // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • 
-  // CMD58 - READ_OCR (R3) • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • 
-  // Bit 30 - Card Capacity Status bit: 	0 indicates that the card is SDSC. 
+  // ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½
+  // CMD58 - READ_OCR (R3) ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½
+  // Bit 30 - Card Capacity Status bit: 	0 indicates that the card is SDSC.
   //										1 indicates that the card is SDHC or SDXC
 	R[0] = Commnd(CMD58, 0x00000000, 0xFF);
     if(R[0] == R1_READY_STATE){	R[1] = xfer_spi(0xFF);
 								R[2] = xfer_spi(0xFF);
 								R[3] = xfer_spi(0xFF);
-								R[4] = xfer_spi(0xFF);	
+								R[4] = xfer_spi(0xFF);
 								sdhc = ((R[1]& 0xC0) == 0xC0) ? 1 : 0;
    			}else{				output_high(CS); return 1; }		//error
-  // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • 
+  // ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½
 
   }// versionSD == 2 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   setup_spi(SPI_MASTER|SPI_SS_DISABLED|SPI_L_TO_H|SPI_XMIT_L_TO_H|SPI_CLK_DIV_1);
 
-  // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • 
+  // ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½
 	sd_read_block(0, dt);	//Lee el sector fisico 0 para obtener el LBA0
 	if(dt[510]==0x55)
 	if(dt[511]==0xAA){ 		// Efectivamente parece que estoy en sct 0
-							// Tabla de particiones	
-								LBA0 = make32(dt[457],dt[456],dt[455],dt[454]);         
+							// Tabla de particiones
+								LBA0 = make32(dt[457],dt[456],dt[455],dt[454]);
 								if(dt[0]==0xEB) // MBR
  								LBA0 = 0;
 						  }//55AA
-  // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • 
+  // ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½
 
   output_high(CS);   									// tarjeta deshabilitada
   return 0;
-}//char sd_init()- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+}//char sd_init()- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 unsigned int8 sd_write_block(unsigned int32 address, unsigned char* ptr){
    unsigned int16 iW;
 
-   if(sdhc==0){ address <<= 9; }    //memoria SC -> bytes 		memoria HC -> sectores 
-   output_low(CS);   
+   if(sdhc==0){ address <<= 9; }    //memoria SC -> bytes 		memoria HC -> sectores
+   output_low(CS);
 
-		iW = Commnd(CMD24, address, 0xFF);	
+		iW = Commnd(CMD24, address, 0xFF);
     if( iW == R1_READY_STATE){
              								              		xfer_spi(0xFF);
                               									xfer_spi(DATA_START_BLOCK);   // Data start token
                            			for(iW = 0; iW < 512; iW++)  xfer_spi(ptr[iW]);
                            							xfer_spi(0xFF);   // Dummy bytes
-                          							xfer_spi(0xFF);   // en lugar del CRC16   
-                          		  
+                          							xfer_spi(0xFF);   // en lugar del CRC16
+
                         do{       iW = xfer_spi(0xFF);
                         }while( (iW & DATA_RES_MASK) != DATA_RES_ACCEPTED);
-                                                            
+
                         do{       iW = xfer_spi(0xFF); delay_us(100);
                         }while(   iW == 0 );
 
@@ -156,8 +160,8 @@ unsigned int8 sd_read_block(unsigned int32 address, unsigned char* ptr){
    unsigned int16 jR;
    unsigned int8  iR;
 
-    if(sdhc==0){ address <<= 9; }    //memoria SC -> bytes 		memoria HC -> sectores 
-    output_low(CS);   
+    if(sdhc==0){ address <<= 9; }    //memoria SC -> bytes 		memoria HC -> sectores
+    output_low(CS);
 
        iR  = Commnd(CMD17, address, 0xFF);
     if(iR == R1_READY_STATE){
@@ -173,7 +177,8 @@ unsigned int8 sd_read_block(unsigned int32 address, unsigned char* ptr){
   								}
 
    							output_high(CS);      return 0;
-							}			
+							}
 							output_high(CS);      return 1;
 }//fin sd_read_block
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#endif // __SDCARD_H

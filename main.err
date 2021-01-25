@@ -1,3 +1,11 @@
-Compiling C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\main on 30-dic.-20 at 17:59
-C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\main.o ===>  0 Errors,  0 Warnings.
+>>> Warning 202 "C:\Users\klzi\Desktop\Klaudija\miFAT.h" Line 117(65,71): Variable never used:   yearLo
+>>> Warning 202 "C:\Users\klzi\Desktop\Klaudija\miFAT.h" Line 279(9,16): Variable never used:   ClstIni
+>>> Warning 202 "C:\Users\klzi\Desktop\Klaudija\miFAT.h" Line 281(58,65): Variable never used:   ClstNxt
+>>> Warning 202 "C:\Users\klzi\Desktop\Klaudija\miFAT.h" Line 282(84,93): Variable never used:   sctrClstr
+>>> Warning 202 "C:\Users\klzi\Desktop\Klaudija\miFAT.h" Line 283(112,119): Variable never used:   posSctr
+>>> Warning 202 "C:\Users\klzi\Desktop\Klaudija\miFAT.h" Line 284(138,146): Variable never used:   clstrSig
+>>> Warning 202 "main.c" Line 15(6,12): Variable never used:   cadena
+>>> Warning 202 "main.c" Line 16(5,7): Variable never used:   jj
+      Memory usage:   ROM=4%      RAM=18% - 18%
+      0 Errors,  8 Warnings.
 Build Successful.

@@ -6,18 +6,18 @@ phase
 snd
 
 Project Directory:
-    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\
+    F:\Industriales\Especialidad\SDM\Trabajo-EEC\
 
 Project Files:
-    BLUETOOTH.c                                             [30-dic.-20 17:15  CRC=AF45A419]
-    BLUETOOTH.h                                             [26-dic.-20 19:04  CRC=861F8EE4]
-    Header.h                                                [30-dic.-20 17:11  CRC=5139A6EC]
+    BLUETOOTH.c                                             [17-ene.-21 13:52  CRC=C1C1F067]
+    BLUETOOTH.h                                             [15-ene.-21 19:41  CRC=B061CA7C]
+    Header.h                                                [15-ene.-21 19:06  CRC=5139A6EC]
     33FJ128MC804.h                                          [30-dic.-20 17:13  CRC=C2AA7534]
 
-Source signature=0BF3C451
+Source signature=48B24C37
 
 Units:
-    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\BLUETOOTH
+    F:\Industriales\Especialidad\SDM\Trabajo-EEC\BLUETOOTH
 
 Compiler Settings:
     Processor:      DSPIC33FJ128MC804

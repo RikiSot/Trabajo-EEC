@@ -9,26 +9,62 @@ ADC1CON3
 AD1CHS0
 AD1PCFGL
 IFS0
-PPM
+dt
+LBA0
+file
+DiskInfo
+FATType
+sect_x_cluster
+sect_fat_1
+sect_fat_2
+sect_ini_datos
+sect_x_fat
+sect_entry
+sect_reserv
+sector_fat32
+sector_fat16
+year
+yearLo
+month
+day
+hour
+minute
+second
+SPIRBF
+SPITBF
+SPIROV
+SPI1BUF
+SPI1STAT
+SPI1CON1
+sdhc
+ppm
+datos_flag
+cadena
+jj
+k
 @sprintf_string
 
 Project Directory:
-    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\
+    F:\Industriales\Especialidad\SDM\Trabajo-EEC\
 
 Project Files:
-    main.c                                                  [30-dic.-20 17:56  CRC=BC8AD93A]
-    common.h                                                [30-dic.-20 17:16  CRC=34F1C27D]
+    main.c                                                  [17-ene.-21 13:53  CRC=B90AE2F2]
+    common.h                                                [17-ene.-21 13:56  CRC=34F1C27D]
     33FJ128MC804.h                                          [30-dic.-20 17:13  CRC=C2AA7534]
     adc.h                                                   [29-dic.-20 19:04  CRC=0C4AB9F2]
-    lcd.h                                                   [26-dic.-20 19:11  CRC=4E2786D7]
-    Header.h                                                [30-dic.-20 17:11  CRC=5139A6EC]
-    algoritmo.h                                             [30-dic.-20 17:42  CRC=936E1E75]
+    lcd.h                                                   [15-ene.-21 19:41  CRC=AF00AEDF]
+    Header.h                                                [15-ene.-21 19:06  CRC=5139A6EC]
+    algoritmo.h                                             [14-ene.-21 20:04  CRC=936E1E75]
     BEEP.h                                                  [16-dic.-20 20:15  CRC=C1809EBC]
+    SD_Card.h                                               [17-ene.-21 13:45  CRC=08463E24]
+    miFAT.h                                                 [17-ene.-21 13:29  CRC=B1948FF0]
+    sdcard.h                                                [15-ene.-21 19:23  CRC=3475F66C]
+    BLUETOOTH.h                                             [15-ene.-21 19:41  CRC=B061CA7C]
 
-Source signature=7642548D
+Source signature=612F4109
 
 Units:
-    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\main
+    F:\Industriales\Especialidad\SDM\Trabajo-EEC\main
 
 Compiler Settings:
     Processor:      DSPIC33FJ128MC804

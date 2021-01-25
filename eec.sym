@@ -1,32 +1,49 @@
 W0      @SCRATCH
-W0      @PRINTFD16_874.P1
-W0      @delay_us1.P2
-W0      @delay_ms1.P3
-W0 -W1  @DIVFF.P4
-W0 -W1  @READ_ROM_MEMORY.P5
-W0 -W1  @DIV3232B.P6
-W0 -W1  @SFTOI.P7
-W0 -W1  @FLT.P8
-W0L     @SPRINTF.P9
+W0      @PRINTFD16_1038.P1
 W0L     _RETURN_
-W0 -W1  @ADDFF.P1
+W0      @delay_ms1.P1
+W0 -W1  @DIV3232A.P2
+W0 -W1  @READ_ROM_MEMORY.P3
+W0 -W1  @ADDFF.P4
+W0 -W1  @DIV3232B.P5
+W0      @ITOF.P6
+W0 -W1  @MUL3232.P7
+W0 -W1  @FLT.P8
+W0      @PRINTFD16_115200_5779_5780.P9
+W0      @delay_us1.P10
+W0 -W1  @DIVFF.P11
+W0L     @SPRINTF.P12
 W1      @SCRATCH
-W1L     @I2C_WRITEU_129.P1
-W1      @READ_PACKED_MEMORY.P2
+W1      @READ_PACKED_MEMORY.P1
+W1L     @I2C_WRITEU_129.P2
 W1      @WRITE_PACKED_MEMORY.P3
 W1L     @I2C_READU_129.P4
-W2 -W3  @ADDFF.P1
-W2      @READ_PACKED_MEMORY.P2
-W2 -W3  @DIVFF.P3
-W2 -W3  @DIV3232B.P4
-W2      @READ_ROM_MEMORY.P5
-W2 -W3  @FLT.P6
-W2      @WRITE_PACKED_MEMORY.P7
-W3      @WRITE_PACKED_MEMORY.P1
+W2 -W3  @DIV3232B.P1
+W2 -W3  @ADDFF.P2
+W2 -W3  @MUL3232.P3
+W2      @READ_ROM_MEMORY.P4
+W2 -W3  @DIV3232A.P5
+W2 -W3  @DIVFF.P6
+W2 -W3  @FLT.P7
+W2      @WRITE_PACKED_MEMORY.P8
+W2      @READ_PACKED_MEMORY.P9
+W3      @READ_PACKED_MEMORY.P1
 W3      @READ_ROM_MEMORY.P2
-W3      @READ_PACKED_MEMORY.P3
-W4      @PRINTFD16_874.P1
+W3      @WRITE_PACKED_MEMORY.P3
+W4      @PRINTFD16_115200_5779_5780.P1
+W4      @PRINTFD16_1038.P2
 084     IFS0
+240.0   SPIRBF
+240     SPI1STAT
+240.0   SPIRBF
+240     SPI1STAT
+240.0   SPIRBF
+240     SPI1STAT
+240.0   SPIRBF
+240.1   SPITBF
+240.6   SPIROV
+242     SPI1CON1
+248     SPI1BUF
 300     ADC1BUF0
 320     ADC1CON1
 322     ADC1CON2
@@ -35,101 +52,235 @@ W4      @PRINTFD16_874.P1
 32C     AD1PCFGL
 630.6   C1OUT
 630.7   C2OUT
-85A-85B PPM
-85C-85D PPM
-85E-867 yECG
-868-869 der
-86A-86B maximo
-86C-86D maximo_ant
-86E-86F flag
-870-871 k
-872-873 umbral
-874-877 BCL
-878-87B BCL2
-87C-87D PPM
-87E     N_beep
-87F     snd
-880-883 phase
-884-885 PPM
-886-887 PPM
-888-889 @sprintf_string
-88A-892 MAIN.ppm_string
-894-895 MAIN.datos_flag
-896-897 MAIN.ppm_anterior
-898-899 MAIN.peligro_flag
-89A-89B MAIN.peligro_flag_ant
-89C-8B0 MAIN.peligro
-8B2-8C2 MAIN.fin
-8C4-8D4 initmenu.cabecera
-8C4-8D4 display_frecuencia.cabecera
-8C4-8C5 init_algoritmo.e
-8D6-8E3 initmenu.boton
-8D6-8E9 display_frecuencia.palabra1
-8E4-8EC initmenu.palabra1
-8EA-8FD display_frecuencia.palabra2
-8FE     LCD_cursor_at.line
-8FE-8FF LCD_write.cd
-8FF     LCD_cursor_at.column
-900     LCD_write.c
-904     LCD_command.cmd
-3F70-3FFF _STACK_
+85A-A59 dt
+A5A-A5D LBA0
+A5E-C75 file
+C76-E7B DiskInfo
+E7C     FATType
+E7D     sect_x_cluster
+E7E-E7F sect_fat_1
+E80-E81 sect_fat_2
+E82-E85 sect_ini_datos
+E86-E89 sect_x_fat
+E8A-E8D sect_entry
+E8E-E8F sect_reserv
+E90-108F sector_fat32
+1090-128F sector_fat16
+1290-1291 year
+1292    yearLo
+1293    month
+1294    day
+1295    hour
+1296    minute
+1297    second
+1298    sdhc
+1299    FATType
+129A-1499 dt
+149A-149D LBA0
+149E-16B5 file
+16B6-18BB DiskInfo
+18BC    sect_x_cluster
+18BD    yearLo
+18BE-18BF sect_fat_1
+18C0-18C1 sect_fat_2
+18C2-18C5 sect_ini_datos
+18C6-18C9 sect_x_fat
+18CA-18CD sect_entry
+18CE-18CF sect_reserv
+18D0-1ACF sector_fat32
+1AD0-1CCF sector_fat16
+1CD0-1CD1 year
+1CD2    month
+1CD3    day
+1CD4    hour
+1CD5    minute
+1CD6    second
+1CD7    sdhc
+1CD8-1CE3 yECG
+1CE4-1CE5 der
+1CE6-1CE7 maximo
+1CE8-1CE9 maximo_ant
+1CEA-1CED umbral
+1CEE-1CEF k
+1CF0.0  flag
+1CF0.1  datos_flag
+1CF1    FATType
+1CF2-1CF3 BCL
+1CF4-1CF5 BCL2
+1CF6-1EF5 dt
+1EF6-1EF9 LBA0
+1EFA-2111 file
+2112-2317 DiskInfo
+2318    sect_x_cluster
+2319    yearLo
+231A-231B sect_fat_1
+231C-231D sect_fat_2
+231E-2321 sect_ini_datos
+2322-2325 sect_x_fat
+2326-2329 sect_entry
+232A-232B sect_reserv
+232C-252B sector_fat32
+252C-272B sector_fat16
+272C-272D year
+272E    month
+272F    day
+2730    hour
+2731    minute
+2732    second
+2733    sdhc
+2734    N_beep
+2735    snd
+2736-2739 phase
+273A-2939 dt
+293A-293D LBA0
+293E-2B55 file
+2B56-2D5B DiskInfo
+2D5C    FATType
+2D5D    sect_x_cluster
+2D5E-2D5F sect_fat_1
+2D60-2D61 sect_fat_2
+2D62-2D65 sect_ini_datos
+2D66-2D69 sect_x_fat
+2D6A-2D6D sect_entry
+2D6E-2D6F sect_reserv
+2D70-2F6F sector_fat32
+2F70-316F sector_fat16
+3170-3171 year
+3172    yearLo
+3173    month
+3174    day
+3175    hour
+3176    minute
+3177    second
+3178    sdhc
+3179    FATType
+317A-3379 dt
+337A-337D LBA0
+337E-3595 file
+3596-379B DiskInfo
+379C    sect_x_cluster
+379D    yearLo
+379E-379F sect_fat_1
+37A0-37A1 sect_fat_2
+37A2-37A5 sect_ini_datos
+37A6-37A9 sect_x_fat
+37AA-37AD sect_entry
+37AE-37AF sect_reserv
+37B0-39AF sector_fat32
+39B0-3BAF sector_fat16
+3BB0-3BB1 year
+3BB2    month
+3BB3    day
+3BB4    hour
+3BB5    minute
+3BB6    second
+3BB7    sdhc
+3BB8-3BB9 ppm
+3BBA-3BD9 cadena
+3BDA-3BDB jj
+3BDC-3BDD k
+3BDE-3BDF @sprintf_string
+3BE0    xfer_spi.envio
+3BE0.0  MAIN.peligro_flag
+3BE0.1  MAIN.peligro_flag_ant
+3BE0.2  MAIN.altas
+3BE0.3  MAIN.bajas
+3BE2-3BEA MAIN.ppm_string
+3BEC-3BED MAIN.ppm_anterior
+3BEE-3BFE display_frecuencia.cabecera
+3BEE-3BFF display_alarma_bajo.peligro
+3BEE-3BEF init_algoritmo.e
+3BEE-3C02 display_alarma_alto.peligro
+3BEE-3BEF enviar_datos.ppm
+3BEE-3BFE display_final.fin
+3BEE-3BFE initmenu.cabecera
+3C00-3C13 display_frecuencia.palabra1
+3C00-3C0D initmenu.boton
+3C0E-3C16 initmenu.palabra1
+3C14-3C27 display_frecuencia.palabra2
+3C28-3C29 LCD_write.cd
+3C28    LCD_cursor_at.line
+3C29    LCD_cursor_at.column
+3C2A    LCD_write.c
+3C2E    LCD_command.cmd
+3C30-3C31 algoritmo.pulsaciones
+3C32    BEEP.n
+3F60-3FFF _STACK_
 
 ROM Allocation:
-000200  timer2_isr
-000224  isr_TIMER4
-00026E  @delay_ms1
-00026E  @delay_ms1
-00026E  @delay_ms1
-00026E  @delay_ms1
-00026E  @delay_ms1
-00026E  @delay_ms1
-00027E  @I2C_WRITEU_129
-000296  LCD_command
-0002CA  lcdi2cinit
-000352  BEEP_Init
-00036C  LCD_cursor_at
-00038C  LCD_write
-0003E8  initmenu
-000470  adcinit
-000482  init_algoritmo
-0004BE  display_frecuencia
-00056E  @SPRINTF
-00057C  @PRINTFD16_874
-0006AC  MAIN
-0006AC  @cinit1
-00071C  @cinit2
-0136  COM
+000200  @const1237.call
+000236  @const1238.call
+000252  @const1239.call
+00026C  isr_TIMER4
+0002C0  @ITOF
+0002FA  @FLT
+000362  BEEP
+000384  @DIVFF
+00044E  @ADDFF
+0005F8  algoritmo
+0006EA  timer2_isr
+000710  timer5_isr
+000732  @delay_ms1
+000732  @delay_ms1
+000732  @delay_ms1
+000732  @delay_ms1
+000732  @delay_ms1
+000732  @delay_ms1
+000742  @I2C_WRITEU_129
+00075A  LCD_command
+00078C  lcdi2cinit
+000830  BEEP_Init
+00084A  LCD_cursor_at
+00086A  LCD_write
+0008D2  initmenu
+000978  adcinit
+000990  init_algoritmo
+0009D4  display_frecuencia
+000AA8  display_alarma_alto
+000AFA  display_alarma_bajo
+000B42  @SPRINTF
+000B54  @PRINTFD16_1038
+000C84  @PRINTFD16_115200_5779_5780
+000D84  enviar_datos
+000DFA  display_final
+000E44  MAIN
+000E44  @cinit1
+000F7E  @cinit2
+06C2  COM
 
 Project Directory:
-    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\
+    F:\Industriales\Especialidad\SDM\Trabajo-EEC\
 
 Project Files:
-    adc.c (link)                                            [29-dic.-20 19:04  CRC=454C2831]
+    adc.c (link)                                            [14-ene.-21 20:57  CRC=274CA71B]
     adc.h                                                   [29-dic.-20 19:04  CRC=0C4AB9F2]
-    common.h                                                [30-dic.-20 17:16  CRC=34F1C27D]
+    common.h                                                [17-ene.-21 13:56  CRC=34F1C27D]
     33FJ128MC804.h                                          [30-dic.-20 17:13  CRC=C2AA7534]
-    lcd.h                                                   [26-dic.-20 19:11  CRC=4E2786D7]
-    Header.h                                                [30-dic.-20 17:11  CRC=5139A6EC]
-    algoritmo.h                                             [30-dic.-20 17:42  CRC=936E1E75]
+    lcd.h                                                   [15-ene.-21 19:41  CRC=AF00AEDF]
+    Header.h                                                [15-ene.-21 19:06  CRC=5139A6EC]
+    algoritmo.h                                             [14-ene.-21 20:04  CRC=936E1E75]
     BEEP.h                                                  [16-dic.-20 20:15  CRC=C1809EBC]
-    algoritmo.c (link)                                      [30-dic.-20 17:42  CRC=7FE34F72]
-    BEEP.c (link)                                           [30-dic.-20 17:22  CRC=DD012E79]
-    BLUETOOTH.c (link)                                      [30-dic.-20 17:15  CRC=AF45A419]
-    BLUETOOTH.h                                             [26-dic.-20 19:04  CRC=861F8EE4]
-    lcd.c (link)                                            [30-dic.-20 17:59  CRC=4029C979]
-    main.c (link)                                           [30-dic.-20 17:56  CRC=BC8AD93A]
+    SD_Card.h                                               [17-ene.-21 13:45  CRC=08463E24]
+    miFAT.h                                                 [17-ene.-21 13:29  CRC=B1948FF0]
+    sdcard.h                                                [15-ene.-21 19:23  CRC=3475F66C]
+    BLUETOOTH.h                                             [15-ene.-21 19:41  CRC=B061CA7C]
+    algoritmo.c (link)                                      [15-ene.-21 19:41  CRC=BADE636B]
+    BEEP.c (link)                                           [15-ene.-21 18:18  CRC=59D4F75D]
+    BLUETOOTH.c (link)                                      [17-ene.-21 13:52  CRC=C1C1F067]
+    lcd.c (link)                                            [15-ene.-21 19:41  CRC=1DA80EFA]
+    main.c (link)                                           [17-ene.-21 13:53  CRC=B90AE2F2]
 
-Source signature=890C319D
+Source signature=85425AC3
 Program memory checksum=0000
-Hex file CRC=C895
+Hex file CRC=19D7
 
 Units:
-    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\adc
-    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\algoritmo
-    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\BEEP
-    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\BLUETOOTH
-    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\lcd
-    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\main
+    F:\Industriales\Especialidad\SDM\Trabajo-EEC\adc
+    F:\Industriales\Especialidad\SDM\Trabajo-EEC\algoritmo
+    F:\Industriales\Especialidad\SDM\Trabajo-EEC\BEEP
+    F:\Industriales\Especialidad\SDM\Trabajo-EEC\BLUETOOTH
+    F:\Industriales\Especialidad\SDM\Trabajo-EEC\lcd
+    F:\Industriales\Especialidad\SDM\Trabajo-EEC\main
 
 Compiler Settings:
     Processor:      DSPIC33FJ128MC804

@@ -9,34 +9,65 @@ ADC1CON3
 AD1CHS0
 AD1PCFGL
 IFS0
-PPM
+dt
+LBA0
+file
+DiskInfo
+FATType
+sect_x_cluster
+sect_fat_1
+sect_fat_2
+sect_ini_datos
+sect_x_fat
+sect_entry
+sect_reserv
+sector_fat32
+sector_fat16
+year
+yearLo
+month
+day
+hour
+minute
+second
+SPIRBF
+SPITBF
+SPIROV
+SPI1BUF
+SPI1STAT
+SPI1CON1
+sdhc
 yECG
 der
 maximo
 maximo_ant
-flag
-k
 umbral
+k
+flag
 BCL
 BCL2
 
 Project Directory:
-    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\
+    D:\Dropbox\FWs\Klaudija\
 
 Project Files:
-    algoritmo.c                                             [30-dic.-20 17:42  CRC=7FE34F72]
-    algoritmo.h                                             [30-dic.-20 17:42  CRC=936E1E75]
-    common.h                                                [30-dic.-20 17:16  CRC=34F1C27D]
+    algoritmo.c                                             [15-ene.-21 19:41  CRC=BADE636B]
+    algoritmo.h                                             [14-ene.-21 20:04  CRC=936E1E75]
+    common.h                                                [17-ene.-21 13:56  CRC=34F1C27D]
     33FJ128MC804.h                                          [30-dic.-20 17:13  CRC=C2AA7534]
     adc.h                                                   [29-dic.-20 19:04  CRC=0C4AB9F2]
-    lcd.h                                                   [26-dic.-20 19:11  CRC=4E2786D7]
-    Header.h                                                [30-dic.-20 17:11  CRC=5139A6EC]
+    lcd.h                                                   [15-ene.-21 19:41  CRC=AF00AEDF]
+    Header.h                                                [15-ene.-21 19:06  CRC=5139A6EC]
+    SD_Card.h                                               [17-ene.-21 13:45  CRC=08463E24]
+    miFAT.h                                                 [17-ene.-21 13:29  CRC=B1948FF0]
+    sdcard.h                                                [15-ene.-21 19:23  CRC=3475F66C]
+    BLUETOOTH.h                                             [15-ene.-21 19:41  CRC=B061CA7C]
     BEEP.h                                                  [16-dic.-20 20:15  CRC=C1809EBC]
 
-Source signature=399ACAC5
+Source signature=742195C2
 
 Units:
-    C:\Users\Riki\OneDrive\Master\2º\SDM\Trabajo-EEC\algoritmo
+    D:\Dropbox\FWs\Klaudija\algoritmo
 
 Compiler Settings:
     Processor:      DSPIC33FJ128MC804
