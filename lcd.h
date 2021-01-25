@@ -55,6 +55,8 @@ void LCD_cursor_at(unsigned int8 line, unsigned int8 column);
 void display_alarma_alto(void); // Limpia pantalla y escribe mensaje de alarma
 void display_alarma_bajo(void);
 void display_final(void);
+void display_electrodo_suelto(void);
+void display_electrodo_recuperado(void);
 
 
 void lcdi2cinit(void)
@@ -90,6 +92,7 @@ void lcdi2cinit(void)
   LCD_command(_POWER_ICON_CONTRAST);
   LCD_command(_FOLLOWER_CONTROL);
   LCD_command(_8BIT_4LINES_RE0_IS0);
+  LCD_command(_DISPLAY_ON_CURSOR_OFF_BLINK_OFF);
 
 }
 
@@ -157,7 +160,6 @@ void errorfichero(void)
 
 void display_frecuencia(void)
 {
-  LCD_command(_DISPLAY_ON_CURSOR_OFF_BLINK_OFF);
   LCD_command(_CLEAR_DISPLAY);
 	char cabecera[]="FRECUENCIA PPM: ";
   char palabra1[]="-------------------";
@@ -203,6 +205,28 @@ void display_final(void)
   LCD_cursor_at(0,0);
   char fin[]="Fin del programa";
   LCD_write(fin);
+}
+
+void display_electrodo_suelto(void)
+{
+  LCD_command(_CLEAR_DISPLAY);
+  LCD_cursor_at(0,0);
+  char fin[]="ELECTRODO SUELTO";
+  LCD_write(fin);
+}
+
+void display_electrodo_recuperado(void)
+{
+  LCD_command(_CLEAR_DISPLAY);
+	char cabecera[]="Contacto restaurado";
+  char palabra1[]="-------------------";
+  char palabra2[]="BTOK PARA CONTINUAR";
+	LCD_cursor_at(0,0);
+  LCD_write(cabecera);
+  LCD_cursor_at(1,0);
+  LCD_write(palabra1);
+  LCD_cursor_at(2,0);
+  LCD_write(palabra2);
 }
 
 

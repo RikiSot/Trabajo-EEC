@@ -59,7 +59,7 @@ void main(void)
 
 
   //1.
-  //init_BT();
+  init_BT();
   lcdi2cinit();
   BEEP_Init();
   //sd_init();
@@ -91,6 +91,26 @@ void main(void)
   while(input(BTOK))
   {
 
+		//Comprobar si hay electrodo suelto
+		// if(input(PIN_)) // COnectar pin del electrodo
+		// {
+		// 	display_electrodo_suelto();
+		// 	disable_interrupts(INT_TIMER2);
+		// 	disable_interrupts(INT_TIMER5);
+		// 	while(input(PIN_))
+		// 	{
+		// 		delay_ms(100);
+		// 	}
+		// 	display_electrodo_recuperado();
+		// 	while(!input(BTOK)) // pulsa para continuar
+		//   {
+		//     delay_ms(50);
+		//   }
+		// 	enable_interrupts(INT_TIMER2); // restaura ciclo de funcionamiento normal
+		// 	enable_interrupts(INT_TIMER5);
+		// 	delay_ms(4);
+		// }
+
     //4.1 Generar alarmas si es necesario
     if(ppm>=250)
     {
@@ -98,6 +118,7 @@ void main(void)
 			altas=1;
 			bajas=0;
 			peligro_flag=1;
+			ppm_anterior=ppm;
 		}
 		if(ppm<=35)
     {
@@ -105,6 +126,7 @@ void main(void)
 			altas=0;
 			bajas=1;
 			peligro_flag=1;
+			ppm_anterior=ppm;
 			output_toggle(BUZZER);
 		}
 
@@ -114,11 +136,11 @@ void main(void)
 			OFF(BUZZER);
 			if(ppm!=ppm_anterior) // mostrar por pantalla si ha cambiado el valor
 			{
+				display_frecuencia();
 				sprintf(ppm_string,"%d  ",ppm); // crear cadena con espacios para borrar el valor anterior
 				LCD_cursor_at(0,16);
 				LCD_write(ppm_string);
 				ppm_anterior=ppm; 							// actualizar pulsaciones anteriores
-				peligro_flag=0; // actualizar flag
 				bajas=0;
 				altas=0;
 			}
@@ -127,13 +149,11 @@ void main(void)
     //4.3 Enviar datos y escribir cada x segundos
     if(datos_flag)
     {
-      //enviar_datos(ppm);
-
-			//sd_init_global();
+      enviar_datos(ppm);
 			//escritura_sd();
 			datos_flag=0;
 		}
-
+		peligro_flag=0; // actualizar flag
     //fin del bucle
   }
 
