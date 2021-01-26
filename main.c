@@ -11,8 +11,6 @@
 
 unsigned int16 ppm;
 int1 datos_flag;
-char cadena[32];
-int jj;
 
 #INT_TIMER2
 
@@ -59,10 +57,9 @@ void main(void)
 
 
   //1.
-  init_BT();
+  //init_BT();
   lcdi2cinit();
   BEEP_Init();
-  //sd_init();
 
   //2. Menu bienvenida
   initmenu();
@@ -78,8 +75,9 @@ void main(void)
 
   //3. Inicializar algoritmo, adc y timer2 a 250 Hz
   adcinit();
-  setup_timer2(TMR_INTERNAL | TMR_DIV_BY_8, 1843); // 7370000/2/8/1843 = 4 ms
-	setup_timer5(TMR_INTERNAL | TMR_DIV_BY_256, 14395); // 7370000/2/8/14395 = 4 ms
+	sd_init_global();
+  setup_timer2(TMR_INTERNAL | TMR_DIV_BY_8, 2765); // 11059200/2/8/1843 = 4 ms
+	setup_timer5(TMR_INTERNAL | TMR_DIV_BY_256, 21600); // 11059200/2/8/14395 = 1 s
   init_algoritmo();
 	enable_interrupts(INT_TIMER5);
 
@@ -149,8 +147,8 @@ void main(void)
     //4.3 Enviar datos y escribir cada x segundos
     if(datos_flag)
     {
-      enviar_datos(ppm);
-			//escritura_sd();
+      //enviar_datos(ppm);
+			escritura_sd(ppm);
 			datos_flag=0;
 		}
 		peligro_flag=0; // actualizar flag
