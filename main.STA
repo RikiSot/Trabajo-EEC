@@ -1,85 +1,101 @@
 
-ROM used:   3878/88064 (4%)
-            3878/88064 (4%) including unused fragments
+ROM used:   8110/88064 (9%)
+            8110/88064 (9%) including unused fragments
 
-            1.5 Average locations per line
-            7.2 Average locations per statement
+            3.1 Average locations per line
+            14.5 Average locations per statement
 
-RAM used:   2865/16294 (18%) at main() level
-            2936/16294 (18%) worst case
+RAM used:   2883/16294 (18%) at main() level
+            2996/16294 (18%) worst case
 
-Stack used: 76 worst case (20 in main + 56 for interrupts)
-Stack size: 160
+Stack used: 90 worst case (34 in main + 56 for interrupts)
+Stack size: 176
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  172    64  12  main.c
+  170    64  11  main.c
  1234     0   0  33FJ128MC804.h
-   15     0   0  common.h
-   74     0   0  Header.h
+   14     0   0  common.h
+   70     0   0  Header.h
    35     0   0  adc.h
-  211    70  13  lcd.h
+  235    82  15  lcd.h
   124    50   9  algoritmo.h
    65     0   0  BEEP.h
-   50    17   3  SD_Card.h
-  455   205  38  miFAT.h
-  185   118  22  sdcard.h
-   34    18   3  BLUETOOTH.h
+  461   223  40  miFAT.h
+  197   125  22  sdcard.h
+   35    17   3  BLUETOOTH.h
 ----- -----
- 2654   542 Total
+ 2640   561 Total
 
 Page ROM  %  RAM    Vol Diff  Functions:
 ---- --- --- ---    --- ----  ----------
-0     16   0    2             @delay_ms1
+0     16   0    0             @delay_ms1
 0     24   0    0    121  0.8  adcinit
-0    136   2    0    516  1.9  lcdi2cinit
-0     24   0    1             @I2C_WRITEU_1
-0     52   1    1     92  1.3  LCD_command
-0     92   1    7    206  4.1  LCD_write
-0     32   0    5     83  3.5  LCD_cursor_at
-0    136   2   40    255  2.9  initmenu
-0    184   2   57    305  2.9  display_frecuencia
-0     62   1   18     99  2.4  display_alarma_bajo
-0     68   1   21     99  2.4  display_alarma_alto
-0     60   1   17    107  1.7  display_final
+0    144   1    0    544  1.9  lcdi2cinit
+0     24   0    1             @I2C_WRITEU_129
+0     52   0    2     92  1.3  LCD_command
+0     92   1    3    206  4.1  LCD_write
+0     32   0    2     83  3.5  LCD_cursor_at
+0    136   1   41    255  2.9  initmenu
+0    176   1   58    280  2.9  display_frecuencia
+0     62   0   18     99  2.4  display_alarma_bajo
+0     68   0   21     99  2.4  display_alarma_alto
+0     60   0   17     99  2.4  display_final
 0     26   0    0    138  2.2  BEEP_Init
 0     24   0    1    111  3.4  BEEP
-0     72   1    3    233  5.0  isr_TIMER4
-0     60   1    5    282  3.7  init_algoritmo
-0    240   3    5   1517  8.2  algoritmo
-0     58   1    2             @ITOF
-0    104   1    8             @FLT
-0    202   3    8             @DIVFF
-0    426   5    8             @ADDFF
-0    110   1    2    276  3.9  enviar_datos
-0     54   1    0             @const1059
-0     28   0    0             @const1060
-0     26   0    0             @const1061
-0    256   3    0             @PRINTFD16_115200_5779_5780
-0     38   0    0     20  1.3  timer2_isr
-0     34   0    0     18  1.0  timer5_isr
-0    404   5   14   1728  7.8  MAIN
-0     14   0    1             @SPRINTF
-0    304   4    0             @PRINTFD16_1083
+0     74   0    1    233  5.0  isr_TIMER4
+0     64   0    2    282  3.7  init_algoritmo
+0    240   1    2   1509  8.4  algoritmo
+0     58   0  127             @ITOF
+0    104   1   58             @FLT
+0    202   1   58             @DIVFF
+0    426   3   58             @ADDFF
+0    648   4   12   5580  8.0  initFAT
+0     48   0    0             @MUL3232
+0    880   5   72   6147 12.3  inicializa_fichero
+0    426   3   16   1236 10.0  encontrarCluster
+0     84   1    0             @DIV3232A
+0    514   3   16   2910  9.0  escribe_datos_en_fichero
+0     28   0    0     88  1.2  sd_init_global
+ Inline         2    100  2.9  xfer_spi
+0    230   1    8    417  4.4  Commnd
+0    572   4   26   2891 10.0  sd_init
+0    308   2    8    851  9.0  sd_write_block
+0    212   1   10    696  8.7  sd_read_block
+0     72   0    2    250  4.4  escritura_sd
+0     14   0    0             @SPRINTF
+0    304   2    0             @PRINTFD16_1075
+0    122   1    0    207  1.8  init_BT
+0     18   0    0             @const1086
+0     18   0    0             @const1087
+0     18   0    0             @const1088
+0    110   1    2    251  3.8  enviar_datos
+0     54   0    0             @const1090
+0     26   0    0             @const1091
+0     26   0    0             @const1092
+0    256   2    0             @PRINTFD16_115200_5779_5780
+0     38   0    1     20  1.3  timer2_isr
+0     34   0    1     18  1.0  timer5_isr
+0    434   3   14   1822  6.8  MAIN
  Inline         0             @cinit1
 
 Program metrics:
-    Functions               19
-    Statements              542
-    Comments                525
-    Volume (V)              10124
-    Difficulty (D)          60.2
-    Effort to implement (E) 609577
-    Time to implement (T)   9 hours, 24 minutes
-    Est Delivered Bugs (B)  2
-    Cyclomatic Complexity   21
-    Maintainability (MI)    132
+    Functions               31
+    Statements              561
+    Comments                659
+    Volume (V)              43042
+    Difficulty (D)          147.1
+    Effort to implement (E) 6331333
+    Time to implement (T)   97 hours, 42 minutes
+    Est Delivered Bugs (B)  11
+    Cyclomatic Complexity   70
+    Maintainability (MI)    124
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00002     4  0  
 00004-001FE   508  0  
-00200-0FFFE  3366  61658  
+00200-0FFFE  7598  57426  
 10000-157FE     0  22528  
 
 

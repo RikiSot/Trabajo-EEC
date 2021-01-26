@@ -1,7 +1,3 @@
-
-#ifndef __SDCARD_H
-#define __SDCARD_H
-
 #bit  SPIRBF    = getenv("SFR:SPI1STAT").0
 #bit  SPITBF    = getenv("SFR:SPI1STAT").1
 #bit  SPIROV    = getenv("SFR:SPI1STAT").6
@@ -26,7 +22,7 @@
 #define   DATA_RES_ACCEPTED      	0x05      //write accepted
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 unsigned int8 sdhc;
-unsigned int8 dt[512];            /// Buffer de escritura  en uSD
+extern unsigned int8 dt[512];            /// Buffer de escritura  en uSD
 unsigned int32 LBA0 = 0;
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 inline unsigned int8 xfer_spi(char envio){
@@ -181,4 +177,20 @@ unsigned int8 sd_read_block(unsigned int32 address, unsigned char* ptr){
 							output_high(CS);      return 1;
 }//fin sd_read_block
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#endif // __SDCARD_H
+
+char cadena[32];
+int jj;
+static int cont = 0;
+//Escritura en el fichero LATIDOS
+void escritura_sd(int ppm){
+
+ sprintf(cadena,"%03d\n",ppm); //Escribe ppm en el archivo LATIDOS
+ output_toggle(H1);
+
+ for(jj=0;jj<4;jj++)
+ {
+   dt[jj+(cont*4)] = cadena[jj];
+ }
+cont++;
+escribe_datos_en_fichero();
+}

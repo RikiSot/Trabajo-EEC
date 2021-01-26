@@ -1,8 +1,5 @@
-#ifndef HEADER_h
-#define HEADER_h
-//-------------------------------------------------------------------
-
-#include "33FJ128MC804.h"
+#ifndef Header_h
+#define Header_h
 
 #fuses NOJTAG      // JTAG port is disabled
 #fuses NOPROTECT   // Code protection is disabled
@@ -11,17 +8,17 @@
 #fuses NOWDT       // WDT is disabled; SWDTEN bit is disabled
 #fuses WPOSTS16    // Watchdog Timer Postscaler Select bits-> 1:32,768 (NOT USED)
 #fuses NOIESO      // Internal External Switchover bit: IESO mode (Two-Speed Start-up) is disabled
-#fuses FRC_PS      // Initial Oscillator Select bits: Fast RC Oscillator with Postscaler (FRCDIV)
+#fuses HS
+#fuses PR
 #fuses CKSNOFSM    // Clock switching is enabled, Fail-Safe Clock Monitor is disabled
 #fuses OSCIO       // OSCO Pin Configuration bit: OSCO/CLKO/RC15 functions as port I/O (RC15)
-#fuses NOPR        // Primary Oscillator Configuration bits: Primary Oscillator mode is disabled
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#use delay(clock=7370000)
+#use delay(clock= 11059200)
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#define ON(pin)   output_high(pin)
+#define ON( pin)   output_high(pin)
 #define OFF(pin)   output_low( pin)
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-//#define SDA1         PIN_B9  //                    ( 1)
+#define SDA1         PIN_B9  //                    ( 1)
 #define BUZZER         PIN_C6  //                    ( 2)
 #define LED1           PIN_C7  //                    ( 3)
 #define LED2           PIN_C8  //                    ( 4)
@@ -33,7 +30,7 @@
 #define H2             PIN_B12 //                    (10)
 #define L2             PIN_B13 //                    (11)
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#define _I             PIN_A10 //                    (12)
+#define III            PIN_A10 //                    (12)
 #define BTOK           PIN_A7  //                    (13)
 #define H1             PIN_B14 //                    (14)
 #define L1             PIN_B15 //                    (15)
@@ -41,7 +38,7 @@
 //                     AVDD    //                    (17)
 //                     ~MCLR   //                    (18)
 #define BTIN           PIN_A0  //                    (19)
-#define POT  		       PIN_A1  //                    (20)
+#define POT  		   PIN_A1  //                    (20)
 //                     PIN_B0  //                    (21)
 //                     PIN_B1  //                    (22)
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -64,10 +61,9 @@
 #define CS             PIN_C5  //                    (38)
 //                     VSS     //                    (39)
 //                     VDD     //                    (40)
-#pin_select SDI1 =     PIN_B5  //                    (41)
+#pin_select SDO1 =     PIN_B5  //                    (41)
 #pin_select SCK1OUT=   PIN_B6  //                    (42)
-#pin_select SDO1 =     PIN_B7  //                    (43)
-//#define SCL1         PIN_B8  //                    (44)
+#pin_select SDI1 =     PIN_B7  //                    (43)
+#define SCL1         PIN_B8  //                    (44)
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 #endif

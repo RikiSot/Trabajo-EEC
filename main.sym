@@ -1,37 +1,37 @@
 W0      @SCRATCH
 W0L     _RETURN_
-W0      @PRINTFD16_1083.P1
+W0L     @SPRINTF.P1
 W0 -W1  @READ_ROM_MEMORY.P2
-W0 -W1  @FLT.P3
-W0      @delay_us1.P4
+W0      @PRINTFD16_115200_5779_5780.P3
+W0      @delay_ms1.P4
 W0 -W1  @DIV3232B.P5
-W0 -W1  @ADDFF.P6
-W0      @delay_ms1.P7
-W0 -W1  @DIV3232A.P8
-W0      @PRINTFD16_115200_5779_5780.P9
-W0 -W1  @MUL3232.P10
-W0L     @SPRINTF.P11
-W0      @ITOF.P12
-W0 -W1  @DIVFF.P13
+W0 -W1  @MUL3232.P6
+W0 -W1  @DIV3232A.P7
+W0      @delay_us1.P8
+W0 -W1  @ADDFF.P9
+W0      @PRINTFD16_1075.P10
+W0 -W1  @FLT.P11
+W0 -W1  @DIVFF.P12
+W0      @ITOF.P13
 W1      @SCRATCH
-W1L     @I2C_READU_1.P1
-W1      @WRITE_PACKED_MEMORY.P2
-W1      @READ_PACKED_MEMORY.P3
-W1L     @I2C_WRITEU_1.P4
+W1L     @I2C_WRITEU_129.P1
+W1      @READ_PACKED_MEMORY.P2
+W1L     @I2C_READU_129.P3
+W1      @WRITE_PACKED_MEMORY.P4
 W2 -W3  @FLT.P1
-W2      @READ_ROM_MEMORY.P2
-W2      @READ_PACKED_MEMORY.P3
-W2 -W3  @DIV3232A.P4
-W2 -W3  @MUL3232.P5
-W2 -W3  @DIVFF.P6
+W2 -W3  @MUL3232.P2
+W2 -W3  @DIVFF.P3
+W2      @WRITE_PACKED_MEMORY.P4
+W2      @READ_PACKED_MEMORY.P5
+W2      @READ_ROM_MEMORY.P6
 W2 -W3  @ADDFF.P7
-W2      @WRITE_PACKED_MEMORY.P8
-W2 -W3  @DIV3232B.P9
-W3      @WRITE_PACKED_MEMORY.P1
-W3      @READ_ROM_MEMORY.P2
+W2 -W3  @DIV3232B.P8
+W2 -W3  @DIV3232A.P9
+W3      @READ_ROM_MEMORY.P1
+W3      @WRITE_PACKED_MEMORY.P2
 W3      @READ_PACKED_MEMORY.P3
 W4      @PRINTFD16_115200_5779_5780.P1
-W4      @PRINTFD16_1083.P2
+W4      @PRINTFD16_1075.P2
 240     SPI1STAT
 240.0   SPIRBF
 240.1   SPITBF
@@ -73,97 +73,154 @@ EAE-10AD sector_fat32
 12B4    minute
 12B5    second
 12B6    sdhc
-12B8-12B9 ppm
-12BA-12D9 cadena
-12DA-12DB jj
+12B8-12D7 cadena
+12D8-12D9 jj
+12DA-12DB cont
 12DC-12DD @sprintf_string
-12DE    xfer_spi.envio
-12E0-12E8 MAIN.ppm_string
-12E9.0  MAIN.peligro_flag
-12E9.1  MAIN.peligro_flag_ant
-12E9.2  MAIN.altas
-12E9.3  MAIN.bajas
-12EA-12EB MAIN.ppm_anterior
-12EC-1300 display_alarma_alto.peligro
-12EC-12FC initmenu.cabecera
-12EC-12FC display_frecuencia.cabecera
-12EC-12FC display_final.fin
-12EC-12ED init_algoritmo.e
-12EC-12FD display_alarma_bajo.peligro
-12EC-12ED enviar_datos.ppm
-12FE-130B initmenu.boton
-12FE-1311 display_frecuencia.palabra1
-130C-1314 initmenu.palabra1
-1312-1325 display_frecuencia.palabra2
-1326-1327 LCD_write.cd
-1326    LCD_cursor_at.line
-1327    LCD_cursor_at.column
-1328    LCD_write.c
+12DE-12DF ppm
+12E0.0  MAIN.peligro_flag
+12E0.1  MAIN.altas
+12E0.2  MAIN.bajas
+12E2-12EA MAIN.ppm_string
+12EC-12ED MAIN.ppm_anterior
+12EE-12F1 initFAT.startClusterOfRootDirectory
+12EE-12FF display_alarma_bajo.peligro
+12EE-12EF escritura_sd.ppm
+12EE-12FE initmenu.cabecera
+12EE    sd_init.versionSD
+12EE-12EF init_algoritmo.e
+12EE    inicializa_fichero.FicheroIncializado
+12EE-12FE display_frecuencia.cabecera
+12EE-12FE display_final.fin
+12EE-1302 display_alarma_alto.peligro
+12EE-12EF enviar_datos.ppm
+12EF    sd_init.crc
+12F0-12F3 inicializa_fichero.i
+12F0-1300 sd_init.R
+12F0-12F3 escribe_datos_en_fichero.relSector
+12F2-12F5 initFAT.sctrs
+12F4-12F7 escribe_datos_en_fichero.nextCluster
+12F4-12F5 inicializa_fichero.j
+12F6-12F9 inicializa_fichero.SctStart
+12F6-12F7 initFAT.ptrSct
+12F8-12F9 initFAT.ptrDiskInfo
+12F8-12FB escribe_datos_en_fichero.oldCluster
+12FA-12FD inicializa_fichero.SctEnd
+12FC-12FD escribe_datos_en_fichero._hour
+12FE-12FF escribe_datos_en_fichero.date
+12FE-1301 inicializa_fichero.ClstIni
+1300-130D initmenu.boton
+1300-1313 display_frecuencia.palabra1
+1302-1305 inicializa_fichero.ClstNxt
+1302-1303 sd_init.iI
+1304-1307 sd_init.arg
+1306-1309 inicializa_fichero.sctrClstr
+130A-130D inicializa_fichero.posSctr
+130E-1316 initmenu.palabra1
+130E-1311 inicializa_fichero.clstrSig
+1312-1315 inicializa_fichero.startCluster
+1314-1327 display_frecuencia.palabra2
+1316-1335 inicializa_fichero.newFile
+1328    LCD_cursor_at.line
+1328-1329 LCD_write.cd
+1329    LCD_cursor_at.column
+132A    LCD_write.c
 132E    LCD_command.cmd
-1330-1331 algoritmo.pulsaciones
-1332    BEEP.n
-4760-47FF Stack
+1336-1339 encontrarCluster.clusterStart
+133A-133D encontrarCluster.cluster
+133A-133D sd_write_block.address
+133E-133F sd_write_block.ptr
+133E-1341 encontrarCluster._sector
+1340-1341 sd_write_block.iW
+1342-1345 encontrarCluster.bytes
+1346-1349 sd_read_block.address
+134A-134B sd_read_block.ptr
+134C    sd_read_block.iR
+134E-134F sd_read_block.jR
+1350    Commnd.befF
+1351    Commnd.befH
+1352-1355 Commnd.SD_Adress
+1356    Commnd.iC1
+135A    xfer_spi.envio
+135C-135D algoritmo.pulsaciones
+135E    BEEP.n
+3F50-3FFF _STACK_
 
 ROM Allocation:
-000200  @const1059.call
-000236  @const1060.call
-000252  @const1061.call
-00026C  isr_TIMER4
-0002B4  @ITOF
-0002EE  @FLT
-000356  BEEP
-00036E  @DIVFF
-000438  @ADDFF
-0005E2  algoritmo
-0006D2  timer2_isr
-0006F8  timer5_isr
-00071A  @delay_ms1
-00072A  @I2C_WRITEU_1
-000742  LCD_command
-000776  lcdi2cinit
-0007FE  BEEP_Init
-000818  LCD_cursor_at
-000838  LCD_write
-000894  initmenu
-00091C  adcinit
-000934  init_algoritmo
-000970  display_frecuencia
-000A28  display_alarma_alto
-000A6C  display_alarma_bajo
-000AAA  @SPRINTF
-000AB8  @PRINTFD16_1083
-000BE8  @PRINTFD16_115200_5779_5780
-000CE8  enviar_datos
-000D56  display_final
-000D92  @cinit1
-000D92  MAIN
-000E16  @cinit2
-0674  COM
+000200  @const1086.call
+000212  @const1087.call
+000224  @const1088.call
+000236  @const1090.call
+00026C  @const1091.call
+000286  @const1092.call
+0002A0  isr_TIMER4
+0002EA  @ITOF
+000324  @FLT
+00038C  BEEP
+0003A4  @DIVFF
+00046E  @ADDFF
+000618  algoritmo
+000708  timer2_isr
+00072E  timer5_isr
+000750  @delay_ms1
+000760  init_BT
+0007DA  @I2C_WRITEU_129
+0007F2  LCD_command
+000826  lcdi2cinit
+0008B6  BEEP_Init
+0008D0  LCD_cursor_at
+0008F0  LCD_write
+00094C  initmenu
+0009D4  adcinit
+0009EC  Commnd
+000AD2  sd_read_block
+000BA6  sd_init
+000DE2  initFAT
+00106A  @DIV3232A
+0010BE  encontrarCluster
+001268  @MUL3232
+001298  sd_write_block
+0013A6  xfer_spi
+0013CC  inicializa_fichero
+00173C  sd_init_global
+001758  init_algoritmo
+001798  display_frecuencia
+001848  display_alarma_alto
+00188C  display_alarma_bajo
+0018CA  @SPRINTF
+0018D8  @PRINTFD16_1075
+001A08  @PRINTFD16_115200_5779_5780
+001B08  enviar_datos
+001B76  escribe_datos_en_fichero
+001D78  escritura_sd
+001DC0  display_final
+001DFC  MAIN
+001DFC  @cinit1
+001E8C  @cinit2
+0D84  COM
 
 Project Directory:
-    C:\Users\klzi\Desktop\Klaudija\
+    F:\Industriales\Especialidad\SDM\Trabajo-EEC\
 
 Project Files:
-    main.c                                                  [18-ene.-21 16:18  CRC=F5DF634E]
-    33FJ128MC804.h                                          [18-ene.-21 16:18  CRC=C2AA7534]
-    common.h                                                [18-ene.-21 17:57  CRC=05CD80E8]
-    Header.h                                                [18-ene.-21 16:18  CRC=5139A6EC]
-    adc.h                                                   [18-ene.-21 18:07  CRC=3752EEDD]
-    lcd.h                                                   [18-ene.-21 18:07  CRC=6DC552C0]
-    algoritmo.h                                             [18-ene.-21 16:18  CRC=9A9E4E6D]
-    BEEP.h                                                  [18-ene.-21 16:18  CRC=ECB3F9B5]
-    SD_Card.h                                               [18-ene.-21 16:18  CRC=C6E7D9A6]
-    miFAT.h                                                 [18-ene.-21 16:18  CRC=B1948FF0]
-    sdcard.h                                                [18-ene.-21 16:18  CRC=3475F66C]
-    BLUETOOTH.h                                             [18-ene.-21 18:17  CRC=D032CF2D]
+    main.c                                                  [26-ene.-21 22:21  CRC=61547646]
+    33FJ128MC804.h                                          [30-dic.-20 17:13  CRC=C2AA7534]
+    common.h                                                [26-ene.-21 21:22  CRC=D8102B21]
+    Header.h                                                [26-ene.-21 21:27  CRC=D3EAE406]
+    adc.h                                                   [25-ene.-21 17:26  CRC=A181F052]
+    lcd.h                                                   [26-ene.-21 22:11  CRC=C7348E9E]
+    algoritmo.h                                             [25-ene.-21 19:29  CRC=9A9E4E6D]
+    BEEP.h                                                  [25-ene.-21 17:26  CRC=1A3075CA]
+    miFAT.h                                                 [26-ene.-21 21:04  CRC=97011779]
+    sdcard.h                                                [26-ene.-21 22:21  CRC=04542347]
+    BLUETOOTH.h                                             [25-ene.-21 18:11  CRC=632AAE1C]
 
-Source signature=89538871
+Source signature=4F29D4C0
 Program memory checksum=0000
-Program memory CRC=0000
-Hex file CRC=100F
+Hex file CRC=D9CA
 
 Units:
-    main (main)
+    F:\Industriales\Especialidad\SDM\Trabajo-EEC\main (main)
 
 Compiler Settings:
     Processor:      DSPIC33FJ128MC804

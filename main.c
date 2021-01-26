@@ -1,6 +1,6 @@
 /**
  @file    main.c
- @author  Ricardo Gomez
+ @author  Ricardo Gomez, Klaudija Ziliute
 
  @brief   main EEC
 */
@@ -9,6 +9,7 @@
 #include "33FJ128MC804.h"
 #include <common.h>
 
+unsigned int8 dt[512];
 unsigned int16 ppm;
 int1 datos_flag;
 
@@ -22,6 +23,7 @@ void timer2_isr()
 #INT_TIMER5
 void timer5_isr()
 {
+
 	datos_flag=1;
 }
 
@@ -57,9 +59,10 @@ void main(void)
 
 
   //1.
-  //init_BT();
+  init_BT();
   lcdi2cinit();
   BEEP_Init();
+
 
   //2. Menu bienvenida
   initmenu();
@@ -76,10 +79,13 @@ void main(void)
   //3. Inicializar algoritmo, adc y timer2 a 250 Hz
   adcinit();
 	sd_init_global();
+
+
   setup_timer2(TMR_INTERNAL | TMR_DIV_BY_8, 2765); // 11059200/2/8/1843 = 4 ms
-	setup_timer5(TMR_INTERNAL | TMR_DIV_BY_256, 21600); // 11059200/2/8/14395 = 1 s
+	setup_timer5(TMR_INTERNAL | TMR_DIV_BY_256, 216*50); // 11059200/2/8/14395 = 1 s
   init_algoritmo();
 	enable_interrupts(INT_TIMER5);
+	memset(dt,0,512);
 
   //Mostrar pantalla de frecuencia
   display_frecuencia();
@@ -144,10 +150,11 @@ void main(void)
 			}
 		}
 
+
     //4.3 Enviar datos y escribir cada x segundos
     if(datos_flag)
     {
-      //enviar_datos(ppm);
+      enviar_datos(ppm);
 			escritura_sd(ppm);
 			datos_flag=0;
 		}

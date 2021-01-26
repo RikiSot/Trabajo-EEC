@@ -111,7 +111,7 @@ int algoritmo(void)
 	//y si no permanece el valor anteriore
 	//15000 son las muestras de 1 minuto (60000[ms]/4[ms/muestra])
 
-	if((BCL2 > 65) && (BCL2 < 500))
+	if((BCL2>60)&&(BCL2<750)) // Ritmo entre 20 ppm y 260 ppm
 	{
 		pulsaciones = (int)(15000/BCL2);
 	}

@@ -1,11 +1,23 @@
->>> Warning 202 "C:\Users\klzi\Desktop\Klaudija\miFAT.h" Line 117(65,71): Variable never used:   yearLo
->>> Warning 202 "C:\Users\klzi\Desktop\Klaudija\miFAT.h" Line 279(9,16): Variable never used:   ClstIni
->>> Warning 202 "C:\Users\klzi\Desktop\Klaudija\miFAT.h" Line 281(58,65): Variable never used:   ClstNxt
->>> Warning 202 "C:\Users\klzi\Desktop\Klaudija\miFAT.h" Line 282(84,93): Variable never used:   sctrClstr
->>> Warning 202 "C:\Users\klzi\Desktop\Klaudija\miFAT.h" Line 283(112,119): Variable never used:   posSctr
->>> Warning 202 "C:\Users\klzi\Desktop\Klaudija\miFAT.h" Line 284(138,146): Variable never used:   clstrSig
->>> Warning 202 "main.c" Line 15(6,12): Variable never used:   cadena
->>> Warning 202 "main.c" Line 16(5,7): Variable never used:   jj
-      Memory usage:   ROM=4%      RAM=18% - 18%
-      0 Errors,  8 Warnings.
+Compiling F:\Industriales\Especialidad\SDM\Trabajo-EEC\main on 26-ene.-21 at 22:23
+>>> Warning 240 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 340(34,46): Pointer types do not match
+>>> Warning 240 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 342(35,47): Pointer types do not match
+>>> Warning 240 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 343(46,58): Pointer types do not match
+>>> Warning 240 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 347(33,45): Pointer types do not match
+>>> Warning 240 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 349(35,47): Pointer types do not match
+>>> Warning 240 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 350(46,58): Pointer types do not match
+>>> Warning 240 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 374(25,37): Pointer types do not match
+>>> Warning 240 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 387(25,37): Pointer types do not match
+>>> Warning 202 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 114(15,21): Variable never used:   yearLo
+>>> Warning 202 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 214(19,26): Variable never used:   ClstIni
+>>> Warning 202 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 216(19,26): Variable never used:   ClstNxt
+>>> Warning 202 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 217(19,28): Variable never used:   sctrClstr
+>>> Warning 202 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 218(19,26): Variable never used:   posSctr
+>>> Warning 202 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 219(19,27): Variable never used:   clstrSig
+>>> Warning 202 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 276(19,26): Variable never used:   ClstIni
+>>> Warning 202 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 278(19,26): Variable never used:   ClstNxt
+>>> Warning 202 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 279(19,28): Variable never used:   sctrClstr
+>>> Warning 202 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 280(19,26): Variable never used:   posSctr
+>>> Warning 202 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 281(19,27): Variable never used:   clstrSig
+      Memory usage:   ROM=9%      RAM=18% - 18%
+      0 Errors,  19 Warnings.
 Build Successful.

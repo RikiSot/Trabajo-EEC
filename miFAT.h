@@ -1,6 +1,3 @@
-
-#ifndef __MIFAT_H
-#define __MIFAT_H
 // Definidos en sdcard.h - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 extern unsigned int8 dt[512];
 extern unsigned int32 LBA0;
@@ -208,42 +205,43 @@ void initFAT(){
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 void cargaConfig(unsigned int32 j);
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// unsigned int8 encontrar_fichero(){
-//    unsigned int8 FicheroEncontrado = 0;
-//    unsigned int32 i;
-//    unsigned int16 j;
-//    unsigned int32 SctStart = sect_entry;			//inicio Root
-//    unsigned int32 SctEnd   = sect_ini_datos;		//fin    Root
-//    unsigned int32 ClstIni  = ((FATType==16)?1:2);
-//
-//    unsigned int32 ClstNxt;
-//    unsigned int32 sctrClstr;
-//    unsigned int32 posSctr;
-//    unsigned int32 clstrSig;
-//
-//    for(i = SctStart; i < SctEnd; i++){
-// 	      sd_read_block(i, dt);
-// 		 for(j = 0; j < 512; j += 32){
-// 										if(	(dt[j + 0] == 'C')&&
-// 											(dt[j + 1] == 'O')&&
-// 											(dt[j + 2] == 'N')&&
-// 											(dt[j + 3] == 'F')&&
-// 											(dt[j + 4] == 'I')&&
-// 											(dt[j + 5] == 'G')&&
-// 											(dt[j + 6] == ' ')&&
-// 											(dt[j + 7] == ' ')&&
-// 											(dt[j + 8] == 'T')&&
-// 											(dt[j + 9] == 'X')&&
-// 											(dt[j + 10]== 'T')){
-// 																 cargaConfig(j);
-// 																 FicheroEncontrado = 1;
-// 																 return FicheroEncontrado;
-// 																}//fin if(CNF)
-//
-// 		}//j
-//    }//i
-//    return FicheroEncontrado;
-// } // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+unsigned int8 encontrar_fichero(){
+   unsigned int8 FicheroEncontrado = 0;
+   unsigned int32 i;
+   unsigned int16 j,k=0;
+   unsigned int32 SctStart = sect_entry;			//inicio Root
+   unsigned int32 SctEnd   = sect_ini_datos;		//fin    Root
+   unsigned int32 ClstIni  = ((FATType==16)?1:2);
+
+   unsigned int32 ClstNxt;
+   unsigned int32 sctrClstr;
+   unsigned int32 posSctr;
+   unsigned int32 clstrSig;
+
+   for(i = SctStart; i < SctEnd; i++){
+	      sd_read_block(i, dt);
+		 for(j = 0; j < 512; j += 32){
+										k=0;
+										if(	(dt[j + 0] == 'C')&&
+											(dt[j + 1] == 'O')&&
+											(dt[j + 2] == 'N')&&
+											(dt[j + 3] == 'F')&&
+											(dt[j + 4] == 'I')&&
+											(dt[j + 5] == 'G')&&
+											(dt[j + 6] == ' ')&&
+											(dt[j + 7] == ' ')&&
+											(dt[j + 8] == 'T')&&
+											(dt[j + 9] == 'X')&&
+											(dt[j +10] == 'T')){
+																 cargaConfig(j);
+																 FicheroEncontrado = 1;
+																 return FicheroEncontrado;
+																}//fin if(CNF)
+
+		}//j
+   }//i
+   return FicheroEncontrado;
+} // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 void cargaConfig(unsigned int32 j){
    unsigned int32 direccion;
    unsigned int32 _sector;
@@ -256,8 +254,7 @@ void cargaConfig(unsigned int32 j){
 	   direccion = make32(dt[j+21],dt[j+20],dt[j+27],dt[j+26]); //en FAT32 se usa EAIndex + first cluster
 	   _sector = ((unsigned int32)direccion - 3) * sect_x_cluster + sect_ini_datos;
    }
-   sd_read_block(_sector, dt); //leer el primer sector de los datos del fichero
-
+	sd_read_block(_sector, dt);
    // Ahora en el vector dt tengo los datos del fichero y puedo emplearlo
    // Por ejemplo: el texto que indica la hora y minutos del ensayo lo obtendria como:
    // hora   = (dt[140]-'0')*10 + dt[141]-'0' ;
@@ -307,7 +304,7 @@ unsigned int8 inicializa_fichero(){
 					   newFile.fields.create_date = getDate();
 					   newFile.fields.last_access = newFile.fields.create_date;
 					   newFile.fields.eaIndex = 0;
-					   newFile.fields.attrib = __FILE | READONLY;   //archivo normal + s�lo lectura
+					   newFile.fields.attrib = __FILE ;   //archivo normal + s�lo lectura  | READONLY
 					   newFile.fields.modif_hour = newFile.fields.create_hour;
 					   newFile.fields.modif_date = newFile.fields.create_date;
 					   newFile.fields.first_cluster = 0;
@@ -451,4 +448,13 @@ void escribe_datos_en_fichero(){
 
 }
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#endif // __MIFAT_H
+void sd_init_global(){
+  set_tris_b(0b1111111110011111);
+  set_tris_c(0b1111111111011111);
+  delay_ms(30);
+
+  sd_init();	// Inicializa micro SD
+
+  initFAT();	// Carga los parametros del sistema de ficheros
+	inicializa_fichero();
+}
