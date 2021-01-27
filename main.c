@@ -12,7 +12,7 @@
 unsigned int8 dt[512];
 unsigned int16 ppm;
 int1 datos_flag;
-
+extern int cont;
 
 #INT_TIMER2
 
@@ -60,10 +60,11 @@ void main(void)
 
 
   //1.
-	lcdi2cinit();
+
+
   init_BT();
 	sd_init_global();
-
+	lcdi2cinit();
   BEEP_Init();
 
 
@@ -85,7 +86,7 @@ void main(void)
 
 
   setup_timer2(TMR_INTERNAL | TMR_DIV_BY_8, 2765); // 11059200/2/8/1843 = 4 ms
-	setup_timer5(TMR_INTERNAL | TMR_DIV_BY_256, 216*50); // 11059200/2/8/14395 = 50Hz
+	setup_timer5(TMR_INTERNAL | TMR_DIV_BY_256, 21600); //1s 11059200/2/8/14395 = 50Hz
   init_algoritmo();
 	enable_interrupts(INT_TIMER5);
 	memset(dt,0,512);

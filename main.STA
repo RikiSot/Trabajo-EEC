@@ -1,9 +1,9 @@
 
-ROM used:   8136/88064 (9%)
-            8136/88064 (9%) including unused fragments
+ROM used:   8142/88064 (9%)
+            8142/88064 (9%) including unused fragments
 
             3.1 Average locations per line
-            14.3 Average locations per statement
+            14.4 Average locations per statement
 
 RAM used:   2883/16294 (18%) at main() level
             2996/16294 (18%) worst case
@@ -13,7 +13,7 @@ Stack size: 176
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  173    64  11  main.c
+  174    64  11  main.c
  1234     0   0  33FJ128MC804.h
    14     0   0  common.h
    70     0   0  Header.h
@@ -23,7 +23,7 @@ Lines Stmts  %   Files
    65     0   0  BEEP.h
   469   229  40  miFAT.h
   197   125  22  sdcard.h
-   35    17   3  BLUETOOTH.h
+   34    17   3  BLUETOOTH.h
 ----- -----
  2651   567 Total
 
@@ -55,7 +55,7 @@ Page ROM  %  RAM    Vol Diff  Functions:
 0    880   5   72   6147 12.3  inicializa_fichero
 0    426   3   16   1236 10.0  encontrarCluster
 0     84   1    0             @DIV3232A
-0    540   3   16   3125  9.5  escribe_datos_en_fichero
+0    546   3   16   3182 10.6  escribe_datos_en_fichero
 0     28   0    0     88  1.2  sd_init_global
  Inline         2    100  2.9  xfer_spi
 0    230   1    8    417  4.4  Commnd
@@ -65,29 +65,29 @@ Page ROM  %  RAM    Vol Diff  Functions:
 0     72   0    2    250  4.4  escritura_sd
 0     14   0    0             @SPRINTF
 0    304   2    0             @PRINTFD16_1075
-0    122   1    0    207  1.8  init_BT
+0    194   1    0    318  1.8  init_BT
 0     18   0    0             @const1086
 0     18   0    0             @const1087
 0     18   0    0             @const1088
-0    110   1    2    251  3.8  enviar_datos
-0     54   0    0             @const1090
+0     54   0    0             @const1089
+0     26   0    0             @const1090
 0     26   0    0             @const1091
-0     26   0    0             @const1092
+0     38   0    2    146  3.4  enviar_datos
 0    256   2    0             @PRINTFD16_115200_5779_5780
 0     38   0    1     20  1.3  timer2_isr
 0     34   0    1     18  1.0  timer5_isr
-0    434   3   14   1822  6.8  MAIN
+0    434   3   14   1802  6.3  MAIN
  Inline         0             @cinit1
 
 Program metrics:
     Functions               31
     Statements              567
-    Comments                661
-    Volume (V)              43336
-    Difficulty (D)          147.6
-    Effort to implement (E) 6396669
-    Time to implement (T)   98 hours, 43 minutes
-    Est Delivered Bugs (B)  11
+    Comments                662
+    Volume (V)              43386
+    Difficulty (D)          148.1
+    Effort to implement (E) 6425207
+    Time to implement (T)   99 hours, 9 minutes
+    Est Delivered Bugs (B)  12
     Cyclomatic Complexity   72
     Maintainability (MI)    124
 
@@ -95,7 +95,7 @@ Program metrics:
 -----------  ----  ----
 00000-00002     4  0  
 00004-001FE   508  0  
-00200-0FFFE  7624  57400  
+00200-0FFFE  7630  57394  
 10000-157FE     0  22528  
 
 

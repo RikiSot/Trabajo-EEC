@@ -420,7 +420,7 @@ void escribe_datos_en_fichero(){
 		if(FATType==32)
 	    relSector= file.currentSector - ((file.currentCluster -  3) * sect_x_cluster + sect_ini_datos);
 
-	    if((relSector % sect_x_cluster) == 0){   											//�el siguiente sector est� en cluster nuevo?
+	    if(((relSector % sect_x_cluster) == 0)&&(relSector!=0)){   											//�el siguiente sector est� en cluster nuevo?
 	      oldCluster = 	file.currentCluster;
 	      nextCluster = encontrarCluster(oldCluster);   									//siguiente cluster
 	      //escribirCluster(oldCluster, nextCluster);  										//marcar actual cluster para que apunte al siguiente
@@ -432,7 +432,7 @@ void escribe_datos_en_fichero(){
 	   }
 
 	   //actualizar el tama�o del fichero y fechas
-	   file.size += 512;
+	   file.size += 4; //512 estaba antes
 	   file.EntryFile[file.offsetEntry + 28] = make8(file.size, 0);   //tama�o
 	   file.EntryFile[file.offsetEntry + 29] = make8(file.size, 1);
 	   file.EntryFile[file.offsetEntry + 30] = make8(file.size, 2);
