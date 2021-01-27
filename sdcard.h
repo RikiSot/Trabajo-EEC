@@ -177,13 +177,11 @@ unsigned int8 sd_read_block(unsigned int32 address, unsigned char* ptr){
 							output_high(CS);      return 1;
 }//fin sd_read_block
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
+int cont = 0;
 char cadena[32];
 int jj;
-static int cont = 0;
 //Escritura en el fichero LATIDOS
 void escritura_sd(int ppm){
-
  sprintf(cadena,"%03d\n",ppm); //Escribe ppm en el archivo LATIDOS
  output_toggle(H1);
 
@@ -191,6 +189,8 @@ void escritura_sd(int ppm){
  {
    dt[jj+(cont*4)] = cadena[jj];
  }
+
 cont++;
 escribe_datos_en_fichero();
+//memset(dt,0,512);
 }

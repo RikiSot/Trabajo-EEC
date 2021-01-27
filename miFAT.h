@@ -399,7 +399,7 @@ unsigned int32 encontrarCluster(unsigned int32 clusterStart){
    return ((FATType==16)?ENDFILE16:ENDFILE32);
 }//fin encontrarCluster
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
+extern int cont;
 void escribe_datos_en_fichero(){
    unsigned int32 relSector;
    unsigned int32 nextCluster;
@@ -409,9 +409,12 @@ void escribe_datos_en_fichero(){
 	sd_write_block(file.currentSector, dt);
 
 
+		if(cont>127)
+		{
+	 		file.currentSector++;	//actualizar las FATs
+		}
 
 
-		file.currentSector++;																					//actualizar las FATs
 		if(FATType==16)
 	    relSector= file.currentSector - ((file.currentCluster -  2) * sect_x_cluster + sect_ini_datos);
 		if(FATType==32)
@@ -445,7 +448,12 @@ void escribe_datos_en_fichero(){
 	   file.EntryFile[file.offsetEntry + 19] = file.EntryFile[file.offsetEntry + 25];
 
 	   sd_write_block(file.sectorEntryFile, file.EntryFile);  	// Actualiza root
-
+		 if(cont>127)
+		 	{
+ 			//file.currentSector++;	//actualizar las FATs
+ 			memset(dt,0,512);
+ 			cont = 0;
+ 			}
 }
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 void sd_init_global(){

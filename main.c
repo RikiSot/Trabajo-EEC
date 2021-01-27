@@ -13,6 +13,7 @@ unsigned int8 dt[512];
 unsigned int16 ppm;
 int1 datos_flag;
 
+
 #INT_TIMER2
 
 void timer2_isr()
@@ -59,8 +60,10 @@ void main(void)
 
 
   //1.
+	lcdi2cinit();
   init_BT();
-  lcdi2cinit();
+	sd_init_global();
+
   BEEP_Init();
 
 
@@ -78,11 +81,11 @@ void main(void)
 
   //3. Inicializar algoritmo, adc y timer2 a 250 Hz
   adcinit();
-	sd_init_global();
+
 
 
   setup_timer2(TMR_INTERNAL | TMR_DIV_BY_8, 2765); // 11059200/2/8/1843 = 4 ms
-	setup_timer5(TMR_INTERNAL | TMR_DIV_BY_256, 216*50); // 11059200/2/8/14395 = 1 s
+	setup_timer5(TMR_INTERNAL | TMR_DIV_BY_256, 216*50); // 11059200/2/8/14395 = 50Hz
   init_algoritmo();
 	enable_interrupts(INT_TIMER5);
 	memset(dt,0,512);

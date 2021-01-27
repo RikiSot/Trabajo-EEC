@@ -1,9 +1,9 @@
 
-ROM used:   8110/88064 (9%)
-            8110/88064 (9%) including unused fragments
+ROM used:   8136/88064 (9%)
+            8136/88064 (9%) including unused fragments
 
             3.1 Average locations per line
-            14.5 Average locations per statement
+            14.3 Average locations per statement
 
 RAM used:   2883/16294 (18%) at main() level
             2996/16294 (18%) worst case
@@ -13,19 +13,19 @@ Stack size: 176
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  170    64  11  main.c
+  173    64  11  main.c
  1234     0   0  33FJ128MC804.h
    14     0   0  common.h
    70     0   0  Header.h
    35     0   0  adc.h
-  235    82  15  lcd.h
+  235    82  14  lcd.h
   124    50   9  algoritmo.h
    65     0   0  BEEP.h
-  461   223  40  miFAT.h
+  469   229  40  miFAT.h
   197   125  22  sdcard.h
    35    17   3  BLUETOOTH.h
 ----- -----
- 2640   561 Total
+ 2651   567 Total
 
 Page ROM  %  RAM    Vol Diff  Functions:
 ---- --- --- ---    --- ----  ----------
@@ -55,7 +55,7 @@ Page ROM  %  RAM    Vol Diff  Functions:
 0    880   5   72   6147 12.3  inicializa_fichero
 0    426   3   16   1236 10.0  encontrarCluster
 0     84   1    0             @DIV3232A
-0    514   3   16   2910  9.0  escribe_datos_en_fichero
+0    540   3   16   3125  9.5  escribe_datos_en_fichero
 0     28   0    0     88  1.2  sd_init_global
  Inline         2    100  2.9  xfer_spi
 0    230   1    8    417  4.4  Commnd
@@ -81,21 +81,21 @@ Page ROM  %  RAM    Vol Diff  Functions:
 
 Program metrics:
     Functions               31
-    Statements              561
-    Comments                659
-    Volume (V)              43042
-    Difficulty (D)          147.1
-    Effort to implement (E) 6331333
-    Time to implement (T)   97 hours, 42 minutes
+    Statements              567
+    Comments                661
+    Volume (V)              43336
+    Difficulty (D)          147.6
+    Effort to implement (E) 6396669
+    Time to implement (T)   98 hours, 43 minutes
     Est Delivered Bugs (B)  11
-    Cyclomatic Complexity   70
+    Cyclomatic Complexity   72
     Maintainability (MI)    124
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00002     4  0  
 00004-001FE   508  0  
-00200-0FFFE  7598  57426  
+00200-0FFFE  7624  57400  
 10000-157FE     0  22528  
 
 
