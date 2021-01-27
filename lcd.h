@@ -76,7 +76,7 @@ void lcdi2cinit(void)
 
 
   //dspic as master, velocidad, nombre de la conexion
-  #use i2c(Master, Fast=1000000, i2c1)
+  #use i2c(Master, Fast=100000, i2c1)
 
   LCD_command(_CLEAR_DISPLAY);
   LCD_command(_8BIT_4LINES_NORMAL_RE1_IS0);

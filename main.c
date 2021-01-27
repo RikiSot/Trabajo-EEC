@@ -100,24 +100,29 @@ void main(void)
   {
 
 		//Comprobar si hay electrodo suelto
-		// if(input(PIN_)) // COnectar pin del electrodo
-		// {
-		// 	display_electrodo_suelto();
-		// 	disable_interrupts(INT_TIMER2);
-		// 	disable_interrupts(INT_TIMER5);
-		// 	while(input(PIN_))
-		// 	{
-		// 		delay_ms(100);
-		// 	}
-		// 	display_electrodo_recuperado();
-		// 	while(!input(BTOK)) // pulsa para continuar
-		//   {
-		//     delay_ms(50);
-		//   }
-		// 	enable_interrupts(INT_TIMER2); // restaura ciclo de funcionamiento normal
-		// 	enable_interrupts(INT_TIMER5);
-		// 	delay_ms(4);
-		// }
+		if(input(H2) || input(L3)) // COnectar pin del electrodo
+		{
+			display_electrodo_suelto();
+			disable_interrupts(INT_TIMER2);
+			disable_interrupts(INT_TIMER5);
+			while(input(H2) || input(L3))
+			{
+				delay_ms(100);
+			}
+			display_electrodo_recuperado();
+			while(input(BTOK))
+		  {
+		    delay_ms(50);
+		  }
+		  while(!input(BTOK)) // para evitar rebotes y finalizar el programa
+		  {
+		    delay_ms(50);
+		  }
+			display_frecuencia();
+			enable_interrupts(INT_TIMER2); // restaura ciclo de funcionamiento normal
+			enable_interrupts(INT_TIMER5);
+			delay_ms(4);
+		}
 
     //4.1 Generar alarmas si es necesario
     if(ppm>=250)

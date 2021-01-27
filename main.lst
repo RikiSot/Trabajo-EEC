@@ -1,15 +1,15 @@
-CCS PCD C Compiler, Version 5.091, 43599               27-ene.-21 20:15
+CCS PCD C Compiler, Version 5.091, 43599               27-ene.-21 21:19
 
                Filename:   F:\Industriales\Especialidad\SDM\Trabajo-EEC\main.lst
 
-               ROM used:   8142 bytes (9%)
-                           Largest free fragment is 57394
+               ROM used:   8494 bytes (10%)
+                           Largest free fragment is 57042
                RAM used:   2883 (18%) at main() level
                            2996 (18%) worst case
                Stack used: 90 locations (34 in main + 56 for interrupts)
                Stack size: 176
 
-00000:  GOTO    1E1C
+00000:  GOTO    1F0E
 *
 00022:  DATA    08,07,00
 *
@@ -586,293 +586,293 @@ CCS PCD C Compiler, Version 5.091, 43599               27-ene.-21 20:15
 010CA:  MOV     [--W15],W5
 010CC:  RETURN  
 *
-01912:  MOV     W1,[W15++]
-01914:  MOV     12DC,W1
-01916:  MOV.B   W0L,[W1++]
-01918:  CLR.B   [W1]
-0191A:  MOV     [--W15],W1
-0191C:  INC     12DC
-0191E:  RETURN  
-01920:  MOV     W5,[W15++]
-01922:  MOV     #C,W5
-01924:  REPEAT  #3
-01926:  MOV     [W5++],[W15++]
-01928:  BTSS    W0.F
-0192A:  BRA     194A
-0192C:  NEG     W0,W0
-0192E:  BSET    W4.8
-01930:  BTSS    W4.F
-01932:  BRA     194A
-01934:  MOV     W0,[W15++]
-01936:  MOV     #2D,W0
-01938:  MOV     W4,[W15++]
-0193A:  MOV     W0,[W15++]
-0193C:  MOV     [--W15],W0
-0193E:  CALL    1912
+01A04:  MOV     W1,[W15++]
+01A06:  MOV     12DC,W1
+01A08:  MOV.B   W0L,[W1++]
+01A0A:  CLR.B   [W1]
+01A0C:  MOV     [--W15],W1
+01A0E:  INC     12DC
+01A10:  RETURN  
+01A12:  MOV     W5,[W15++]
+01A14:  MOV     #C,W5
+01A16:  REPEAT  #3
+01A18:  MOV     [W5++],[W15++]
+01A1A:  BTSS    W0.F
+01A1C:  BRA     1A3C
+01A1E:  NEG     W0,W0
+01A20:  BSET    W4.8
+01A22:  BTSS    W4.F
+01A24:  BRA     1A3C
+01A26:  MOV     W0,[W15++]
+01A28:  MOV     #2D,W0
+01A2A:  MOV     W4,[W15++]
+01A2C:  MOV     W0,[W15++]
+01A2E:  MOV     [--W15],W0
+01A30:  CALL    1A04
 *
-01942:  MOV     [--W15],W4
-01944:  MOV     [--W15],W0
-01946:  BCLR    W4.8
-01948:  DEC.B   0008
-0194A:  CLR     W5
-0194C:  MOV     W0,W7
-0194E:  MOV     W4,W9
-01950:  BCLR    W4.F
-01952:  CP0.B   W4L
-01954:  BRA     NZ,1962
-01956:  BTSC    W9.F
-01958:  BRA     195E
-0195A:  MOV     #0,W5
-0195C:  BRA     198C
-0195E:  MOV     #0,W5
-01960:  BRA     198C
-01962:  BTSS    W9.8
-01964:  SUB.B   W4L,#6,W5L
-01966:  BTSC    W9.8
-01968:  SUB.B   W4L,#7,W5L
-0196A:  BRA     NC,198A
-0196C:  MOV     #30,W0
-0196E:  BTSS    W9.F
-01970:  MOV     #20,W0
-01972:  MOV     W0,[W15++]
-01974:  MOV     W4,[W15++]
-01976:  MOV     W0,[W15++]
-01978:  MOV     [--W15],W0
-0197A:  CALL    1912
-*
-0197E:  MOV     [--W15],W4
-01980:  MOV     [--W15],W0
-01982:  DEC     W5,W5
-01984:  BRA     NN,1972
-01986:  MOV     #5,W5
-01988:  BRA     198C
-0198A:  MOV     W4,W5
-0198C:  MOV     #6,W4
-0198E:  BTSC    W5.8
-01990:  INC     W4,W4
-01992:  BSET    W5.E
-01994:  BTSC    W9.F
-01996:  BSET    W5.F
-01998:  MOV     #2710,W8
-0199A:  REPEAT  #11
-0199C:  DIV.U   W7,W8
-0199E:  CALL    19F2
-*
-019A2:  MOV     W1,W7
-019A4:  MOV     #3E8,W8
-019A6:  REPEAT  #11
-019A8:  DIV.U   W7,W8
-019AA:  CALL    19F2
-*
-019AE:  MOV     W1,W7
-019B0:  MOV     #64,W8
-019B2:  REPEAT  #11
-019B4:  DIV.U   W7,W8
-019B6:  CALL    19F2
-*
-019BA:  MOV     W1,W7
-019BC:  MOV     #A,W8
-019BE:  REPEAT  #11
-019C0:  DIV.U   W7,W8
-019C2:  CALL    19F2
-*
-019C6:  BTSS    W9.8
-019C8:  BRA     19DE
-019CA:  MOV     #2D,W0
-019CC:  MOV     W1,[W15++]
-019CE:  MOV     W4,[W15++]
-019D0:  MOV     W0,[W15++]
-019D2:  MOV     [--W15],W0
-019D4:  CALL    1912
-*
-019D8:  MOV     [--W15],W4
-019DA:  MOV     [--W15],W1
-019DC:  BCLR    W9.8
-019DE:  MOV     #30,W0
-019E0:  ADD.B   W1L,W0L,W0L
-019E2:  MOV     W0,2A
-019E4:  MOV     W4,[W15++]
-019E6:  MOV     W0,[W15++]
-019E8:  MOV     [--W15],W0
-019EA:  CALL    1912
-*
-019EE:  MOV     [--W15],W4
-019F0:  BRA     1A46
-019F2:  MOV     #30,W6
-019F4:  CP0     W0
-019F6:  BRA     NZ,1A14
-019F8:  BTSS    W5.E
-019FA:  BRA     1A32
-019FC:  DEC     W4,W4
-019FE:  CP.B    W4L,W5L
-01A00:  BRA     Z,1A06
-01A02:  BTSC.B  42.0
-01A04:  RETURN  
-01A06:  CP0     W0
-01A08:  BRA     NZ,1A14
-01A0A:  BTSS    W5.E
-01A0C:  BRA     1A32
-01A0E:  BTSS    W5.F
-01A10:  MOV     #20,W6
-01A12:  BRA     1A32
-01A14:  BCLR    W5.E
-01A16:  BTSS    W9.8
-01A18:  BRA     1A32
-01A1A:  MOV     W0,W10
-01A1C:  MOV     #2D,W0
-01A1E:  MOV     W1,[W15++]
-01A20:  MOV     W4,[W15++]
-01A22:  MOV     W0,[W15++]
-01A24:  MOV     [--W15],W0
-01A26:  CALL    1912
-*
-01A2A:  MOV     [--W15],W4
-01A2C:  MOV     [--W15],W1
-01A2E:  BCLR    W9.8
-01A30:  MOV     W10,W0
-01A32:  ADD.B   W6L,W0L,W0L
-01A34:  MOV     W1,[W15++]
-01A36:  MOV     W4,[W15++]
-01A38:  MOV     W0,[W15++]
-01A3A:  MOV     [--W15],W0
-01A3C:  CALL    1912
-*
-01A40:  MOV     [--W15],W4
-01A42:  MOV     [--W15],W1
-01A44:  RETURN  
-01A46:  MOV     #12,W5
-01A48:  REPEAT  #3
-01A4A:  MOV     [--W15],[W5--]
-01A4C:  MOV     [--W15],W5
-01A4E:  RETURN  
-01A50:  MOV     W5,[W15++]
-01A52:  MOV     #C,W5
-01A54:  REPEAT  #3
-01A56:  MOV     [W5++],[W15++]
-01A58:  BTSS    W0.F
-01A5A:  BRA     1A74
-01A5C:  NEG     W0,W0
-01A5E:  BSET    W4.8
-01A60:  BTSS    W4.F
-01A62:  BRA     1A74
+01A34:  MOV     [--W15],W4
+01A36:  MOV     [--W15],W0
+01A38:  BCLR    W4.8
+01A3A:  DEC.B   0008
+01A3C:  CLR     W5
+01A3E:  MOV     W0,W7
+01A40:  MOV     W4,W9
+01A42:  BCLR    W4.F
+01A44:  CP0.B   W4L
+01A46:  BRA     NZ,1A54
+01A48:  BTSC    W9.F
+01A4A:  BRA     1A50
+01A4C:  MOV     #0,W5
+01A4E:  BRA     1A7E
+01A50:  MOV     #0,W5
+01A52:  BRA     1A7E
+01A54:  BTSS    W9.8
+01A56:  SUB.B   W4L,#6,W5L
+01A58:  BTSC    W9.8
+01A5A:  SUB.B   W4L,#7,W5L
+01A5C:  BRA     NC,1A7C
+01A5E:  MOV     #30,W0
+01A60:  BTSS    W9.F
+01A62:  MOV     #20,W0
 01A64:  MOV     W0,[W15++]
-01A66:  MOV     #2D,W0
-01A68:  BTSC.B  223.1
-01A6A:  BRA     1A68
-01A6C:  MOV     W0,224
-01A6E:  MOV     [--W15],W0
-01A70:  BCLR    W4.8
-01A72:  DEC.B   0008
-01A74:  CLR     W5
-01A76:  MOV     W0,W7
-01A78:  MOV     W4,W9
-01A7A:  BCLR    W4.F
-01A7C:  CP0.B   W4L
-01A7E:  BRA     NZ,1A8C
-01A80:  BTSC    W9.F
-01A82:  BRA     1A88
-01A84:  MOV     #0,W5
-01A86:  BRA     1AB0
-01A88:  MOV     #0,W5
-01A8A:  BRA     1AB0
-01A8C:  BTSS    W9.8
-01A8E:  SUB.B   W4L,#6,W5L
-01A90:  BTSC    W9.8
-01A92:  SUB.B   W4L,#7,W5L
-01A94:  BRA     NC,1AAE
-01A96:  MOV     #30,W0
-01A98:  BTSS    W9.F
-01A9A:  MOV     #20,W0
-01A9C:  MOV     W0,[W15++]
-01A9E:  BTSC.B  223.1
-01AA0:  BRA     1A9E
-01AA2:  MOV     W0,224
-01AA4:  MOV     [--W15],W0
-01AA6:  DEC     W5,W5
-01AA8:  BRA     NN,1A9C
-01AAA:  MOV     #5,W5
-01AAC:  BRA     1AB0
-01AAE:  MOV     W4,W5
-01AB0:  MOV     #6,W4
-01AB2:  BTSC    W5.8
-01AB4:  INC     W4,W4
-01AB6:  BSET    W5.E
-01AB8:  BTSC    W9.F
-01ABA:  BSET    W5.F
-01ABC:  MOV     #2710,W8
-01ABE:  REPEAT  #11
-01AC0:  DIV.U   W7,W8
-01AC2:  CALL    1B06
+01A66:  MOV     W4,[W15++]
+01A68:  MOV     W0,[W15++]
+01A6A:  MOV     [--W15],W0
+01A6C:  CALL    1A04
 *
-01AC6:  MOV     W1,W7
-01AC8:  MOV     #3E8,W8
-01ACA:  REPEAT  #11
-01ACC:  DIV.U   W7,W8
-01ACE:  CALL    1B06
+01A70:  MOV     [--W15],W4
+01A72:  MOV     [--W15],W0
+01A74:  DEC     W5,W5
+01A76:  BRA     NN,1A64
+01A78:  MOV     #5,W5
+01A7A:  BRA     1A7E
+01A7C:  MOV     W4,W5
+01A7E:  MOV     #6,W4
+01A80:  BTSC    W5.8
+01A82:  INC     W4,W4
+01A84:  BSET    W5.E
+01A86:  BTSC    W9.F
+01A88:  BSET    W5.F
+01A8A:  MOV     #2710,W8
+01A8C:  REPEAT  #11
+01A8E:  DIV.U   W7,W8
+01A90:  CALL    1AE4
 *
-01AD2:  MOV     W1,W7
-01AD4:  MOV     #64,W8
-01AD6:  REPEAT  #11
-01AD8:  DIV.U   W7,W8
-01ADA:  CALL    1B06
+01A94:  MOV     W1,W7
+01A96:  MOV     #3E8,W8
+01A98:  REPEAT  #11
+01A9A:  DIV.U   W7,W8
+01A9C:  CALL    1AE4
 *
-01ADE:  MOV     W1,W7
-01AE0:  MOV     #A,W8
-01AE2:  REPEAT  #11
-01AE4:  DIV.U   W7,W8
-01AE6:  CALL    1B06
+01AA0:  MOV     W1,W7
+01AA2:  MOV     #64,W8
+01AA4:  REPEAT  #11
+01AA6:  DIV.U   W7,W8
+01AA8:  CALL    1AE4
 *
-01AEA:  BTSS    W9.8
-01AEC:  BRA     1AF8
-01AEE:  MOV     #2D,W0
-01AF0:  BTSC.B  223.1
-01AF2:  BRA     1AF0
-01AF4:  MOV     W0,224
-01AF6:  BCLR    W9.8
-01AF8:  MOV     #30,W0
-01AFA:  ADD.B   W1L,W0L,W0L
-01AFC:  MOV     W0,2A
-01AFE:  BTSC.B  223.1
-01B00:  BRA     1AFE
-01B02:  MOV     W0,224
-01B04:  BRA     1B46
-01B06:  MOV     #30,W6
-01B08:  CP0     W0
-01B0A:  BRA     NZ,1B28
-01B0C:  BTSS    W5.E
-01B0E:  BRA     1B3C
-01B10:  DEC     W4,W4
-01B12:  CP.B    W4L,W5L
-01B14:  BRA     Z,1B1A
-01B16:  BTSC.B  42.0
-01B18:  RETURN  
-01B1A:  CP0     W0
-01B1C:  BRA     NZ,1B28
-01B1E:  BTSS    W5.E
-01B20:  BRA     1B3C
-01B22:  BTSS    W5.F
-01B24:  MOV     #20,W6
-01B26:  BRA     1B3C
-01B28:  BCLR    W5.E
-01B2A:  BTSS    W9.8
-01B2C:  BRA     1B3C
-01B2E:  MOV     W0,W10
-01B30:  MOV     #2D,W0
-01B32:  BTSC.B  223.1
-01B34:  BRA     1B32
-01B36:  MOV     W0,224
-01B38:  BCLR    W9.8
-01B3A:  MOV     W10,W0
-01B3C:  ADD.B   W6L,W0L,W0L
-01B3E:  BTSC.B  223.1
-01B40:  BRA     1B3E
-01B42:  MOV     W0,224
-01B44:  RETURN  
-01B46:  MOV     #12,W5
-01B48:  REPEAT  #3
-01B4A:  MOV     [--W15],[W5--]
-01B4C:  MOV     [--W15],W5
-01B4E:  RETURN  
+01AAC:  MOV     W1,W7
+01AAE:  MOV     #A,W8
+01AB0:  REPEAT  #11
+01AB2:  DIV.U   W7,W8
+01AB4:  CALL    1AE4
+*
+01AB8:  BTSS    W9.8
+01ABA:  BRA     1AD0
+01ABC:  MOV     #2D,W0
+01ABE:  MOV     W1,[W15++]
+01AC0:  MOV     W4,[W15++]
+01AC2:  MOV     W0,[W15++]
+01AC4:  MOV     [--W15],W0
+01AC6:  CALL    1A04
+*
+01ACA:  MOV     [--W15],W4
+01ACC:  MOV     [--W15],W1
+01ACE:  BCLR    W9.8
+01AD0:  MOV     #30,W0
+01AD2:  ADD.B   W1L,W0L,W0L
+01AD4:  MOV     W0,2A
+01AD6:  MOV     W4,[W15++]
+01AD8:  MOV     W0,[W15++]
+01ADA:  MOV     [--W15],W0
+01ADC:  CALL    1A04
+*
+01AE0:  MOV     [--W15],W4
+01AE2:  BRA     1B38
+01AE4:  MOV     #30,W6
+01AE6:  CP0     W0
+01AE8:  BRA     NZ,1B06
+01AEA:  BTSS    W5.E
+01AEC:  BRA     1B24
+01AEE:  DEC     W4,W4
+01AF0:  CP.B    W4L,W5L
+01AF2:  BRA     Z,1AF8
+01AF4:  BTSC.B  42.0
+01AF6:  RETURN  
+01AF8:  CP0     W0
+01AFA:  BRA     NZ,1B06
+01AFC:  BTSS    W5.E
+01AFE:  BRA     1B24
+01B00:  BTSS    W5.F
+01B02:  MOV     #20,W6
+01B04:  BRA     1B24
+01B06:  BCLR    W5.E
+01B08:  BTSS    W9.8
+01B0A:  BRA     1B24
+01B0C:  MOV     W0,W10
+01B0E:  MOV     #2D,W0
+01B10:  MOV     W1,[W15++]
+01B12:  MOV     W4,[W15++]
+01B14:  MOV     W0,[W15++]
+01B16:  MOV     [--W15],W0
+01B18:  CALL    1A04
+*
+01B1C:  MOV     [--W15],W4
+01B1E:  MOV     [--W15],W1
+01B20:  BCLR    W9.8
+01B22:  MOV     W10,W0
+01B24:  ADD.B   W6L,W0L,W0L
+01B26:  MOV     W1,[W15++]
+01B28:  MOV     W4,[W15++]
+01B2A:  MOV     W0,[W15++]
+01B2C:  MOV     [--W15],W0
+01B2E:  CALL    1A04
+*
+01B32:  MOV     [--W15],W4
+01B34:  MOV     [--W15],W1
+01B36:  RETURN  
+01B38:  MOV     #12,W5
+01B3A:  REPEAT  #3
+01B3C:  MOV     [--W15],[W5--]
+01B3E:  MOV     [--W15],W5
+01B40:  RETURN  
+01B42:  MOV     W5,[W15++]
+01B44:  MOV     #C,W5
+01B46:  REPEAT  #3
+01B48:  MOV     [W5++],[W15++]
+01B4A:  BTSS    W0.F
+01B4C:  BRA     1B66
+01B4E:  NEG     W0,W0
+01B50:  BSET    W4.8
+01B52:  BTSS    W4.F
+01B54:  BRA     1B66
+01B56:  MOV     W0,[W15++]
+01B58:  MOV     #2D,W0
+01B5A:  BTSC.B  223.1
+01B5C:  BRA     1B5A
+01B5E:  MOV     W0,224
+01B60:  MOV     [--W15],W0
+01B62:  BCLR    W4.8
+01B64:  DEC.B   0008
+01B66:  CLR     W5
+01B68:  MOV     W0,W7
+01B6A:  MOV     W4,W9
+01B6C:  BCLR    W4.F
+01B6E:  CP0.B   W4L
+01B70:  BRA     NZ,1B7E
+01B72:  BTSC    W9.F
+01B74:  BRA     1B7A
+01B76:  MOV     #0,W5
+01B78:  BRA     1BA2
+01B7A:  MOV     #0,W5
+01B7C:  BRA     1BA2
+01B7E:  BTSS    W9.8
+01B80:  SUB.B   W4L,#6,W5L
+01B82:  BTSC    W9.8
+01B84:  SUB.B   W4L,#7,W5L
+01B86:  BRA     NC,1BA0
+01B88:  MOV     #30,W0
+01B8A:  BTSS    W9.F
+01B8C:  MOV     #20,W0
+01B8E:  MOV     W0,[W15++]
+01B90:  BTSC.B  223.1
+01B92:  BRA     1B90
+01B94:  MOV     W0,224
+01B96:  MOV     [--W15],W0
+01B98:  DEC     W5,W5
+01B9A:  BRA     NN,1B8E
+01B9C:  MOV     #5,W5
+01B9E:  BRA     1BA2
+01BA0:  MOV     W4,W5
+01BA2:  MOV     #6,W4
+01BA4:  BTSC    W5.8
+01BA6:  INC     W4,W4
+01BA8:  BSET    W5.E
+01BAA:  BTSC    W9.F
+01BAC:  BSET    W5.F
+01BAE:  MOV     #2710,W8
+01BB0:  REPEAT  #11
+01BB2:  DIV.U   W7,W8
+01BB4:  CALL    1BF8
+*
+01BB8:  MOV     W1,W7
+01BBA:  MOV     #3E8,W8
+01BBC:  REPEAT  #11
+01BBE:  DIV.U   W7,W8
+01BC0:  CALL    1BF8
+*
+01BC4:  MOV     W1,W7
+01BC6:  MOV     #64,W8
+01BC8:  REPEAT  #11
+01BCA:  DIV.U   W7,W8
+01BCC:  CALL    1BF8
+*
+01BD0:  MOV     W1,W7
+01BD2:  MOV     #A,W8
+01BD4:  REPEAT  #11
+01BD6:  DIV.U   W7,W8
+01BD8:  CALL    1BF8
+*
+01BDC:  BTSS    W9.8
+01BDE:  BRA     1BEA
+01BE0:  MOV     #2D,W0
+01BE2:  BTSC.B  223.1
+01BE4:  BRA     1BE2
+01BE6:  MOV     W0,224
+01BE8:  BCLR    W9.8
+01BEA:  MOV     #30,W0
+01BEC:  ADD.B   W1L,W0L,W0L
+01BEE:  MOV     W0,2A
+01BF0:  BTSC.B  223.1
+01BF2:  BRA     1BF0
+01BF4:  MOV     W0,224
+01BF6:  BRA     1C38
+01BF8:  MOV     #30,W6
+01BFA:  CP0     W0
+01BFC:  BRA     NZ,1C1A
+01BFE:  BTSS    W5.E
+01C00:  BRA     1C2E
+01C02:  DEC     W4,W4
+01C04:  CP.B    W4L,W5L
+01C06:  BRA     Z,1C0C
+01C08:  BTSC.B  42.0
+01C0A:  RETURN  
+01C0C:  CP0     W0
+01C0E:  BRA     NZ,1C1A
+01C10:  BTSS    W5.E
+01C12:  BRA     1C2E
+01C14:  BTSS    W5.F
+01C16:  MOV     #20,W6
+01C18:  BRA     1C2E
+01C1A:  BCLR    W5.E
+01C1C:  BTSS    W9.8
+01C1E:  BRA     1C2E
+01C20:  MOV     W0,W10
+01C22:  MOV     #2D,W0
+01C24:  BTSC.B  223.1
+01C26:  BRA     1C24
+01C28:  MOV     W0,224
+01C2A:  BCLR    W9.8
+01C2C:  MOV     W10,W0
+01C2E:  ADD.B   W6L,W0L,W0L
+01C30:  BTSC.B  223.1
+01C32:  BRA     1C30
+01C34:  MOV     W0,224
+01C36:  RETURN  
+01C38:  MOV     #12,W5
+01C3A:  REPEAT  #3
+01C3C:  MOV     [--W15],[W5--]
+01C3E:  MOV     [--W15],W5
+01C40:  RETURN  
 .................... 
 .................... #list
 .................... 
@@ -1130,7 +1130,7 @@ CCS PCD C Compiler, Version 5.091, 43599               27-ene.-21 20:15
 .................... 
 .................... 
 ....................   //dspic as master, velocidad, nombre de la conexion
-....................   #use i2c(Master, Fast=1000000, i2c1)
+....................   #use i2c(Master, Fast=100000, i2c1)
 *
 0158E:  MOV     #FFFF,W0
 01590:  BTSS.B  208.3
@@ -1148,77 +1148,77 @@ CCS PCD C Compiler, Version 5.091, 43599               27-ene.-21 20:15
 ....................   LCD_command(_CLEAR_DISPLAY);
 *
 015F0:  MOV.B   #1,W0L
-015F2:  MOV.B   W0L,132E
+015F2:  MOV.B   W0L,1330
 015F4:  CALL    15A6
 ....................   LCD_command(_8BIT_4LINES_NORMAL_RE1_IS0);
 *
 015F8:  MOV.B   #3A,W0L
-015FA:  MOV.B   W0L,132E
+015FA:  MOV.B   W0L,1330
 015FC:  CALL    15A6
 ....................   LCD_command(_BS1_1);
 *
 01600:  MOV.B   #1E,W0L
-01602:  MOV.B   W0L,132E
+01602:  MOV.B   W0L,1330
 01604:  CALL    15A6
 ....................   LCD_command(_POWER_DOWN_DISABLE);
 *
 01608:  MOV.B   #2,W0L
-0160A:  MOV.B   W0L,132E
+0160A:  MOV.B   W0L,1330
 0160C:  CALL    15A6
 ....................   LCD_command(_SEGMENT_NORMAL_WAY);
 *
 01610:  MOV.B   #5,W0L
-01612:  MOV.B   W0L,132E
+01612:  MOV.B   W0L,1330
 01614:  CALL    15A6
 ....................   LCD_command(_NW);
 *
 01618:  MOV.B   #9,W0L
-0161A:  MOV.B   W0L,132E
+0161A:  MOV.B   W0L,1330
 0161C:  CALL    15A6
 ....................   LCD_command(_8BIT_4LINES_RE0_IS1);
 *
 01620:  MOV.B   #39,W0L
-01622:  MOV.B   W0L,132E
+01622:  MOV.B   W0L,1330
 01624:  CALL    15A6
 ....................   LCD_command(_DISPLAY_ON_CURSOR_ON_BLINK_OFF);
 *
 01628:  MOV.B   #E,W0L
-0162A:  MOV.B   W0L,132E
+0162A:  MOV.B   W0L,1330
 0162C:  CALL    15A6
 ....................   LCD_command(_BS0_1);
 *
 01630:  MOV.B   #1C,W0L
-01632:  MOV.B   W0L,132E
+01632:  MOV.B   W0L,1330
 01634:  CALL    15A6
 ....................   LCD_command(_INTERNAL_DIVIDER);
 *
 01638:  MOV.B   #13,W0L
-0163A:  MOV.B   W0L,132E
+0163A:  MOV.B   W0L,1330
 0163C:  CALL    15A6
 ....................   LCD_command(_CONTRAST);
 *
 01640:  MOV.B   #77,W0L
-01642:  MOV.B   W0L,132E
+01642:  MOV.B   W0L,1330
 01644:  CALL    15A6
 ....................   LCD_command(_POWER_ICON_CONTRAST);
 *
 01648:  MOV.B   #5C,W0L
-0164A:  MOV.B   W0L,132E
+0164A:  MOV.B   W0L,1330
 0164C:  CALL    15A6
 ....................   LCD_command(_FOLLOWER_CONTROL);
 *
 01650:  MOV.B   #6E,W0L
-01652:  MOV.B   W0L,132E
+01652:  MOV.B   W0L,1330
 01654:  CALL    15A6
 ....................   LCD_command(_8BIT_4LINES_RE0_IS0);
 *
 01658:  MOV.B   #38,W0L
-0165A:  MOV.B   W0L,132E
+0165A:  MOV.B   W0L,1330
 0165C:  CALL    15A6
 ....................   LCD_command(_DISPLAY_ON_CURSOR_OFF_BLINK_OFF);
 *
 01660:  MOV.B   #C,W0L
-01662:  MOV.B   W0L,132E
+01662:  MOV.B   W0L,1330
 01664:  CALL    15A6
 *
 01668:  RETURN  
@@ -1247,7 +1247,7 @@ CCS PCD C Compiler, Version 5.091, 43599               27-ene.-21 20:15
 015C0:  CALL    158E
 ....................   i2c_write(cmd);
 *
-015C4:  MOV.B   132E,W0L
+015C4:  MOV.B   1330,W0L
 015C6:  MOV.B   W0L,2
 015C8:  CALL    158E
 ....................   i2c_stop();
@@ -1265,7 +1265,7 @@ CCS PCD C Compiler, Version 5.091, 43599               27-ene.-21 20:15
 *
 016A4:  MOV     W5,[W15++]
 016A6:  MOV     W6,[W15++]
-016A8:  CLR.B   132A
+016A8:  CLR.B   132C
 .................... {
 ....................   unsigned int8 c=0;
 ....................   i2c_start();
@@ -1287,26 +1287,26 @@ CCS PCD C Compiler, Version 5.091, 43599               27-ene.-21 20:15
 016C4:  CALL    158E
 ....................   while(cd[c]!=0)
 *
-016C8:  MOV     132A,W4
+016C8:  MOV     132C,W4
 016CA:  CLR.B   9
 016CC:  MOV     W4,W0
-016CE:  ADD     1328,W0
+016CE:  ADD     132A,W0
 016D0:  MOV.B   [W0],W5L
 016D2:  SE      W5,W5
 016D4:  CP0     W5
 016D6:  BRA     Z,16EE
 ....................   {
 ....................     i2c_write(cd[c]);
-016D8:  MOV     132A,W4
+016D8:  MOV     132C,W4
 016DA:  CLR.B   9
 016DC:  MOV     W4,W0
-016DE:  ADD     1328,W0
+016DE:  ADD     132A,W0
 016E0:  MOV.B   [W0],W5L
 016E2:  MOV.B   W5L,W1L
 016E4:  CALL    158E
 ....................     c++;
 *
-016E8:  INC.B   132A
+016E8:  INC.B   132C
 016EA:  GOTO    16C8
 ....................   }
 ....................   i2c_stop();
@@ -1327,17 +1327,17 @@ CCS PCD C Compiler, Version 5.091, 43599               27-ene.-21 20:15
 01684:  MOV     W5,[W15++]
 .................... {
 ....................   LCD_command(0x80 | (line*0x20+column));
-01686:  MOV.B   1328,W0L
+01686:  MOV.B   132A,W0L
 01688:  CLR.B   1
 0168A:  SL      W0,#5,W5
-0168C:  MOV     1328,W4
+0168C:  MOV     132A,W4
 0168E:  LSR     W4,#8,W4
 01690:  ADD     W5,W4,W0
 01692:  MOV     W0,W5
 01694:  IOR     #80,W5
-01696:  PUSH    132E
+01696:  PUSH    1330
 01698:  MOV.B   W5L,[W15-#2]
-0169A:  POP     132E
+0169A:  POP     1330
 0169C:  CALL    15A6
 *
 016A0:  MOV     [--W15],W5
@@ -1395,36 +1395,36 @@ CCS PCD C Compiler, Version 5.091, 43599               27-ene.-21 20:15
 .................... 	//char palabra4[]="OPCION 4";
 .................... 
 .................... 	LCD_cursor_at(0,0);
-01750:  CLR.B   1328
-01752:  CLR.B   1329
+01750:  CLR.B   132A
+01752:  CLR.B   132B
 01754:  CALL    1684
 .................... 	LCD_write(cabecera);
 *
 01758:  MOV     #12EE,W4
-0175A:  MOV     W4,1328
+0175A:  MOV     W4,132A
 0175C:  CALL    16A4
 .................... 	LCD_cursor_at(1,0);
 *
 01760:  MOV.B   #1,W0L
-01762:  MOV.B   W0L,1328
-01764:  CLR.B   1329
+01762:  MOV.B   W0L,132A
+01764:  CLR.B   132B
 01766:  CALL    1684
 .................... 	LCD_write(boton);
 *
 0176A:  MOV     #1300,W4
-0176C:  MOV     W4,1328
+0176C:  MOV     W4,132A
 0176E:  CALL    16A4
 .................... 	LCD_cursor_at(2,1);
 *
 01772:  MOV.B   #2,W0L
-01774:  MOV.B   W0L,1328
+01774:  MOV.B   W0L,132A
 01776:  MOV.B   #1,W0L
-01778:  MOV.B   W0L,1329
+01778:  MOV.B   W0L,132B
 0177A:  CALL    1684
 .................... 	LCD_write(palabra1);
 *
 0177E:  MOV     #130E,W4
-01780:  MOV     W4,1328
+01780:  MOV     W4,132A
 01782:  CALL    16A4
 *
 01786:  RETURN  
@@ -1452,7 +1452,7 @@ CCS PCD C Compiler, Version 5.091, 43599               27-ene.-21 20:15
 ....................   LCD_command(_CLEAR_DISPLAY);
 *
 017E0:  MOV.B   #1,W0L
-017E2:  MOV.B   W0L,132E
+017E2:  MOV.B   W0L,1330
 017E4:  CALL    15A6
 .................... 	char cabecera[]="FRECUENCIA PPM: ";
 *
@@ -1516,35 +1516,35 @@ CCS PCD C Compiler, Version 5.091, 43599               27-ene.-21 20:15
 01856:  MOV     #52,W4
 01858:  MOV     W4,1326
 .................... 	LCD_cursor_at(0,0);
-0185A:  CLR.B   1328
-0185C:  CLR.B   1329
+0185A:  CLR.B   132A
+0185C:  CLR.B   132B
 0185E:  CALL    1684
 ....................   LCD_write(cabecera);
 *
 01862:  MOV     #12EE,W4
-01864:  MOV     W4,1328
+01864:  MOV     W4,132A
 01866:  CALL    16A4
 ....................   LCD_cursor_at(1,0);
 *
 0186A:  MOV.B   #1,W0L
-0186C:  MOV.B   W0L,1328
-0186E:  CLR.B   1329
+0186C:  MOV.B   W0L,132A
+0186E:  CLR.B   132B
 01870:  CALL    1684
 ....................   LCD_write(palabra1);
 *
 01874:  MOV     #1300,W4
-01876:  MOV     W4,1328
+01876:  MOV     W4,132A
 01878:  CALL    16A4
 ....................   LCD_cursor_at(2,0);
 *
 0187C:  MOV.B   #2,W0L
-0187E:  MOV.B   W0L,1328
-01880:  CLR.B   1329
+0187E:  MOV.B   W0L,132A
+01880:  CLR.B   132B
 01882:  CALL    1684
 ....................   LCD_write(palabra2);
 *
 01886:  MOV     #1314,W4
-01888:  MOV     W4,1328
+01888:  MOV     W4,132A
 0188A:  CALL    16A4
 *
 0188E:  RETURN  
@@ -1565,144 +1565,266 @@ CCS PCD C Compiler, Version 5.091, 43599               27-ene.-21 20:15
 .................... {
 ....................   LCD_command(_CLEAR_DISPLAY);
 *
-018D4:  MOV.B   #1,W0L
-018D6:  MOV.B   W0L,132E
-018D8:  CALL    15A6
+019C6:  MOV.B   #1,W0L
+019C8:  MOV.B   W0L,1330
+019CA:  CALL    15A6
 ....................   LCD_cursor_at(0,0);
 *
-018DC:  CLR.B   1328
-018DE:  CLR.B   1329
-018E0:  CALL    1684
+019CE:  CLR.B   132A
+019D0:  CLR.B   132B
+019D2:  CALL    1684
 ....................   char peligro[]="PULSACIONES BAJAS";
 *
-018E4:  MOV     #5550,W4
-018E6:  MOV     W4,12EE
-018E8:  MOV     #534C,W4
-018EA:  MOV     W4,12F0
-018EC:  MOV     #4341,W4
-018EE:  MOV     W4,12F2
-018F0:  MOV     #4F49,W4
-018F2:  MOV     W4,12F4
-018F4:  MOV     #454E,W4
-018F6:  MOV     W4,12F6
-018F8:  MOV     #2053,W4
-018FA:  MOV     W4,12F8
-018FC:  MOV     #4142,W4
-018FE:  MOV     W4,12FA
-01900:  MOV     #414A,W4
-01902:  MOV     W4,12FC
-01904:  MOV     #53,W4
-01906:  MOV     W4,12FE
+019D6:  MOV     #5550,W4
+019D8:  MOV     W4,12EE
+019DA:  MOV     #534C,W4
+019DC:  MOV     W4,12F0
+019DE:  MOV     #4341,W4
+019E0:  MOV     W4,12F2
+019E2:  MOV     #4F49,W4
+019E4:  MOV     W4,12F4
+019E6:  MOV     #454E,W4
+019E8:  MOV     W4,12F6
+019EA:  MOV     #2053,W4
+019EC:  MOV     W4,12F8
+019EE:  MOV     #4142,W4
+019F0:  MOV     W4,12FA
+019F2:  MOV     #414A,W4
+019F4:  MOV     W4,12FC
+019F6:  MOV     #53,W4
+019F8:  MOV     W4,12FE
 ....................   LCD_write(peligro);
-01908:  MOV     #12EE,W4
-0190A:  MOV     W4,1328
-0190C:  CALL    16A4
+019FA:  MOV     #12EE,W4
+019FC:  MOV     W4,132A
+019FE:  CALL    16A4
 *
-01910:  RETURN  
+01A02:  RETURN  
 .................... }
 .................... 
 .................... void display_alarma_alto(void)
 .................... {
 ....................   LCD_command(_CLEAR_DISPLAY);
 *
-01890:  MOV.B   #1,W0L
-01892:  MOV.B   W0L,132E
-01894:  CALL    15A6
+01982:  MOV.B   #1,W0L
+01984:  MOV.B   W0L,1330
+01986:  CALL    15A6
 ....................   LCD_cursor_at(0,0);
 *
-01898:  CLR.B   1328
-0189A:  CLR.B   1329
-0189C:  CALL    1684
+0198A:  CLR.B   132A
+0198C:  CLR.B   132B
+0198E:  CALL    1684
 ....................   char peligro[]="PULSACIONES ELEVADAS";
 *
-018A0:  MOV     #5550,W4
-018A2:  MOV     W4,12EE
-018A4:  MOV     #534C,W4
-018A6:  MOV     W4,12F0
-018A8:  MOV     #4341,W4
-018AA:  MOV     W4,12F2
-018AC:  MOV     #4F49,W4
-018AE:  MOV     W4,12F4
-018B0:  MOV     #454E,W4
-018B2:  MOV     W4,12F6
-018B4:  MOV     #2053,W4
-018B6:  MOV     W4,12F8
-018B8:  MOV     #4C45,W4
-018BA:  MOV     W4,12FA
-018BC:  MOV     #5645,W4
-018BE:  MOV     W4,12FC
-018C0:  MOV     #4441,W4
-018C2:  MOV     W4,12FE
-018C4:  MOV     #5341,W4
-018C6:  MOV     W4,1300
-018C8:  CLR.B   1302
+01992:  MOV     #5550,W4
+01994:  MOV     W4,12EE
+01996:  MOV     #534C,W4
+01998:  MOV     W4,12F0
+0199A:  MOV     #4341,W4
+0199C:  MOV     W4,12F2
+0199E:  MOV     #4F49,W4
+019A0:  MOV     W4,12F4
+019A2:  MOV     #454E,W4
+019A4:  MOV     W4,12F6
+019A6:  MOV     #2053,W4
+019A8:  MOV     W4,12F8
+019AA:  MOV     #4C45,W4
+019AC:  MOV     W4,12FA
+019AE:  MOV     #5645,W4
+019B0:  MOV     W4,12FC
+019B2:  MOV     #4441,W4
+019B4:  MOV     W4,12FE
+019B6:  MOV     #5341,W4
+019B8:  MOV     W4,1300
+019BA:  CLR.B   1302
 ....................   LCD_write(peligro);
-018CA:  MOV     #12EE,W4
-018CC:  MOV     W4,1328
-018CE:  CALL    16A4
+019BC:  MOV     #12EE,W4
+019BE:  MOV     W4,132A
+019C0:  CALL    16A4
 *
-018D2:  RETURN  
+019C4:  RETURN  
 .................... }
 .................... 
 .................... void display_final(void)
 .................... {
 ....................   LCD_command(_CLEAR_DISPLAY);
 *
-01DE0:  MOV.B   #1,W0L
-01DE2:  MOV.B   W0L,132E
-01DE4:  CALL    15A6
+01ED2:  MOV.B   #1,W0L
+01ED4:  MOV.B   W0L,1330
+01ED6:  CALL    15A6
 ....................   LCD_cursor_at(0,0);
 *
-01DE8:  CLR.B   1328
-01DEA:  CLR.B   1329
-01DEC:  CALL    1684
+01EDA:  CLR.B   132A
+01EDC:  CLR.B   132B
+01EDE:  CALL    1684
 ....................   char fin[]="Fin del programa";
 *
-01DF0:  MOV     #6946,W4
-01DF2:  MOV     W4,12EE
-01DF4:  MOV     #206E,W4
-01DF6:  MOV     W4,12F0
-01DF8:  MOV     #6564,W4
-01DFA:  MOV     W4,12F2
-01DFC:  MOV     #206C,W4
-01DFE:  MOV     W4,12F4
-01E00:  MOV     #7270,W4
-01E02:  MOV     W4,12F6
-01E04:  MOV     #676F,W4
-01E06:  MOV     W4,12F8
-01E08:  MOV     #6172,W4
-01E0A:  MOV     W4,12FA
-01E0C:  MOV     #616D,W4
-01E0E:  MOV     W4,12FC
-01E10:  CLR.B   12FE
+01EE2:  MOV     #6946,W4
+01EE4:  MOV     W4,12EE
+01EE6:  MOV     #206E,W4
+01EE8:  MOV     W4,12F0
+01EEA:  MOV     #6564,W4
+01EEC:  MOV     W4,12F2
+01EEE:  MOV     #206C,W4
+01EF0:  MOV     W4,12F4
+01EF2:  MOV     #7270,W4
+01EF4:  MOV     W4,12F6
+01EF6:  MOV     #676F,W4
+01EF8:  MOV     W4,12F8
+01EFA:  MOV     #6172,W4
+01EFC:  MOV     W4,12FA
+01EFE:  MOV     #616D,W4
+01F00:  MOV     W4,12FC
+01F02:  CLR.B   12FE
 ....................   LCD_write(fin);
-01E12:  MOV     #12EE,W4
-01E14:  MOV     W4,1328
-01E16:  CALL    16A4
+01F04:  MOV     #12EE,W4
+01F06:  MOV     W4,132A
+01F08:  CALL    16A4
 *
-01E1A:  RETURN  
+01F0C:  RETURN  
 .................... }
 .................... 
 .................... void display_electrodo_suelto(void)
 .................... {
 ....................   LCD_command(_CLEAR_DISPLAY);
+*
+01890:  MOV.B   #1,W0L
+01892:  MOV.B   W0L,1330
+01894:  CALL    15A6
 ....................   LCD_cursor_at(0,0);
+*
+01898:  CLR.B   132A
+0189A:  CLR.B   132B
+0189C:  CALL    1684
 ....................   char fin[]="ELECTRODO SUELTO";
+*
+018A0:  MOV     #4C45,W4
+018A2:  MOV     W4,12EE
+018A4:  MOV     #4345,W4
+018A6:  MOV     W4,12F0
+018A8:  MOV     #5254,W4
+018AA:  MOV     W4,12F2
+018AC:  MOV     #444F,W4
+018AE:  MOV     W4,12F4
+018B0:  MOV     #204F,W4
+018B2:  MOV     W4,12F6
+018B4:  MOV     #5553,W4
+018B6:  MOV     W4,12F8
+018B8:  MOV     #4C45,W4
+018BA:  MOV     W4,12FA
+018BC:  MOV     #4F54,W4
+018BE:  MOV     W4,12FC
+018C0:  CLR.B   12FE
 ....................   LCD_write(fin);
+018C2:  MOV     #12EE,W4
+018C4:  MOV     W4,132A
+018C6:  CALL    16A4
+*
+018CA:  RETURN  
 .................... }
 .................... 
 .................... void display_electrodo_recuperado(void)
 .................... {
 ....................   LCD_command(_CLEAR_DISPLAY);
+018CC:  MOV.B   #1,W0L
+018CE:  MOV.B   W0L,1330
+018D0:  CALL    15A6
 .................... 	char cabecera[]="Contacto restaurado";
+*
+018D4:  MOV     #6F43,W4
+018D6:  MOV     W4,12EE
+018D8:  MOV     #746E,W4
+018DA:  MOV     W4,12F0
+018DC:  MOV     #6361,W4
+018DE:  MOV     W4,12F2
+018E0:  MOV     #6F74,W4
+018E2:  MOV     W4,12F4
+018E4:  MOV     #7220,W4
+018E6:  MOV     W4,12F6
+018E8:  MOV     #7365,W4
+018EA:  MOV     W4,12F8
+018EC:  MOV     #6174,W4
+018EE:  MOV     W4,12FA
+018F0:  MOV     #7275,W4
+018F2:  MOV     W4,12FC
+018F4:  MOV     #6461,W4
+018F6:  MOV     W4,12FE
+018F8:  MOV     #6F,W4
+018FA:  MOV     W4,1300
 ....................   char palabra1[]="-------------------";
+018FC:  MOV     #2D2D,W4
+018FE:  MOV     W4,1302
+01900:  MOV     #2D2D,W4
+01902:  MOV     W4,1304
+01904:  MOV     #2D2D,W4
+01906:  MOV     W4,1306
+01908:  MOV     #2D2D,W4
+0190A:  MOV     W4,1308
+0190C:  MOV     #2D2D,W4
+0190E:  MOV     W4,130A
+01910:  MOV     #2D2D,W4
+01912:  MOV     W4,130C
+01914:  MOV     #2D2D,W4
+01916:  MOV     W4,130E
+01918:  MOV     #2D2D,W4
+0191A:  MOV     W4,1310
+0191C:  MOV     #2D2D,W4
+0191E:  MOV     W4,1312
+01920:  MOV     #2D,W4
+01922:  MOV     W4,1314
 ....................   char palabra2[]="BTOK PARA CONTINUAR";
+01924:  MOV     #5442,W4
+01926:  MOV     W4,1316
+01928:  MOV     #4B4F,W4
+0192A:  MOV     W4,1318
+0192C:  MOV     #5020,W4
+0192E:  MOV     W4,131A
+01930:  MOV     #5241,W4
+01932:  MOV     W4,131C
+01934:  MOV     #2041,W4
+01936:  MOV     W4,131E
+01938:  MOV     #4F43,W4
+0193A:  MOV     W4,1320
+0193C:  MOV     #544E,W4
+0193E:  MOV     W4,1322
+01940:  MOV     #4E49,W4
+01942:  MOV     W4,1324
+01944:  MOV     #4155,W4
+01946:  MOV     W4,1326
+01948:  MOV     #52,W4
+0194A:  MOV     W4,1328
 .................... 	LCD_cursor_at(0,0);
+0194C:  CLR.B   132A
+0194E:  CLR.B   132B
+01950:  CALL    1684
 ....................   LCD_write(cabecera);
+*
+01954:  MOV     #12EE,W4
+01956:  MOV     W4,132A
+01958:  CALL    16A4
 ....................   LCD_cursor_at(1,0);
+*
+0195C:  MOV.B   #1,W0L
+0195E:  MOV.B   W0L,132A
+01960:  CLR.B   132B
+01962:  CALL    1684
 ....................   LCD_write(palabra1);
+*
+01966:  MOV     #1302,W4
+01968:  MOV     W4,132A
+0196A:  CALL    16A4
 ....................   LCD_cursor_at(2,0);
+*
+0196E:  MOV.B   #2,W0L
+01970:  MOV.B   W0L,132A
+01972:  CLR.B   132B
+01974:  CALL    1684
 ....................   LCD_write(palabra2);
+*
+01978:  MOV     #1316,W4
+0197A:  MOV     W4,132A
+0197C:  CALL    16A4
+*
+01980:  RETURN  
 .................... }
 .................... 
 .................... 
@@ -3622,332 +3744,332 @@ CCS PCD C Compiler, Version 5.091, 43599               27-ene.-21 20:15
 .................... extern int cont;
 .................... void escribe_datos_en_fichero(){
 *
-01B76:  MOV     W5,[W15++]
-01B78:  MOV     W6,[W15++]
-01B7A:  MOV     W7,[W15++]
+01C68:  MOV     W5,[W15++]
+01C6A:  MOV     W6,[W15++]
+01C6C:  MOV     W7,[W15++]
 ....................    unsigned int32 relSector;
 ....................    unsigned int32 nextCluster;
 ....................    unsigned int32  oldCluster;
 ....................    unsigned int16 _hour, date;
 .................... 
 .................... 	sd_write_block(file.currentSector, dt);
-01B7C:  PUSH    A80
-01B7E:  POP     133A
-01B80:  PUSH    A82
-01B82:  POP     133C
-01B84:  MOV     #878,W4
-01B86:  MOV     W4,133E
-01B88:  CALL    10CE
+01C6E:  PUSH    A80
+01C70:  POP     133A
+01C72:  PUSH    A82
+01C74:  POP     133C
+01C76:  MOV     #878,W4
+01C78:  MOV     W4,133E
+01C7A:  CALL    10CE
 .................... 
 .................... 
 .................... 		if(cont>127)
 *
-01B8C:  MOV     12B6,W4
-01B8E:  MOV     #7F,W3
-01B90:  CP      W3,W4
-01B92:  BRA     GE,1B9A
+01C7E:  MOV     12B6,W4
+01C80:  MOV     #7F,W3
+01C82:  CP      W3,W4
+01C84:  BRA     GE,1C8C
 .................... 		{
 .................... 	 		file.currentSector++;	//actualizar las FATs
-01B94:  INC     0A80
-01B96:  BTSC.B  42.1
-01B98:  INC     0A82
+01C86:  INC     0A80
+01C88:  BTSC.B  42.1
+01C8A:  INC     0A82
 .................... 		}
 .................... 
 .................... 
 .................... 		if(FATType==16)
-01B9A:  MOV     E9A,W4
-01B9C:  CP.B    W4L,#10
-01B9E:  BRA     NZ,1BD0
+01C8C:  MOV     E9A,W4
+01C8E:  CP.B    W4L,#10
+01C90:  BRA     NZ,1CC2
 .................... 	    relSector= file.currentSector - ((file.currentCluster -  2) * sect_x_cluster + sect_ini_datos);
-01BA0:  MOV     A7C,W4
-01BA2:  SUB     W4,#2,W5
-01BA4:  MOV     A7E,W4
-01BA6:  SUBB    W4,#0,W6
-01BA8:  MOV.B   E9B,W0L
-01BAA:  MOV.B   W0L,W2L
-01BAC:  CLR.B   5
-01BAE:  MOV     #0,W3
-01BB0:  MOV     W5,W0
-01BB2:  MOV     W6,W1
-01BB4:  CALL    109E
+01C92:  MOV     A7C,W4
+01C94:  SUB     W4,#2,W5
+01C96:  MOV     A7E,W4
+01C98:  SUBB    W4,#0,W6
+01C9A:  MOV.B   E9B,W0L
+01C9C:  MOV.B   W0L,W2L
+01C9E:  CLR.B   5
+01CA0:  MOV     #0,W3
+01CA2:  MOV     W5,W0
+01CA4:  MOV     W6,W1
+01CA6:  CALL    109E
 *
-01BB8:  MOV     W0,W5
-01BBA:  MOV     W1,W6
-01BBC:  MOV     W5,W0
-01BBE:  ADD     EA0,W0
-01BC0:  MOV     EA2,W4
-01BC2:  ADDC    W6,W4,W1
-01BC4:  MOV     A80,W4
-01BC6:  SUB     W4,W0,W0
-01BC8:  MOV     W0,12F0
-01BCA:  MOV     A82,W4
-01BCC:  SUBB    W4,W1,W0
-01BCE:  MOV     W0,12F2
+01CAA:  MOV     W0,W5
+01CAC:  MOV     W1,W6
+01CAE:  MOV     W5,W0
+01CB0:  ADD     EA0,W0
+01CB2:  MOV     EA2,W4
+01CB4:  ADDC    W6,W4,W1
+01CB6:  MOV     A80,W4
+01CB8:  SUB     W4,W0,W0
+01CBA:  MOV     W0,12F0
+01CBC:  MOV     A82,W4
+01CBE:  SUBB    W4,W1,W0
+01CC0:  MOV     W0,12F2
 .................... 		if(FATType==32)
-01BD0:  MOV     E9A,W4
-01BD2:  XOR.B   #20,W4L
-01BD4:  BRA     NZ,1C06
+01CC2:  MOV     E9A,W4
+01CC4:  XOR.B   #20,W4L
+01CC6:  BRA     NZ,1CF8
 .................... 	    relSector= file.currentSector - ((file.currentCluster -  3) * sect_x_cluster + sect_ini_datos);
-01BD6:  MOV     A7C,W4
-01BD8:  SUB     W4,#3,W5
-01BDA:  MOV     A7E,W4
-01BDC:  SUBB    W4,#0,W6
-01BDE:  MOV.B   E9B,W0L
-01BE0:  MOV.B   W0L,W2L
-01BE2:  CLR.B   5
-01BE4:  MOV     #0,W3
-01BE6:  MOV     W5,W0
-01BE8:  MOV     W6,W1
-01BEA:  CALL    109E
+01CC8:  MOV     A7C,W4
+01CCA:  SUB     W4,#3,W5
+01CCC:  MOV     A7E,W4
+01CCE:  SUBB    W4,#0,W6
+01CD0:  MOV.B   E9B,W0L
+01CD2:  MOV.B   W0L,W2L
+01CD4:  CLR.B   5
+01CD6:  MOV     #0,W3
+01CD8:  MOV     W5,W0
+01CDA:  MOV     W6,W1
+01CDC:  CALL    109E
 *
-01BEE:  MOV     W0,W5
-01BF0:  MOV     W1,W6
-01BF2:  MOV     W5,W0
-01BF4:  ADD     EA0,W0
-01BF6:  MOV     EA2,W4
-01BF8:  ADDC    W6,W4,W1
-01BFA:  MOV     A80,W4
-01BFC:  SUB     W4,W0,W0
-01BFE:  MOV     W0,12F0
-01C00:  MOV     A82,W4
-01C02:  SUBB    W4,W1,W0
-01C04:  MOV     W0,12F2
+01CE0:  MOV     W0,W5
+01CE2:  MOV     W1,W6
+01CE4:  MOV     W5,W0
+01CE6:  ADD     EA0,W0
+01CE8:  MOV     EA2,W4
+01CEA:  ADDC    W6,W4,W1
+01CEC:  MOV     A80,W4
+01CEE:  SUB     W4,W0,W0
+01CF0:  MOV     W0,12F0
+01CF2:  MOV     A82,W4
+01CF4:  SUBB    W4,W1,W0
+01CF6:  MOV     W0,12F2
 .................... 
 .................... 	    if(((relSector % sect_x_cluster) == 0)&&(relSector!=0)){   											//�el siguiente sector est� en cluster nuevo?
-01C06:  BSET.B  43.0
-01C08:  MOV.B   E9B,W0L
-01C0A:  MOV.B   W0L,W2L
-01C0C:  CLR.B   5
-01C0E:  MOV     #0,W3
-01C10:  MOV     12F0,W0
-01C12:  MOV     12F2,W1
-01C14:  CALL    EA0
+01CF8:  BSET.B  43.0
+01CFA:  MOV.B   E9B,W0L
+01CFC:  MOV.B   W0L,W2L
+01CFE:  CLR.B   5
+01D00:  MOV     #0,W3
+01D02:  MOV     12F0,W0
+01D04:  MOV     12F2,W1
+01D06:  CALL    EA0
 *
-01C18:  MOV     W0,W5
-01C1A:  MOV     W1,W6
-01C1C:  CP0     W5
-01C1E:  BRA     NZ,1CA8
-01C20:  CP0     W6
-01C22:  BRA     NZ,1CA8
-01C24:  CP0     12F0
-01C26:  BRA     NZ,1C2C
-01C28:  CP0     12F2
-01C2A:  BRA     Z,1CA8
+01D0A:  MOV     W0,W5
+01D0C:  MOV     W1,W6
+01D0E:  CP0     W5
+01D10:  BRA     NZ,1D9A
+01D12:  CP0     W6
+01D14:  BRA     NZ,1D9A
+01D16:  CP0     12F0
+01D18:  BRA     NZ,1D1E
+01D1A:  CP0     12F2
+01D1C:  BRA     Z,1D9A
 .................... 	      oldCluster = 	file.currentCluster;
-01C2C:  PUSH    A7C
-01C2E:  POP     12F8
-01C30:  PUSH    A7E
-01C32:  POP     12FA
+01D1E:  PUSH    A7C
+01D20:  POP     12F8
+01D22:  PUSH    A7E
+01D24:  POP     12FA
 .................... 	      nextCluster = encontrarCluster(oldCluster);   									//siguiente cluster
-01C34:  PUSH    12F8
-01C36:  POP     1336
-01C38:  PUSH    12FA
-01C3A:  POP     1338
-01C3C:  CALL    EF4
+01D26:  PUSH    12F8
+01D28:  POP     1336
+01D2A:  PUSH    12FA
+01D2C:  POP     1338
+01D2E:  CALL    EF4
 *
-01C40:  MOV     W0,12F4
-01C42:  MOV     W1,12F6
+01D32:  MOV     W0,12F4
+01D34:  MOV     W1,12F6
 .................... 	      //escribirCluster(oldCluster, nextCluster);  										//marcar actual cluster para que apunte al siguiente
 .................... 	      file.currentCluster = nextCluster;
-01C44:  PUSH    12F4
-01C46:  POP     A7C
-01C48:  PUSH    12F6
-01C4A:  POP     A7E
+01D36:  PUSH    12F4
+01D38:  POP     A7C
+01D3A:  PUSH    12F6
+01D3C:  POP     A7E
 .................... 		  if(FATType==16)
-01C4C:  MOV     E9A,W4
-01C4E:  CP.B    W4L,#10
-01C50:  BRA     NZ,1C7A
+01D3E:  MOV     E9A,W4
+01D40:  CP.B    W4L,#10
+01D42:  BRA     NZ,1D6C
 .................... 	      file.currentSector = (nextCluster - 2) * sect_x_cluster + sect_ini_datos;
-01C52:  MOV     12F4,W4
-01C54:  SUB     W4,#2,W5
-01C56:  MOV     12F6,W4
-01C58:  SUBB    W4,#0,W6
-01C5A:  MOV.B   E9B,W0L
-01C5C:  MOV.B   W0L,W2L
-01C5E:  CLR.B   5
-01C60:  MOV     #0,W3
-01C62:  MOV     W5,W0
-01C64:  MOV     W6,W1
-01C66:  CALL    109E
+01D44:  MOV     12F4,W4
+01D46:  SUB     W4,#2,W5
+01D48:  MOV     12F6,W4
+01D4A:  SUBB    W4,#0,W6
+01D4C:  MOV.B   E9B,W0L
+01D4E:  MOV.B   W0L,W2L
+01D50:  CLR.B   5
+01D52:  MOV     #0,W3
+01D54:  MOV     W5,W0
+01D56:  MOV     W6,W1
+01D58:  CALL    109E
 *
-01C6A:  MOV     W0,W5
-01C6C:  MOV     W1,W6
-01C6E:  MOV     W5,W0
-01C70:  ADD     EA0,W0
-01C72:  MOV     W0,A80
-01C74:  MOV     EA2,W4
-01C76:  ADDC    W6,W4,W0
-01C78:  MOV     W0,A82
+01D5C:  MOV     W0,W5
+01D5E:  MOV     W1,W6
+01D60:  MOV     W5,W0
+01D62:  ADD     EA0,W0
+01D64:  MOV     W0,A80
+01D66:  MOV     EA2,W4
+01D68:  ADDC    W6,W4,W0
+01D6A:  MOV     W0,A82
 .................... 		  if(FATType==32)
-01C7A:  MOV     E9A,W4
-01C7C:  XOR.B   #20,W4L
-01C7E:  BRA     NZ,1CA8
+01D6C:  MOV     E9A,W4
+01D6E:  XOR.B   #20,W4L
+01D70:  BRA     NZ,1D9A
 .................... 	      file.currentSector = (nextCluster - 3) * sect_x_cluster + sect_ini_datos;
-01C80:  MOV     12F4,W4
-01C82:  SUB     W4,#3,W5
-01C84:  MOV     12F6,W4
-01C86:  SUBB    W4,#0,W6
-01C88:  MOV.B   E9B,W0L
-01C8A:  MOV.B   W0L,W2L
-01C8C:  CLR.B   5
-01C8E:  MOV     #0,W3
-01C90:  MOV     W5,W0
-01C92:  MOV     W6,W1
-01C94:  CALL    109E
+01D72:  MOV     12F4,W4
+01D74:  SUB     W4,#3,W5
+01D76:  MOV     12F6,W4
+01D78:  SUBB    W4,#0,W6
+01D7A:  MOV.B   E9B,W0L
+01D7C:  MOV.B   W0L,W2L
+01D7E:  CLR.B   5
+01D80:  MOV     #0,W3
+01D82:  MOV     W5,W0
+01D84:  MOV     W6,W1
+01D86:  CALL    109E
 *
-01C98:  MOV     W0,W5
-01C9A:  MOV     W1,W6
-01C9C:  MOV     W5,W0
-01C9E:  ADD     EA0,W0
-01CA0:  MOV     W0,A80
-01CA2:  MOV     EA2,W4
-01CA4:  ADDC    W6,W4,W0
-01CA6:  MOV     W0,A82
+01D8A:  MOV     W0,W5
+01D8C:  MOV     W1,W6
+01D8E:  MOV     W5,W0
+01D90:  ADD     EA0,W0
+01D92:  MOV     W0,A80
+01D94:  MOV     EA2,W4
+01D96:  ADDC    W6,W4,W0
+01D98:  MOV     W0,A82
 .................... 	   }
 .................... 
 .................... 	   //actualizar el tama�o del fichero y fechas
 .................... 	   file.size += 4; //512 estaba antes
-01CA8:  MOV     C90,W4
-01CAA:  ADD     W4,#4,W0
-01CAC:  MOV     W0,C90
-01CAE:  MOV     C92,W4
-01CB0:  ADDC    W4,#0,W0
-01CB2:  MOV     W0,C92
+01D9A:  MOV     C90,W4
+01D9C:  ADD     W4,#4,W0
+01D9E:  MOV     W0,C90
+01DA0:  MOV     C92,W4
+01DA2:  ADDC    W4,#0,W0
+01DA4:  MOV     W0,C92
 .................... 	   file.EntryFile[file.offsetEntry + 28] = make8(file.size, 0);   //tama�o
-01CB4:  MOV     C8E,W4
-01CB6:  ADD     W4,#1C,W5
-01CB8:  MOV     #A8E,W4
-01CBA:  ADD     W5,W4,W6
-01CBC:  MOV.B   C90,W0L
-01CBE:  MOV.B   W0L,[W6]
+01DA6:  MOV     C8E,W4
+01DA8:  ADD     W4,#1C,W5
+01DAA:  MOV     #A8E,W4
+01DAC:  ADD     W5,W4,W6
+01DAE:  MOV.B   C90,W0L
+01DB0:  MOV.B   W0L,[W6]
 .................... 	   file.EntryFile[file.offsetEntry + 29] = make8(file.size, 1);
-01CC0:  MOV     C8E,W4
-01CC2:  ADD     W4,#1D,W5
-01CC4:  MOV     #A8E,W4
-01CC6:  ADD     W5,W4,W6
-01CC8:  MOV.B   C91,W0L
-01CCA:  MOV.B   W0L,[W6]
+01DB2:  MOV     C8E,W4
+01DB4:  ADD     W4,#1D,W5
+01DB6:  MOV     #A8E,W4
+01DB8:  ADD     W5,W4,W6
+01DBA:  MOV.B   C91,W0L
+01DBC:  MOV.B   W0L,[W6]
 .................... 	   file.EntryFile[file.offsetEntry + 30] = make8(file.size, 2);
-01CCC:  MOV     C8E,W4
-01CCE:  ADD     W4,#1E,W5
-01CD0:  MOV     #A8E,W4
-01CD2:  ADD     W5,W4,W6
-01CD4:  MOV.B   C92,W0L
-01CD6:  MOV.B   W0L,[W6]
+01DBE:  MOV     C8E,W4
+01DC0:  ADD     W4,#1E,W5
+01DC2:  MOV     #A8E,W4
+01DC4:  ADD     W5,W4,W6
+01DC6:  MOV.B   C92,W0L
+01DC8:  MOV.B   W0L,[W6]
 .................... 	   file.EntryFile[file.offsetEntry + 31] = make8(file.size, 3);
-01CD8:  MOV     C8E,W4
-01CDA:  ADD     W4,#1F,W5
-01CDC:  MOV     #A8E,W4
-01CDE:  ADD     W5,W4,W6
-01CE0:  MOV.B   C93,W0L
-01CE2:  MOV.B   W0L,[W6]
+01DCA:  MOV     C8E,W4
+01DCC:  ADD     W4,#1F,W5
+01DCE:  MOV     #A8E,W4
+01DD0:  ADD     W5,W4,W6
+01DD2:  MOV.B   C93,W0L
+01DD4:  MOV.B   W0L,[W6]
 .................... 	   //ActualizaReloj();
 .................... 	   _hour = getHour();
-01CE4:  MOV.B   12B3,W0L
-01CE6:  MOV.B   W0L,W5L
-01CE8:  CLR.B   B
-01CEA:  SL      W5,#B,W5
-01CEC:  MOV.B   12B4,W0L
-01CEE:  MOV.B   W0L,C
-01CF0:  CLR.B   D
-01CF2:  SL      W6,#5,W0
-01CF4:  ADD     W0,W5,W5
-01CF6:  MOV.B   12B5,W0L
-01CF8:  CLR.B   1
-01CFA:  LSR     W0,#1,W0
-01CFC:  ADD     W0,W5,W0
-01CFE:  MOV     W0,12FC
+01DD6:  MOV.B   12B3,W0L
+01DD8:  MOV.B   W0L,W5L
+01DDA:  CLR.B   B
+01DDC:  SL      W5,#B,W5
+01DDE:  MOV.B   12B4,W0L
+01DE0:  MOV.B   W0L,C
+01DE2:  CLR.B   D
+01DE4:  SL      W6,#5,W0
+01DE6:  ADD     W0,W5,W5
+01DE8:  MOV.B   12B5,W0L
+01DEA:  CLR.B   1
+01DEC:  LSR     W0,#1,W0
+01DEE:  ADD     W0,W5,W0
+01DF0:  MOV     W0,12FC
 .................... 	   date = getDate();
-01D00:  MOV     12AE,W4
-01D02:  MOV     #7BC,W3
-01D04:  SUB     W4,W3,W5
-01D06:  SL      W5,#9,W5
-01D08:  MOV.B   12B1,W0L
-01D0A:  MOV.B   W0L,W6L
-01D0C:  CLR.B   D
-01D0E:  SL      W6,#5,W0
-01D10:  ADD     W0,W5,W5
-01D12:  MOV.B   12B2,W0L
-01D14:  CLR.B   1
-01D16:  ADD     W0,W5,W0
-01D18:  MOV     W0,12FE
+01DF2:  MOV     12AE,W4
+01DF4:  MOV     #7BC,W3
+01DF6:  SUB     W4,W3,W5
+01DF8:  SL      W5,#9,W5
+01DFA:  MOV.B   12B1,W0L
+01DFC:  MOV.B   W0L,W6L
+01DFE:  CLR.B   D
+01E00:  SL      W6,#5,W0
+01E02:  ADD     W0,W5,W5
+01E04:  MOV.B   12B2,W0L
+01E06:  CLR.B   1
+01E08:  ADD     W0,W5,W0
+01E0A:  MOV     W0,12FE
 .................... 	   file.EntryFile[file.offsetEntry + 24] = make8(date, 0);       //fecha modif
-01D1A:  MOV     C8E,W4
-01D1C:  ADD     W4,#18,W5
-01D1E:  MOV     #A8E,W4
-01D20:  ADD     W5,W4,W6
-01D22:  MOV.B   12FE,W0L
-01D24:  MOV.B   W0L,[W6]
+01E0C:  MOV     C8E,W4
+01E0E:  ADD     W4,#18,W5
+01E10:  MOV     #A8E,W4
+01E12:  ADD     W5,W4,W6
+01E14:  MOV.B   12FE,W0L
+01E16:  MOV.B   W0L,[W6]
 .................... 	   file.EntryFile[file.offsetEntry + 25] = make8(date, 1);
-01D26:  MOV     C8E,W4
-01D28:  ADD     W4,#19,W5
-01D2A:  MOV     #A8E,W4
-01D2C:  ADD     W5,W4,W6
-01D2E:  MOV.B   12FF,W0L
-01D30:  MOV.B   W0L,[W6]
+01E18:  MOV     C8E,W4
+01E1A:  ADD     W4,#19,W5
+01E1C:  MOV     #A8E,W4
+01E1E:  ADD     W5,W4,W6
+01E20:  MOV.B   12FF,W0L
+01E22:  MOV.B   W0L,[W6]
 .................... 	   file.EntryFile[file.offsetEntry + 22] = make8(_hour, 0);      //hora modif
-01D32:  MOV     C8E,W4
-01D34:  ADD     W4,#16,W5
-01D36:  MOV     #A8E,W4
-01D38:  ADD     W5,W4,W6
-01D3A:  MOV.B   12FC,W0L
-01D3C:  MOV.B   W0L,[W6]
+01E24:  MOV     C8E,W4
+01E26:  ADD     W4,#16,W5
+01E28:  MOV     #A8E,W4
+01E2A:  ADD     W5,W4,W6
+01E2C:  MOV.B   12FC,W0L
+01E2E:  MOV.B   W0L,[W6]
 .................... 	   file.EntryFile[file.offsetEntry + 23] = make8(_hour, 1);
-01D3E:  MOV     C8E,W4
-01D40:  ADD     W4,#17,W5
-01D42:  MOV     #A8E,W4
-01D44:  ADD     W5,W4,W6
-01D46:  MOV.B   12FD,W0L
-01D48:  MOV.B   W0L,[W6]
+01E30:  MOV     C8E,W4
+01E32:  ADD     W4,#17,W5
+01E34:  MOV     #A8E,W4
+01E36:  ADD     W5,W4,W6
+01E38:  MOV.B   12FD,W0L
+01E3A:  MOV.B   W0L,[W6]
 .................... 	   file.EntryFile[file.offsetEntry + 18] = file.EntryFile[file.offsetEntry + 24];   //fecha �ltimo acceso
-01D4A:  MOV     C8E,W4
-01D4C:  ADD     W4,#12,W5
-01D4E:  MOV     #A8E,W4
-01D50:  ADD     W5,W4,W6
-01D52:  MOV     C8E,W4
-01D54:  ADD     W4,#18,W7
-01D56:  MOV     #A8E,W4
-01D58:  ADD     W7,W4,W0
-01D5A:  MOV.B   [W0],[W6]
+01E3C:  MOV     C8E,W4
+01E3E:  ADD     W4,#12,W5
+01E40:  MOV     #A8E,W4
+01E42:  ADD     W5,W4,W6
+01E44:  MOV     C8E,W4
+01E46:  ADD     W4,#18,W7
+01E48:  MOV     #A8E,W4
+01E4A:  ADD     W7,W4,W0
+01E4C:  MOV.B   [W0],[W6]
 .................... 	   file.EntryFile[file.offsetEntry + 19] = file.EntryFile[file.offsetEntry + 25];
-01D5C:  MOV     C8E,W4
-01D5E:  ADD     W4,#13,W5
-01D60:  MOV     #A8E,W4
-01D62:  ADD     W5,W4,W6
-01D64:  MOV     C8E,W4
-01D66:  ADD     W4,#19,W7
-01D68:  MOV     #A8E,W4
-01D6A:  ADD     W7,W4,W0
-01D6C:  MOV.B   [W0],[W6]
+01E4E:  MOV     C8E,W4
+01E50:  ADD     W4,#13,W5
+01E52:  MOV     #A8E,W4
+01E54:  ADD     W5,W4,W6
+01E56:  MOV     C8E,W4
+01E58:  ADD     W4,#19,W7
+01E5A:  MOV     #A8E,W4
+01E5C:  ADD     W7,W4,W0
+01E5E:  MOV.B   [W0],[W6]
 .................... 
 .................... 	   sd_write_block(file.sectorEntryFile, file.EntryFile);  	// Actualiza root
-01D6E:  PUSH    A8A
-01D70:  POP     133A
-01D72:  PUSH    A8C
-01D74:  POP     133C
-01D76:  MOV     #A8E,W4
-01D78:  MOV     W4,133E
-01D7A:  CALL    10CE
+01E60:  PUSH    A8A
+01E62:  POP     133A
+01E64:  PUSH    A8C
+01E66:  POP     133C
+01E68:  MOV     #A8E,W4
+01E6A:  MOV     W4,133E
+01E6C:  CALL    10CE
 .................... 		 if(cont>127)
 *
-01D7E:  MOV     12B6,W4
-01D80:  MOV     #7F,W3
-01D82:  CP      W3,W4
-01D84:  BRA     GE,1D90
+01E70:  MOV     12B6,W4
+01E72:  MOV     #7F,W3
+01E74:  CP      W3,W4
+01E76:  BRA     GE,1E82
 .................... 		 	{
 ....................  			//file.currentSector++;	//actualizar las FATs
 ....................  			memset(dt,0,512);
-01D86:  MOV     #878,W1
-01D88:  MOV     #0,W2
-01D8A:  REPEAT  #1FF
-01D8C:  CLR.B   [W1++]
+01E78:  MOV     #878,W1
+01E7A:  MOV     #0,W2
+01E7C:  REPEAT  #1FF
+01E7E:  CLR.B   [W1++]
 ....................  			cont = 0;
-01D8E:  CLR     12B6
+01E80:  CLR     12B6
 ....................  			}
-01D90:  MOV     [--W15],W7
-01D92:  MOV     [--W15],W6
-01D94:  MOV     [--W15],W5
-01D96:  RETURN  
+01E82:  MOV     [--W15],W7
+01E84:  MOV     [--W15],W6
+01E86:  MOV     [--W15],W5
+01E88:  RETURN  
 .................... }
 .................... // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 .................... void sd_init_global(){
@@ -5016,52 +5138,52 @@ CCS PCD C Compiler, Version 5.091, 43599               27-ene.-21 20:15
 .................... //Escritura en el fichero LATIDOS
 .................... void escritura_sd(int ppm){
 *
-01D98:  MOV     W5,[W15++]
-01D9A:  MOV     W6,[W15++]
+01E8A:  MOV     W5,[W15++]
+01E8C:  MOV     W6,[W15++]
 ....................  sprintf(cadena,"%03d\n",ppm); //Escribe ppm en el archivo LATIDOS
-01D9C:  MOV     #12BA,W4
-01D9E:  MOV     W4,12DC
-01DA0:  MOV     12EE,W0
-01DA2:  MOV     #8003,W4
-01DA4:  CALL    1920
+01E8E:  MOV     #12BA,W4
+01E90:  MOV     W4,12DC
+01E92:  MOV     12EE,W0
+01E94:  MOV     #8003,W4
+01E96:  CALL    1A12
 *
-01DA8:  MOV.B   #A,W0L
-01DAA:  CALL    1912
+01E9A:  MOV.B   #A,W0L
+01E9C:  CALL    1A04
 ....................  output_toggle(H1);
 *
-01DAE:  BCLR.B  2C9.6
-01DB0:  BTG.B   2CD.6
+01EA0:  BCLR.B  2C9.6
+01EA2:  BTG.B   2CD.6
 .................... 
 ....................  for(jj=0;jj<4;jj++)
-01DB2:  CLR     12DA
-01DB4:  MOV     12DA,W4
-01DB6:  CP      W4,#4
-01DB8:  BRA     GE,1DD4
+01EA4:  CLR     12DA
+01EA6:  MOV     12DA,W4
+01EA8:  CP      W4,#4
+01EAA:  BRA     GE,1EC6
 ....................  {
 ....................    dt[jj+(cont*4)] = cadena[jj];
-01DBA:  MOV     12B6,W4
-01DBC:  MUL.UU  W4,#4,W0
-01DBE:  MOV     12DA,W4
-01DC0:  ADD     W0,W4,W5
-01DC2:  MOV     #878,W4
-01DC4:  ADD     W5,W4,W6
-01DC6:  MOV     #12BA,W4
-01DC8:  MOV     12DA,W3
-01DCA:  ADD     W3,W4,W0
-01DCC:  MOV.B   [W0],[W6]
-01DCE:  INC     12DA
-01DD0:  GOTO    1DB4
+01EAC:  MOV     12B6,W4
+01EAE:  MUL.UU  W4,#4,W0
+01EB0:  MOV     12DA,W4
+01EB2:  ADD     W0,W4,W5
+01EB4:  MOV     #878,W4
+01EB6:  ADD     W5,W4,W6
+01EB8:  MOV     #12BA,W4
+01EBA:  MOV     12DA,W3
+01EBC:  ADD     W3,W4,W0
+01EBE:  MOV.B   [W0],[W6]
+01EC0:  INC     12DA
+01EC2:  GOTO    1EA6
 ....................  }
 .................... 
 .................... cont++;
 *
-01DD4:  INC     12B6
+01EC6:  INC     12B6
 .................... escribe_datos_en_fichero();
-01DD6:  CALL    1B76
+01EC8:  CALL    1C68
 *
-01DDA:  MOV     [--W15],W6
-01DDC:  MOV     [--W15],W5
-01DDE:  RETURN  
+01ECC:  MOV     [--W15],W6
+01ECE:  MOV     [--W15],W5
+01ED0:  RETURN  
 .................... //memset(dt,0,512);
 .................... }
 .................... 
@@ -5261,28 +5383,28 @@ CCS PCD C Compiler, Version 5.091, 43599               27-ene.-21 20:15
 .................... 	COM:
 .................... 	while(!input(COMM));
 *
-01B50:  BSET.B  2C1.1
-01B52:  NOP     
-01B54:  BTSS.B  2C3.1
-01B56:  BRA     1B50
+01C42:  BSET.B  2C1.1
+01C44:  NOP     
+01C46:  BTSS.B  2C3.1
+01C48:  BRA     1C42
 ....................  		fprintf(BT, "%03d\n", ppm);
-01B58:  MOV     12EE,W0
-01B5A:  MOV     #8003,W4
-01B5C:  CALL    1A50
+01C4A:  MOV     12EE,W0
+01C4C:  MOV     #8003,W4
+01C4E:  CALL    1B42
 *
-01B60:  BTSC.B  223.1
-01B62:  BRA     1B60
-01B64:  MOV     #A,W4
-01B66:  MOV     W4,224
+01C52:  BTSC.B  223.1
+01C54:  BRA     1C52
+01C56:  MOV     #A,W4
+01C58:  MOV     W4,224
 .................... 		if(!input(COMM))
-01B68:  BSET.B  2C1.1
-01B6A:  NOP     
-01B6C:  BTSC.B  2C3.1
-01B6E:  BRA     1B74
+01C5A:  BSET.B  2C1.1
+01C5C:  NOP     
+01C5E:  BTSC.B  2C3.1
+01C60:  BRA     1C66
 .................... 		goto COM;
-01B70:  GOTO    1B50
+01C62:  GOTO    1C42
 *
-01B74:  RETURN  
+01C66:  RETURN  
 .................... }
 .................... //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 .................... 
@@ -5416,80 +5538,80 @@ CCS PCD C Compiler, Version 5.091, 43599               27-ene.-21 20:15
 .................... 
 .................... void main(void)
 *
-01E1C:  MOV     #3F50,W15
-01E1E:  MOV     #3FFF,W0
-01E20:  MOV     W0,20
-01E22:  NOP     
-01E24:  MOV     #4444,W0
-01E26:  MOV     W0,A6
-01E28:  MOV     #4444,W0
-01E2A:  MOV     W0,B0
-01E2C:  BSET.B  81.7
-01E2E:  DISI    #6
-01E30:  MOV     #742,W1
-01E32:  MOV     #46,W2
-01E34:  MOV     #57,W3
-01E36:  MOV.B   W2L,[W1]
-01E38:  MOV.B   W3L,[W1]
-01E3A:  BCLR.B  742.6
-01E3C:  MOV     #3F14,W0
-01E3E:  MOV     W0,6A4
-01E40:  MOV     #607,W0
-01E42:  MOV     W0,6A8
-01E44:  MOV     #700,W0
-01E46:  MOV     W0,6C4
-01E48:  MOV     #8,W0
-01E4A:  MOV     W0,6C6
-01E4C:  MOV     #300,W0
-01E4E:  MOV     W0,6D2
-01E50:  MOV     #13,W0
-01E52:  MOV     W0,6D6
-01E54:  DISI    #6
-01E56:  MOV     #742,W1
-01E58:  MOV     #46,W2
-01E5A:  MOV     #57,W3
-01E5C:  MOV.B   W2L,[W1]
-01E5E:  MOV.B   W3L,[W1]
-01E60:  BSET.B  742.6
-01E62:  BCLR.B  2CD.1
-01E64:  BSET.B  207.7
-01E66:  BSET.B  207.5
-01E68:  BSET.B  206.6
-01E6A:  BCLR.B  207.3
-01E6C:  BCLR.B  206.7
-01E6E:  BCLR.B  207.0
-01E70:  BCLR.B  207.1
-01E72:  BCLR.B  207.2
-01E74:  CLR     20A
-01E76:  MOV     #4,W4
-01E78:  MOV     W4,204
-01E7A:  MOV     #7E4,W4
-01E7C:  MOV     W4,12AE
-01E7E:  MOV.B   #14,W0L
-01E80:  MOV.B   W0L,12B0
-01E82:  MOV.B   #A,W0L
-01E84:  MOV.B   W0L,12B1
-01E86:  MOV.B   #F,W0L
-01E88:  MOV.B   W0L,12B2
-01E8A:  MOV.B   #C,W0L
-01E8C:  MOV.B   W0L,12B3
-01E8E:  MOV.B   #22,W0L
-01E90:  MOV.B   W0L,12B4
-01E92:  MOV.B   #38,W0L
-01E94:  MOV.B   W0L,12B5
-01E96:  CLR     A78
-01E98:  CLR     A7A
-01E9A:  CLR     12B6
-01E9C:  CLR     12DC
-01E9E:  MOV     #8000,W4
-01EA0:  MOV     W4,220
-01EA2:  MOV     #400,W4
-01EA4:  MOV     W4,222
-01EA6:  BCLR.B  220.3
-01EA8:  MOV     #2,W4
-01EAA:  MOV     W4,228
-01EAC:  SETM    32C
-01EAE:  CLR     12EC
+01F0E:  MOV     #3F50,W15
+01F10:  MOV     #3FFF,W0
+01F12:  MOV     W0,20
+01F14:  NOP     
+01F16:  MOV     #4444,W0
+01F18:  MOV     W0,A6
+01F1A:  MOV     #4444,W0
+01F1C:  MOV     W0,B0
+01F1E:  BSET.B  81.7
+01F20:  DISI    #6
+01F22:  MOV     #742,W1
+01F24:  MOV     #46,W2
+01F26:  MOV     #57,W3
+01F28:  MOV.B   W2L,[W1]
+01F2A:  MOV.B   W3L,[W1]
+01F2C:  BCLR.B  742.6
+01F2E:  MOV     #3F14,W0
+01F30:  MOV     W0,6A4
+01F32:  MOV     #607,W0
+01F34:  MOV     W0,6A8
+01F36:  MOV     #700,W0
+01F38:  MOV     W0,6C4
+01F3A:  MOV     #8,W0
+01F3C:  MOV     W0,6C6
+01F3E:  MOV     #300,W0
+01F40:  MOV     W0,6D2
+01F42:  MOV     #13,W0
+01F44:  MOV     W0,6D6
+01F46:  DISI    #6
+01F48:  MOV     #742,W1
+01F4A:  MOV     #46,W2
+01F4C:  MOV     #57,W3
+01F4E:  MOV.B   W2L,[W1]
+01F50:  MOV.B   W3L,[W1]
+01F52:  BSET.B  742.6
+01F54:  BCLR.B  2CD.1
+01F56:  BSET.B  207.7
+01F58:  BSET.B  207.5
+01F5A:  BSET.B  206.6
+01F5C:  BCLR.B  207.3
+01F5E:  BCLR.B  206.7
+01F60:  BCLR.B  207.0
+01F62:  BSET.B  207.1
+01F64:  BCLR.B  207.2
+01F66:  CLR     20A
+01F68:  MOV     #36,W4
+01F6A:  MOV     W4,204
+01F6C:  MOV     #7E4,W4
+01F6E:  MOV     W4,12AE
+01F70:  MOV.B   #14,W0L
+01F72:  MOV.B   W0L,12B0
+01F74:  MOV.B   #A,W0L
+01F76:  MOV.B   W0L,12B1
+01F78:  MOV.B   #F,W0L
+01F7A:  MOV.B   W0L,12B2
+01F7C:  MOV.B   #C,W0L
+01F7E:  MOV.B   W0L,12B3
+01F80:  MOV.B   #22,W0L
+01F82:  MOV.B   W0L,12B4
+01F84:  MOV.B   #38,W0L
+01F86:  MOV.B   W0L,12B5
+01F88:  CLR     A78
+01F8A:  CLR     A7A
+01F8C:  CLR     12B6
+01F8E:  CLR     12DC
+01F90:  MOV     #8000,W4
+01F92:  MOV     W4,220
+01F94:  MOV     #400,W4
+01F96:  MOV     W4,222
+01F98:  BCLR.B  220.3
+01F9A:  MOV     #2,W4
+01F9C:  MOV     W4,228
+01F9E:  SETM    32C
+01FA0:  CLR     12EC
 .................... {
 ....................   //Declaración e inicialización de variables
 .................... 
@@ -5502,11 +5624,11 @@ CCS PCD C Compiler, Version 5.091, 43599               27-ene.-21 20:15
 .................... 
 .................... 
 .................... 	peligro_flag=0;
-01EB0:  BCLR.B  12E0.0
+01FA2:  BCLR.B  12E0.0
 .................... 	altas=0;
-01EB2:  BCLR.B  12E0.1
+01FA4:  BCLR.B  12E0.1
 .................... 	bajas=0;
-01EB4:  BCLR.B  12E0.2
+01FA6:  BCLR.B  12E0.2
 .................... 
 ....................   //para debugging. Eliminar al final
 .................... 
@@ -5527,254 +5649,314 @@ CCS PCD C Compiler, Version 5.091, 43599               27-ene.-21 20:15
 .................... 
 .................... 
 ....................   init_BT();
-01EB6:  CALL    760
+01FA8:  CALL    760
 .................... 	sd_init_global();
 *
-01EBA:  CALL    1572
+01FAC:  CALL    1572
 .................... 	lcdi2cinit();
 *
-01EBE:  CALL    15DA
+01FB0:  CALL    15DA
 ....................   BEEP_Init();
 *
-01EC2:  CALL    166A
+01FB4:  CALL    166A
 .................... 
 .................... 
 ....................   //2. Menu bienvenida
 ....................   initmenu();
 *
-01EC6:  CALL    1700
+01FB8:  CALL    1700
 ....................   while(input(BTOK))
 *
-01ECA:  BSET.B  2C0.7
-01ECC:  NOP     
-01ECE:  BTSS.B  2C2.7
-01ED0:  BRA     1EDC
+01FBC:  BSET.B  2C0.7
+01FBE:  NOP     
+01FC0:  BTSS.B  2C2.7
+01FC2:  BRA     1FCE
 ....................   {
 ....................     delay_ms(50);
-01ED2:  MOV     #32,W0
-01ED4:  CALL    750
+01FC4:  MOV     #32,W0
+01FC6:  CALL    750
 *
-01ED8:  GOTO    1ECA
+01FCA:  GOTO    1FBC
 ....................   }
 ....................   while(!input(BTOK)) // para evitar rebotes y finalizar el programa
 *
-01EDC:  BSET.B  2C0.7
-01EDE:  NOP     
-01EE0:  BTSC.B  2C2.7
-01EE2:  BRA     1EEE
+01FCE:  BSET.B  2C0.7
+01FD0:  NOP     
+01FD2:  BTSC.B  2C2.7
+01FD4:  BRA     1FE0
 ....................   {
 ....................     delay_ms(50);
-01EE4:  MOV     #32,W0
-01EE6:  CALL    750
+01FD6:  MOV     #32,W0
+01FD8:  CALL    750
 *
-01EEA:  GOTO    1EDC
+01FDC:  GOTO    1FCE
 ....................   }
 .................... 
 .................... 
 ....................   //3. Inicializar algoritmo, adc y timer2 a 250 Hz
 ....................   adcinit();
 *
-01EEE:  CALL    1788
+01FE0:  CALL    1788
 .................... 
 .................... 
 .................... 
 ....................   setup_timer2(TMR_INTERNAL | TMR_DIV_BY_8, 2765); // 11059200/2/8/1843 = 4 ms
 *
-01EF2:  CLR     110
-01EF4:  MOV     #ACD,W4
-01EF6:  MOV     W4,10C
-01EF8:  MOV     #8010,W4
-01EFA:  MOV     W4,110
+01FE4:  CLR     110
+01FE6:  MOV     #ACD,W4
+01FE8:  MOV     W4,10C
+01FEA:  MOV     #8010,W4
+01FEC:  MOV     W4,110
 .................... 	setup_timer5(TMR_INTERNAL | TMR_DIV_BY_256, 21600); //1s 11059200/2/8/14395 = 50Hz
-01EFC:  CLR     120
-01EFE:  MOV     #5460,W4
-01F00:  MOV     W4,11C
-01F02:  MOV     #8030,W4
-01F04:  MOV     W4,120
+01FEE:  CLR     120
+01FF0:  MOV     #5460,W4
+01FF2:  MOV     W4,11C
+01FF4:  MOV     #8030,W4
+01FF6:  MOV     W4,120
 ....................   init_algoritmo();
-01F06:  CALL    17A0
+01FF8:  CALL    17A0
 .................... 	enable_interrupts(INT_TIMER5);
 *
-01F0A:  BSET.B  97.4
+01FFC:  BSET.B  97.4
 .................... 	memset(dt,0,512);
-01F0C:  MOV     #878,W1
-01F0E:  MOV     #0,W2
-01F10:  REPEAT  #1FF
-01F12:  CLR.B   [W1++]
+01FFE:  MOV     #878,W1
+02000:  MOV     #0,W2
+02002:  REPEAT  #1FF
+02004:  CLR.B   [W1++]
 .................... 
 ....................   //Mostrar pantalla de frecuencia
 ....................   display_frecuencia();
-01F14:  CALL    17E0
+02006:  CALL    17E0
 ....................   delay_ms(4); // que al menos se ejecute el algoritmo una vez para no tener valores raros
 *
-01F18:  REPEAT  #1662
-01F1A:  NOP     
-01F1C:  REPEAT  #3FFF
-01F1E:  NOP     
+0200A:  REPEAT  #1662
+0200C:  NOP     
+0200E:  REPEAT  #3FFF
+02010:  NOP     
 .................... 
 ....................   //4. Bucle del programa
 ....................   while(input(BTOK))
-01F20:  BSET.B  2C0.7
-01F22:  NOP     
-01F24:  BTSS.B  2C2.7
-01F26:  BRA     1FC0
+02012:  BSET.B  2C0.7
+02014:  NOP     
+02016:  BTSS.B  2C2.7
+02018:  BRA     2120
 ....................   {
 .................... 
 .................... 		//Comprobar si hay electrodo suelto
-.................... 		// if(input(PIN_)) // COnectar pin del electrodo
-.................... 		// {
-.................... 		// 	display_electrodo_suelto();
-.................... 		// 	disable_interrupts(INT_TIMER2);
-.................... 		// 	disable_interrupts(INT_TIMER5);
-.................... 		// 	while(input(PIN_))
-.................... 		// 	{
-.................... 		// 		delay_ms(100);
-.................... 		// 	}
-.................... 		// 	display_electrodo_recuperado();
-.................... 		// 	while(!input(BTOK)) // pulsa para continuar
-.................... 		//   {
-.................... 		//     delay_ms(50);
-.................... 		//   }
-.................... 		// 	enable_interrupts(INT_TIMER2); // restaura ciclo de funcionamiento normal
-.................... 		// 	enable_interrupts(INT_TIMER5);
-.................... 		// 	delay_ms(4);
-.................... 		// }
+.................... 		if(input(H2) || input(L3)) // COnectar pin del electrodo
+0201A:  BSET.B  2C9.4
+0201C:  NOP     
+0201E:  BTSC.B  2CB.4
+02020:  BRA     202A
+02022:  BSET.B  2C9.3
+02024:  NOP     
+02026:  BTSS.B  2CB.3
+02028:  BRA     2088
+.................... 		{
+.................... 			display_electrodo_suelto();
+0202A:  CALL    1890
+.................... 			disable_interrupts(INT_TIMER2);
+*
+0202E:  BCLR.B  94.7
+02030:  NOP     
+.................... 			disable_interrupts(INT_TIMER5);
+02032:  BCLR.B  97.4
+02034:  NOP     
+.................... 			while(input(H2) || input(L3))
+02036:  BSET.B  2C9.4
+02038:  NOP     
+0203A:  BTSC.B  2CB.4
+0203C:  BRA     2046
+0203E:  BSET.B  2C9.3
+02040:  NOP     
+02042:  BTSS.B  2CB.3
+02044:  BRA     2050
+.................... 			{
+.................... 				delay_ms(100);
+02046:  MOV     #64,W0
+02048:  CALL    750
+*
+0204C:  GOTO    2036
+.................... 			}
+.................... 			display_electrodo_recuperado();
+*
+02050:  CALL    18CC
+.................... 			while(input(BTOK))
+*
+02054:  BSET.B  2C0.7
+02056:  NOP     
+02058:  BTSS.B  2C2.7
+0205A:  BRA     2066
+.................... 		  {
+.................... 		    delay_ms(50);
+0205C:  MOV     #32,W0
+0205E:  CALL    750
+*
+02062:  GOTO    2054
+.................... 		  }
+.................... 		  while(!input(BTOK)) // para evitar rebotes y finalizar el programa
+*
+02066:  BSET.B  2C0.7
+02068:  NOP     
+0206A:  BTSC.B  2C2.7
+0206C:  BRA     2078
+.................... 		  {
+.................... 		    delay_ms(50);
+0206E:  MOV     #32,W0
+02070:  CALL    750
+*
+02074:  GOTO    2066
+.................... 		  }
+.................... 			display_frecuencia();
+*
+02078:  CALL    17E0
+.................... 			enable_interrupts(INT_TIMER2); // restaura ciclo de funcionamiento normal
+*
+0207C:  BSET.B  94.7
+.................... 			enable_interrupts(INT_TIMER5);
+0207E:  BSET.B  97.4
+.................... 			delay_ms(4);
+02080:  REPEAT  #1662
+02082:  NOP     
+02084:  REPEAT  #3FFF
+02086:  NOP     
+.................... 		}
 .................... 
 ....................     //4.1 Generar alarmas si es necesario
 ....................     if(ppm>=250)
-01F28:  MOV     12DE,W4
-01F2A:  MOV     #FA,W3
-01F2C:  CP      W3,W4
-01F2E:  BRA     GTU,1F42
+02088:  MOV     12DE,W4
+0208A:  MOV     #FA,W3
+0208C:  CP      W3,W4
+0208E:  BRA     GTU,20A2
 ....................     {
 .................... 			if(!altas)	display_alarma_alto();
-01F30:  BTSC.B  12E0.1
-01F32:  BRA     1F38
-01F34:  CALL    1890
+02090:  BTSC.B  12E0.1
+02092:  BRA     2098
+02094:  CALL    1982
 .................... 			altas=1;
 *
-01F38:  BSET.B  12E0.1
+02098:  BSET.B  12E0.1
 .................... 			bajas=0;
-01F3A:  BCLR.B  12E0.2
+0209A:  BCLR.B  12E0.2
 .................... 			peligro_flag=1;
-01F3C:  BSET.B  12E0.0
+0209C:  BSET.B  12E0.0
 .................... 			ppm_anterior=ppm;
-01F3E:  PUSH    12DE
-01F40:  POP     12EC
+0209E:  PUSH    12DE
+020A0:  POP     12EC
 .................... 		}
 .................... 		if(ppm<=35)
-01F42:  MOV     12DE,W4
-01F44:  MOV     #23,W3
-01F46:  CP      W3,W4
-01F48:  BRA     NC,1F60
+020A2:  MOV     12DE,W4
+020A4:  MOV     #23,W3
+020A6:  CP      W3,W4
+020A8:  BRA     NC,20C0
 ....................     {
 .................... 			if(!bajas)	display_alarma_bajo();
-01F4A:  BTSC.B  12E0.2
-01F4C:  BRA     1F52
-01F4E:  CALL    18D4
+020AA:  BTSC.B  12E0.2
+020AC:  BRA     20B2
+020AE:  CALL    19C6
 .................... 			altas=0;
 *
-01F52:  BCLR.B  12E0.1
+020B2:  BCLR.B  12E0.1
 .................... 			bajas=1;
-01F54:  BSET.B  12E0.2
+020B4:  BSET.B  12E0.2
 .................... 			peligro_flag=1;
-01F56:  BSET.B  12E0.0
+020B6:  BSET.B  12E0.0
 .................... 			ppm_anterior=ppm;
-01F58:  PUSH    12DE
-01F5A:  POP     12EC
+020B8:  PUSH    12DE
+020BA:  POP     12EC
 .................... 			output_toggle(BUZZER);
-01F5C:  BCLR.B  2D0.6
-01F5E:  BTG.B   2D4.6
+020BC:  BCLR.B  2D0.6
+020BE:  BTG.B   2D4.6
 .................... 		}
 .................... 
 .................... 		//4.2 Mostrar por pantalla en funcionamiento normal
 .................... 		if(!peligro_flag)
-01F60:  BTSC.B  12E0.0
-01F62:  BRA     1FA4
+020C0:  BTSC.B  12E0.0
+020C2:  BRA     2104
 .................... 		{
 .................... 			OFF(BUZZER);
-01F64:  BCLR.B  2D0.6
-01F66:  BCLR.B  2D4.6
+020C4:  BCLR.B  2D0.6
+020C6:  BCLR.B  2D4.6
 .................... 			if(ppm!=ppm_anterior) // mostrar por pantalla si ha cambiado el valor
-01F68:  MOV     12DE,W0
-01F6A:  CP      12EC
-01F6C:  BRA     Z,1FA4
+020C8:  MOV     12DE,W0
+020CA:  CP      12EC
+020CC:  BRA     Z,2104
 .................... 			{
 .................... 				display_frecuencia();
-01F6E:  CALL    17E0
+020CE:  CALL    17E0
 .................... 				sprintf(ppm_string,"%d  ",ppm); // crear cadena con espacios para borrar el valor anterior
 *
-01F72:  MOV     #12E2,W4
-01F74:  MOV     W4,12DC
-01F76:  MOV     12DE,W0
-01F78:  MOV     #0,W4
-01F7A:  CALL    1920
+020D2:  MOV     #12E2,W4
+020D4:  MOV     W4,12DC
+020D6:  MOV     12DE,W0
+020D8:  MOV     #0,W4
+020DA:  CALL    1A12
 *
-01F7E:  MOV.B   #20,W0L
-01F80:  CALL    1912
+020DE:  MOV.B   #20,W0L
+020E0:  CALL    1A04
 *
-01F84:  MOV.B   #20,W0L
-01F86:  CALL    1912
+020E4:  MOV.B   #20,W0L
+020E6:  CALL    1A04
 .................... 				LCD_cursor_at(0,16);
 *
-01F8A:  CLR.B   1328
-01F8C:  MOV.B   #10,W0L
-01F8E:  MOV.B   W0L,1329
-01F90:  CALL    1684
+020EA:  CLR.B   132A
+020EC:  MOV.B   #10,W0L
+020EE:  MOV.B   W0L,132B
+020F0:  CALL    1684
 .................... 				LCD_write(ppm_string);
 *
-01F94:  MOV     #12E2,W4
-01F96:  MOV     W4,1328
-01F98:  CALL    16A4
+020F4:  MOV     #12E2,W4
+020F6:  MOV     W4,132A
+020F8:  CALL    16A4
 .................... 				ppm_anterior=ppm; 							// actualizar pulsaciones anteriores
 *
-01F9C:  PUSH    12DE
-01F9E:  POP     12EC
+020FC:  PUSH    12DE
+020FE:  POP     12EC
 .................... 				bajas=0;
-01FA0:  BCLR.B  12E0.2
+02100:  BCLR.B  12E0.2
 .................... 				altas=0;
-01FA2:  BCLR.B  12E0.1
+02102:  BCLR.B  12E0.1
 .................... 			}
 .................... 		}
 .................... 
 .................... 
 ....................     //4.3 Enviar datos y escribir cada x segundos
 ....................     if(datos_flag)
-01FA4:  BTSS.B  85B.1
-01FA6:  BRA     1FBA
+02104:  BTSS.B  85B.1
+02106:  BRA     211A
 ....................     {
-....................       enviar_datos(cont);
-01FA8:  PUSH    12B6
-01FAA:  POP     12EE
-01FAC:  CALL    1B50
-.................... 			escritura_sd(cont);
+....................       enviar_datos(ppm);
+02108:  PUSH    12DE
+0210A:  POP     12EE
+0210C:  CALL    1C42
+.................... 			escritura_sd(ppm);
 *
-01FB0:  PUSH    12B6
-01FB2:  POP     12EE
-01FB4:  CALL    1D98
+02110:  PUSH    12DE
+02112:  POP     12EE
+02114:  CALL    1E8A
 .................... 			datos_flag=0;
 *
-01FB8:  BCLR.B  85B.1
+02118:  BCLR.B  85B.1
 .................... 		}
 .................... 		peligro_flag=0; // actualizar flag
-01FBA:  BCLR.B  12E0.0
-01FBC:  GOTO    1F20
+0211A:  BCLR.B  12E0.0
+0211C:  GOTO    2012
 ....................     //fin del bucle
 ....................   }
 .................... 
 .................... 	//fin de programa
 .................... 	display_final();
 *
-01FC0:  CALL    1DE0
+02120:  CALL    1ED2
 .................... 	disable_interrupts(INT_TIMER2);
 *
-01FC4:  BCLR.B  94.7
-01FC6:  NOP     
+02124:  BCLR.B  94.7
+02126:  NOP     
 .................... 	disable_interrupts(INT_TIMER5);
-01FC8:  BCLR.B  97.4
-01FCA:  NOP     
+02128:  BCLR.B  97.4
+0212A:  NOP     
 .................... }
-01FCC:  BRA     1FCC
+0212C:  BRA     212C
 
 Configuration Fuses:
    Word  1L: 00CF   NOWRTB NOBSS NORBS

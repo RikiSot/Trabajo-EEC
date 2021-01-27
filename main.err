@@ -1,4 +1,4 @@
-Compiling F:\Industriales\Especialidad\SDM\Trabajo-EEC\main on 27-ene.-21 at 20:15
+Compiling F:\Industriales\Especialidad\SDM\Trabajo-EEC\main on 27-ene.-21 at 21:19
 >>> Warning 240 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 340(34,46): Pointer types do not match
 >>> Warning 240 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 342(35,47): Pointer types do not match
 >>> Warning 240 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 343(46,58): Pointer types do not match
@@ -18,6 +18,6 @@ Compiling F:\Industriales\Especialidad\SDM\Trabajo-EEC\main on 27-ene.-21 at 20:
 >>> Warning 202 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 279(19,28): Variable never used:   sctrClstr
 >>> Warning 202 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 280(19,26): Variable never used:   posSctr
 >>> Warning 202 "F:\Industriales\Especialidad\SDM\Trabajo-EEC\miFAT.h" Line 281(19,27): Variable never used:   clstrSig
-      Memory usage:   ROM=9%      RAM=18% - 18%
+      Memory usage:   ROM=10%      RAM=18% - 18%
       0 Errors,  19 Warnings.
 Build Successful.

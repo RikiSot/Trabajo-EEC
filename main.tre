@@ -1,5 +1,5 @@
 ÀÄmain
-   ÃÄMAIN  0/434  Ram=14
+   ÃÄMAIN  0/544  Ram=14
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄ@cinit2  (Inline)  Ram=0
    ³  ÃÄinit_BT  0/194  Ram=0
@@ -164,6 +164,33 @@
    ³  ³  ³  ÀÄ*
    ³  ³  ÀÄLCD_write  0/92  Ram=3
    ³  ³     ÀÄ*
+   ³  ÃÄdisplay_electrodo_suelto  0/60  Ram=17
+   ³  ³  ÃÄLCD_command  0/52  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLCD_cursor_at  0/32  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÀÄLCD_write  0/92  Ram=3
+   ³  ³     ÀÄ*
+   ³  ÃÄ@delay_ms1  0/16  Ram=0
+   ³  ÃÄdisplay_electrodo_recuperado  0/182  Ram=60
+   ³  ³  ÃÄLCD_command  0/52  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLCD_cursor_at  0/32  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLCD_write  0/92  Ram=3
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLCD_cursor_at  0/32  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLCD_write  0/92  Ram=3
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLCD_cursor_at  0/32  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÀÄLCD_write  0/92  Ram=3
+   ³  ³     ÀÄ*
+   ³  ÃÄ@delay_ms1  0/16  Ram=0
+   ³  ÃÄ@delay_ms1  0/16  Ram=0
+   ³  ÃÄdisplay_frecuencia  0/176  Ram=58
+   ³  ³  ÀÄ*
    ³  ÃÄdisplay_alarma_alto  0/68  Ram=21
    ³  ³  ÃÄLCD_command  0/52  Ram=2
    ³  ³  ³  ÀÄ*

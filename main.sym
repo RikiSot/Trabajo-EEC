@@ -84,10 +84,12 @@ EAE-10AD sector_fat32
 12E2-12EA MAIN.ppm_string
 12EC-12ED MAIN.ppm_anterior
 12EE    inicializa_fichero.FicheroIncializado
-12EE    sd_init.versionSD
+12EE-12FE display_electrodo_suelto.fin
 12EE-12FE initmenu.cabecera
 12EE-12FF display_alarma_bajo.peligro
 12EE-12F1 initFAT.startClusterOfRootDirectory
+12EE    sd_init.versionSD
+12EE-1301 display_electrodo_recuperado.cabecera
 12EE-12FE display_frecuencia.cabecera
 12EE-12EF escritura_sd.ppm
 12EE-12FE display_final.fin
@@ -112,6 +114,7 @@ EAE-10AD sector_fat32
 1300-1313 display_frecuencia.palabra1
 1300-130D initmenu.boton
 1302-1303 sd_init.iI
+1302-1315 display_electrodo_recuperado.palabra1
 1302-1305 inicializa_fichero.ClstNxt
 1304-1307 sd_init.arg
 1306-1309 inicializa_fichero.sctrClstr
@@ -120,12 +123,13 @@ EAE-10AD sector_fat32
 130E-1311 inicializa_fichero.clstrSig
 1312-1315 inicializa_fichero.startCluster
 1314-1327 display_frecuencia.palabra2
+1316-1329 display_electrodo_recuperado.palabra2
 1316-1335 inicializa_fichero.newFile
-1328    LCD_cursor_at.line
-1328-1329 LCD_write.cd
-1329    LCD_cursor_at.column
-132A    LCD_write.c
-132E    LCD_command.cmd
+132A    LCD_cursor_at.line
+132A-132B LCD_write.cd
+132B    LCD_cursor_at.column
+132C    LCD_write.c
+1330    LCD_command.cmd
 1336-1339 encontrarCluster.clusterStart
 133A-133D sd_write_block.address
 133A-133D encontrarCluster.cluster
@@ -185,39 +189,41 @@ ROM Allocation:
 001788  adcinit
 0017A0  init_algoritmo
 0017E0  display_frecuencia
-001890  display_alarma_alto
-0018D4  display_alarma_bajo
-001912  @SPRINTF
-001920  @PRINTFD16_1075
-001A50  @PRINTFD16_115200_5779_5780
-001B50  enviar_datos
-001B76  escribe_datos_en_fichero
-001D98  escritura_sd
-001DE0  display_final
-001E1C  MAIN
-001E1C  @cinit1
-001EAE  @cinit2
-0DA8  COM
+001890  display_electrodo_suelto
+0018CC  display_electrodo_recuperado
+001982  display_alarma_alto
+0019C6  display_alarma_bajo
+001A04  @SPRINTF
+001A12  @PRINTFD16_1075
+001B42  @PRINTFD16_115200_5779_5780
+001C42  enviar_datos
+001C68  escribe_datos_en_fichero
+001E8A  escritura_sd
+001ED2  display_final
+001F0E  MAIN
+001F0E  @cinit1
+001FA0  @cinit2
+0E21  COM
 
 Project Directory:
     F:\Industriales\Especialidad\SDM\Trabajo-EEC\
 
 Project Files:
-    main.c                                                  [27-ene.-21 19:49  CRC=FE0E89E6]
+    main.c                                                  [27-ene.-21 21:19  CRC=4DF0E366]
     33FJ128MC804.h                                          [30-dic.-20 17:13  CRC=C2AA7534]
     common.h                                                [26-ene.-21 21:22  CRC=D8102B21]
     Header.h                                                [26-ene.-21 21:27  CRC=D3EAE406]
     adc.h                                                   [25-ene.-21 17:26  CRC=A181F052]
-    lcd.h                                                   [27-ene.-21 19:07  CRC=C647C6E1]
+    lcd.h                                                   [27-ene.-21 20:43  CRC=04FBC51F]
     algoritmo.h                                             [25-ene.-21 19:29  CRC=9A9E4E6D]
     BEEP.h                                                  [25-ene.-21 17:26  CRC=1A3075CA]
     miFAT.h                                                 [27-ene.-21 20:14  CRC=CDEBB05A]
     sdcard.h                                                [27-ene.-21 20:09  CRC=4851C010]
     BLUETOOTH.h                                             [27-ene.-21 19:43  CRC=654D593C]
 
-Source signature=6A24AC8D
+Source signature=F8BB044B
 Program memory checksum=0000
-Hex file CRC=8140
+Hex file CRC=9558
 
 Units:
     F:\Industriales\Especialidad\SDM\Trabajo-EEC\main (main)
